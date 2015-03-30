@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Dovetail</title>
+		<style type="text/css">
+			BODY {font-family: sans-serif; text-align:center;}
+			LABEL {font-size: x-large;}
+			TEXTAREA {font-size: large;}
+			#file {font-size: large;}
+			button { font-weight: bold; font-size: 125%; padding:5px; width:150px; }
+			h3 {margin:10px;}
+			.column {display:inline-block; vertical-align:top; text-align:left;}
+			.textfield {font-size: large;}
+			.submit {font-size: 50px; width: 80px; height:25px;}
+			.box-block {
+				border: thin solid gray; padding: 10px; margin:10px; vertical-align:top;
+				margin-bottom:20px;display:block;
+			}
+			#searchResult {overflow: hidden; overflow-y:hidden;
+					height:75%; width:100%;}
+		</style>
+		<script type="text/javascript">
+			function search() {
+				var query = document.getElementById('query').value;
+				var contentType = document.getElementById('content-type').value;
+				var url = '/media/search?tags=' + query;
+				if (contentType) {
+					url += '&content-type=' + contentType;
+				}
+				document.getElementById('searchResult').src = url;
+			}
+		</script>
+	</head>
+	<body>
+        <div class="column">
+            <h3>Devices</h3>
+            <form action="/device" method="post" class="box-block">
+                <button type="submit">Add</button><br/><br/>
+                <label>id</label>
+                <input type="text" name="id" size="25" class="textfield"/><br/><br/>
+                <label>type</label><span></span>
+                <input type="text" name="type" size="10" class="textfield"/><br/><br/>
+                <label>model</label><span></span>
+                <input type="text" name="model" size="25" class="textfield"/><br/><br/>
+                <label>token</label>
+                <input type="text" name="token" size="25" class="textfield"/>
+            </form>
+            <form action="/device" method="get" class="box-block">
+                <button type="submit">Get</button><br/><br/>
+                <label>id</label>
+                <input type="text" name="id" size="25" class="textfield"/>
+            </form>
+        </div>
+		<div class="column">
+		    <h3>Events</h3>
+			<form action="/event" method="post" class="box-block">
+				<button type="submit">Add</button><br/><br/>
+                <label>device id</label>
+                <input type="text" name="device_id" size="25" class="textfield"/><br/><br/>
+				<label>type</label>
+				<input type="text" name="type" size="10" class="textfield"/><br/><br/>
+				<label>time</label><span></span>
+				<input type="text" name="time" size="25" class="textfield"/>
+			</form>
+            <form action="/event" method="get" class="box-block">
+                <button type="submit">Get</button><br/><br/>
+                <label>device id</label>
+                <input type="text" name="device_id" size="25" class="textfield"/><br/><br/>
+                <label>type</label>
+                <input type="text" name="type" size="10" class="textfield"/><br/><br/>
+                <label>time</label><span></span>
+                <input type="text" name="time" size="25" class="textfield"/>
+            </form>
+		</div>
+	</body>
+</html>

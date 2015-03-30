@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>        
+        <title>dovetail</title>
+        <style type="text/css">
+            BODY {
+                font-family: sans-serif; margin:0px; padding:0px; color: #FFF;
+            }
+            #timeline {
+                width: 100%;
+                height: 500px;
+            }
+            #calendar {
+                width: 100%;
+                height: 500px;
+            }
+            #footer {
+                color: #888; text-align:center;
+            }
+        </style>
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+        <script type="text/javascript">
+            google.load('visualization', '1', {packages: ['timeline', 'calendar']});
+            google.setOnLoadCallback(drawChart);
+            
+            function drawChart() {
+            	drawTimeline();
+            	drawCalendar();
+            }
+
+            function drawTimeline() {                
+                var data = new google.visualization.DataTable();
+                
+                data.addColumn({ type: 'string', id: 'Event' });
+                data.addColumn({ type: 'date', id: 'Start' });
+                data.addColumn({ type: 'date', id: 'End' });
+                
+                data.addRows([
+                {% for event in timeline %}
+                    [ '{{event.type}}', new Date({{event.start}}), new Date({{event.end}})],
+                {% endfor %}
+                ]);
+
+                var chart = new google.visualization.Timeline(document.getElementById('timeline'));
+                chart.draw(data);
+            }
+            
+            function drawCalendar() {                
+                var data = new google.visualization.DataTable();
+                
+                data.addColumn({ type: 'date', id: 'Day' });
+                data.addColumn({ type: 'number', id: 'Events' });
+                
+                data.addRows([
+                {% for day in calendar %}
+                    [ new Date({{day.year}}, {{day.month - 1}}, {{day.day}}), {{calendar[day]}} ],
+                {% endfor %}
+                ]);
+
+                var chart = new google.visualization.Calendar(document.getElementById('calendar'));
+                chart.draw(data);
+            }
+        </script>
+    </head>
+    <body>
+        <div id="timeline"></div>
+        <div id="calendar"></div>
+        <div id="footer">
+            &copy; dovetail.care
+        </div>
+    </body>
+</html>
+{% endautoescape %}

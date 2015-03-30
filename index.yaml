@@ -1,0 +1,17 @@
+indexes:
+
+- kind: Event
+  ancestor: yes
+  properties:
+  - name: event_type
+  - name: time
+
+- kind: Event
+  ancestor: yes
+  properties:
+  - name: time
+  
+- kind: Event
+  ancestor: yes
+  properties:
+  - name: event_type
