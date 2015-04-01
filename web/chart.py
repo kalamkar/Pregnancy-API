@@ -68,5 +68,5 @@ class EventChart(webapp2.RequestHandler):
                                  'type': string.capwords(event[1].replace('_', ' '))})
 
         template = JINJA_ENVIRONMENT.get_template('chart.html')
-        self.response.write(template.render({'device_id' : uuid, 'timeline' : timeline,
+        self.response.write(template.render({'events': events, 'timeline' : timeline,
                                              'calendar': calendar}))

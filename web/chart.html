@@ -5,7 +5,7 @@
         <title>dovetail</title>
         <style type="text/css">
             BODY {
-                font-family: sans-serif; margin:0px; padding:0px; color: #FFF;
+                font-family: sans-serif; margin:0px; padding:0px;
             }
             #timeline {
                 width: 100%;
@@ -21,12 +21,13 @@
         </style>
         <script type="text/javascript" src="https://www.google.com/jsapi"></script>
         <script type="text/javascript">
-            google.load('visualization', '1', {packages: ['timeline', 'calendar']});
+            google.load('visualization', '1', {packages: ['timeline', 'calendar', 'table']});
             google.setOnLoadCallback(drawChart);
             
             function drawChart() {
             	drawTimeline();
             	drawCalendar();
+            	drawTable();
             }
 
             function drawTimeline() {                
@@ -61,11 +62,26 @@
                 var chart = new google.visualization.Calendar(document.getElementById('calendar'));
                 chart.draw(data);
             }
+            
+            function drawTable() {
+                var data = new google.visualization.DataTable();
+                data.addColumn('string', 'Event');
+                data.addColumn('date', 'Time');
+                data.addRows([
+                    {% for event in events %}
+                        [ '{{event[1]}}', {v: new Date({{event[0]}}), f: new Date({{event[0]}}).toString() } ],
+                    {% endfor %}
+                ]);
+
+                var table = new google.visualization.Table(document.getElementById('table'));
+                table.draw(data, {showRowNumber: true});
+              }
         </script>
     </head>
     <body>
         <div id="timeline"></div>
         <div id="calendar"></div>
+        <div id="table"></div>
         <div id="footer">
             &copy; dovetail.care
         </div>
