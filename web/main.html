@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>        
+        <title>dovetail</title>
+        <style type="text/css">
+            BODY {
+                font-family: sans-serif; margin:10px; padding:10px;
+            }
+            #calendar {
+                width: 100%;
+            }
+            #footer {
+                color: #888; text-align:center;
+            }
+        </style>
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+        <script type="text/javascript">
+            google.load('visualization', '1', {packages: ['calendar']});
+            google.setOnLoadCallback(drawChart);
+            
+            var calendar;            
+            var calendarData;
+            
+            function drawChart() {
+            	drawCalendar();
+            }
+
+            function drawCalendar() {                
+                calendarData = new google.visualization.DataTable();
+                
+                calendarData.addColumn({ type: 'date', id: 'Day' });
+                calendarData.addColumn({ type: 'number', id: 'Events' });
+                
+                calendarData.addRows([
+                {% for day in calendar %}
+                    [ new Date({{day.year}}, {{day.month - 1}}, {{day.day}}), {{calendar[day]}} ],
+                {% endfor %}
+                ]);
+
+                calendar = new google.visualization.Calendar(document.getElementById('calendar'));
+                calendar.draw(calendarData);
+                google.visualization.events.addListener(calendar, 'select', selectHandler);
+            }
+
+            function selectHandler() {
+            	var selection = calendar.getSelection()[0];
+            	if (selection.row) {
+            		var selectedDate = calendarData.getValue(selection.row, 0);
+            		var detailsUrl = '?device_id={{request.device_id}}&type={{request.event_type}}'
+            				+ '&chart_type=detail&start_time=' + selectedDate.getTime() 
+            				+ '&end_time=' + (selectedDate.getTime() + 24 * 60 * 60 * 1000);
+            	    document.getElementById('detail').src = detailsUrl;
+            	} else {
+            		document.getElementById('detail').src = '';
+            	}
+            }
+            
+            function resizeIframe(obj) {
+                obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+            }
+        </script>
+    </head>
+    <body>
+        <h4>Calendar of events for {{request.device_id}}</h4>
+        <div id="calendar"></div>
+        <iframe id="detail" frameborder="0" scrolling="no" width="100%"
+            onload="resizeIframe(this);"></iframe>
+        <div id="footer">
+            &copy; dovetail.care
+        </div>
+    </body>
+</html>
+{% endautoescape %}
