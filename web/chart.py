@@ -28,6 +28,8 @@ class EventChart(webapp2.RequestHandler):
         uuid = self.request.get('device_id')
         event_type = self.request.get('type')
         time_millis = self.request.get('time')
+        start_millis = self.request.get('start_time')
+        end_millis = self.request.get('end_time')
 
         if not uuid:
             web.write_error(self.response, 400, 'Missing required parameter')
@@ -40,7 +42,8 @@ class EventChart(webapp2.RequestHandler):
             web.write_error(self.response, 404, 'Device %s not found' % (uuid))
             return
 
-        query = api.event.get_event_query(device, event_type, time_millis)
+        start_millis = time_millis if time_millis else start_millis
+        query = api.event.get_event_query(device, event_type, start_millis, end_millis)
         events = []
         calendar = {}
         for event in query:
