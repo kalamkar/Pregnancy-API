@@ -63,7 +63,7 @@ class Group(ndb.Model):
 
 # Lives within a Group
 class Message(ndb.Model):
-    sender = ndb.StructuredProperty(User)
+    sender = ndb.KeyProperty(kind=User)
     text = ndb.TextProperty()
     media = ndb.StructuredProperty(Pair, repeated=True)  # pair of content type and link to data
     create_time = ndb.DateTimeProperty(auto_now_add=True)

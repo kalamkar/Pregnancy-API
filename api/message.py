@@ -33,7 +33,7 @@ class MessageAPI(webapp2.RequestHandler):
             api.write_error(self.response, 404, 'Unknown or missing group')
             return
 
-        message = Message(parent=group.key, sender=user, text=text)
+        message = Message(parent=group.key, sender=user.key, text=text)
         message.put_async()
 
         api.write_message(self.response, 'Successfully added message')
@@ -53,7 +53,7 @@ class MessageAPI(webapp2.RequestHandler):
         if group:
             query = Message.query(ancestor=group.key)
         else:
-            query = Message.query(Message.sender == user)
+            query = Message.query(Message.sender == user.key)
 
         messages = []
         for message in query:
