@@ -2,56 +2,70 @@
 
 """ Datastore classes
 """
-from lib2to3.pgen2.tokenize import group
-from itertools import repeat
 
 __author__ = 'abhi@dovetail.care (Abhijit Kalamkar)'
 
 from google.appengine.ext import ndb
 
+# Generic structure for name value pair
 class Pair(ndb.Model):
     name = ndb.StringProperty()
     value = ndb.GenericProperty()
 
+# Part of User
 class Location(ndb.Model):
     latlon = ndb.GeoPtProperty()
     name = ndb.StringProperty()
 
-class Event(ndb.Model):
-    event_type = ndb.StringProperty()
-    time = ndb.DateTimeProperty()
-    create_time = ndb.DateTimeProperty(auto_now_add=True)
-
+# Child of User
 class Insight(ndb.Model):
     title = ndb.StringProperty()
     tags = ndb.StringProperty(repeated=True)
     priority = ndb.IntegerProperty()
-    
+    create_time = ndb.DateTimeProperty(auto_now_add=True)
+
+# Part of user
 class Device(ndb.Model):
-    device_type = ndb.StringProperty(required=True,  choices=['UNKNOWN', 'EMAIL', 'PHONE', \
-                                                              'GOOGLE', 'APPLE', 'AMAZON'])
-    data = ndb.StringProperty() # Push token, email address, phone number etc.
-    auth = ndb.StringProperty()
-    
-class User(ndb.Model):    
-    public_uuid = ndb.StringProperty()
+    device_type = ndb.StringProperty(required=True, choices=['UNKNOWN', 'EMAIL', 'PHONE', \
+                                                             'GOOGLE', 'APPLE', 'AMAZON'])
+    data = ndb.StringProperty()  # Push token, email address, phone number etc.
+    auth = ndb.StringProperty()  # Password or token user to authenticate the device.
+
+
+# Top level object representing a user
+class User(ndb.Model):
+    uuid = ndb.StringProperty()  # public
     name = ndb.StringProperty()
     last_location = ndb.StructuredProperty(Location)
     devices = ndb.StructuredProperty(Device, repeated=True)
     features = ndb.StructuredProperty(Pair, repeated=True)
-    insights = ndb.StructuredProperty(Insight, repeated=True)
     update_time = ndb.DateTimeProperty(auto_now=True)
     create_time = ndb.DateTimeProperty(auto_now_add=True)
-    
-class Group(ndb.Model):
-    name = ndb.StringProperty()
-    uuid = ndb.StringProperty() # public
-    users = ndb.StructuredProperty(User, repeated=True)
-    
 
+
+# Child of User object represents an event and optional data item
+class Event(ndb.Model):
+    event_type = ndb.StringProperty()
+    time = ndb.DateTimeProperty()
+    data = ndb.TextProperty()
+    create_time = ndb.DateTimeProperty(auto_now_add=True)
+
+
+# Top level object representing a chat among few users or even just two users
+class Group(ndb.Model):
+    name = ndb.StringProperty()  # Optional
+    uuid = ndb.StringProperty()  # public
+    admins = ndb.KeyProperty(kind=User, repeated=True)
+    members = ndb.KeyProperty(kind=User, repeated=True)
+    update_time = ndb.DateTimeProperty(auto_now=True)
+    create_time = ndb.DateTimeProperty(auto_now_add=True)
+
+
+# Lives within a Group
 class Message(ndb.Model):
     sender = ndb.StructuredProperty(User)
-    group = ndb.StructuredProperty(Group)
     text = ndb.TextProperty()
-    media = ndb.StructuredProperty(Pair, repeated=True)
+    media = ndb.StructuredProperty(Pair, repeated=True)  # pair of content type and link to data
+    create_time = ndb.DateTimeProperty(auto_now_add=True)
+
 

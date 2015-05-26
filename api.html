@@ -5,14 +5,12 @@
 		<title>Dovetail</title>
 		<style type="text/css">
 			BODY {font-family: sans-serif; text-align:center;}
-			LABEL {font-size: x-large;}
-			TEXTAREA {font-size: large;}
-			#file {font-size: large;}
-			button { font-weight: bold; font-size: 125%; padding:5px; width:150px; }
-			h3 {margin:10px;}
+			LABEL {font-size: large;}
+			button { font-weight: bold; font-size: large; padding:5px; width:125px; }
+			h3 {margin:10px; text-align:center;}
 			.column {display:inline-block; vertical-align:top; text-align:left;}
-			.textfield {font-size: large;}
-			.submit {font-size: 50px; width: 80px; height:25px;}
+			.textfield { }
+			.submit {width: 80px; height:25px;}
 			.box-block {
 				border: thin solid gray; padding: 10px; margin:10px; vertical-align:top;
 				margin-bottom:20px;display:block;
@@ -34,45 +32,103 @@
 	</head>
 	<body>
         <div class="column">
-            <h3>Devices</h3>
-            <form action="/device" method="post" class="box-block">
-                <button type="submit">Add</button><br/><br/>
-                <label>id</label>
-                <input type="text" name="id" size="25" class="textfield"/><br/><br/>
-                <label>type</label><span></span>
-                <input type="text" name="type" size="10" class="textfield"/><br/><br/>
-                <label>model</label><span></span>
-                <input type="text" name="model" size="25" class="textfield"/><br/><br/>
-                <label>token</label>
-                <input type="text" name="token" size="25" class="textfield"/>
+            <h3>Users</h3>
+            <form action="/user" method="post" class="box-block"><div>
+                <button type="submit">Add</button></div>
             </form>
-            <form action="/device" method="get" class="box-block">
+            <form action="/user" method="post" class="box-block"><div>
+                <button type="submit">Update</button><br/><br/>
+                <input type="hidden" name="_put" value="true"/>
+                <label>user_id</label>
+                <input type="text" name="user_id" size="25" class="textfield"/><br/><br/>
+                <label>name</label>
+                <input type="text" name="name" size="25" class="textfield"/><br/><br/>
+                <label>email</label>
+                <input type="text" name="email" size="25" class="textfield"/><br/><br/>
+                <label>token</label>
+                <input type="text" name="token" size="25" class="textfield"/><br/><br/>
+                <label>type</label>
+                <input type="text" name="type" size="10" class="textfield"/></div>
+            </form>
+            <form action="/user" method="get" class="box-block"><div>
                 <button type="submit">Get</button><br/><br/>
-                <label>id</label>
-                <input type="text" name="id" size="25" class="textfield"/>
+                <label>user_id</label>
+                <input type="text" name="user_id" size="25" class="textfield"/></div>
+            </form>
+        </div>
+        <div class="column">
+            <h3>Groups</h3>
+            <form action="/group" method="post" class="box-block"><div>
+                <button type="submit">Add</button><br/><br/>
+                <label>user_id</label>
+                <input type="text" name="user_id" size="25" class="textfield"/><br/><br/>
+                <label>name</label>
+                <input type="text" name="name" size="25" class="textfield"/><br/><br/>
+                <label>member_uuid</label>
+                <input type="text" name="member_uuid" size="25" class="textfield"/></div>
+            </form>
+            <form action="/group" method="post" class="box-block"><div>
+                <input type="hidden" name="_put" value="true"/>
+                <button type="submit">Update</button><br/><br/>
+                <label>user_id</label>
+                <input type="text" name="user_id" size="25" class="textfield"/><br/><br/>
+                <label>group_uuid</label>
+                <input type="text" name="group_uuid" size="25" class="textfield"/><br/><br/>
+                <label>name</label>
+                <input type="text" name="name" size="25" class="textfield"/><br/><br/>
+                <label>admin_uuid</label>
+                <input type="text" name="admin_uuid" size="25" class="textfield"/><br/><br/>
+                <label>member_uuid</label>
+                <input type="text" name="member_uuid" size="25" class="textfield"/></div>
+            </form>
+            <form action="/group" method="get" class="box-block"><div>
+                <button type="submit">Get</button><br/><br/>
+                <label>user_id</label>
+                <input type="text" name="user_id" size="25" class="textfield"/><br/><br/>
+                <label>group_uuid</label>
+                <input type="text" name="group_uuid" size="25" class="textfield"/></div>
+            </form>
+        </div>
+        <div class="column">
+            <h3>Messages</h3>
+            <form action="/message" method="post" class="box-block"><div>
+                <button type="submit">Add</button><br/><br/>
+                <label>user_id</label>
+                <input type="text" name="user_id" size="25" class="textfield"/><br/><br/>
+                <label>group_uuid</label>
+                <input type="text" name="group_uuid" size="25" class="textfield"/><br/><br/>
+                <label>text</label>
+                <input type="text" name="text" size="25" class="textfield"/></div>
+            </form>
+            <form action="/message" method="get" class="box-block"><div>
+                <button type="submit">Get</button><br/><br/>
+                <label>user_id</label>
+                <input type="text" name="user_id" size="25" class="textfield"/><br/><br/>
+                <label>group_uuid</label>
+                <input type="text" name="group_uuid" size="25" class="textfield"/></div>
             </form>
         </div>
 		<div class="column">
 		    <h3>Events</h3>
-			<form action="/event" method="post" class="box-block">
+			<form action="/event" method="post" class="box-block"><div>
 				<button type="submit">Add</button><br/><br/>
-                <label>device id</label>
-                <input type="text" name="device_id" size="25" class="textfield"/><br/><br/>
+                <label>user_id</label>
+                <input type="text" name="user_id" size="25" class="textfield"/><br/><br/>
 				<label>type</label>
 				<input type="text" name="type" size="10" class="textfield"/><br/><br/>
-				<label>time</label><span></span>
-				<input type="text" name="time" size="25" class="textfield"/>
+				<label>time</label>
+				<input type="text" name="time" size="25" class="textfield"/></div>
 			</form>
-            <form action="/event" method="get" class="box-block">
+            <form action="/event" method="get" class="box-block"><div>
                 <button type="submit">Get</button><br/><br/>
-                <label>device id</label>
-                <input type="text" name="device_id" size="25" class="textfield"/><br/><br/>
+                <label>user_id</label>
+                <input type="text" name="user_id" size="25" class="textfield"/><br/><br/>
                 <label>type</label>
                 <input type="text" name="type" size="10" class="textfield"/><br/><br/>
-                <label>start time</label><span></span>
+                <label>start_time</label>
                 <input type="text" name="start_time" size="25" class="textfield"/><br/><br/>
-                <label>end time</label><span></span>
-                <input type="text" name="end_time" size="25" class="textfield"/>
+                <label>end_time</label>
+                <input type="text" name="end_time" size="25" class="textfield"/></div>
             </form>
 		</div>
 	</body>

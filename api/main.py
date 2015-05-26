@@ -9,9 +9,13 @@ import webapp2
 from google.appengine.ext import ndb
 
 from api.event import EventAPI
-from api.device import DeviceAPI
+from api.group import GroupAPI
+from api.message import MessageAPI
+from api.user import UserAPI
 
 app = ndb.toplevel(webapp2.WSGIApplication([
-    ('/device', DeviceAPI),
-    ('/event', EventAPI)
+    ('/event', EventAPI),
+    ('/group', GroupAPI),
+    ('/message', MessageAPI),
+    ('/user', UserAPI)
 ], debug=False))
