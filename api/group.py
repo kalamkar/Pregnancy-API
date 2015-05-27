@@ -119,7 +119,8 @@ class GroupAPI(webapp2.RequestHandler):
         if uuid:
             query = Group.query(Group.uuid == uuid)
         else:
-            query = Group.query(ndb.OR(Group.members == user.key, Group.admins == user.key))
+            query = Group.query(ndb.OR(Group.members == user.key,
+                                       Group.admins == user.key)).order(-Group.update_time)
 
         groups = []
         for group in query:

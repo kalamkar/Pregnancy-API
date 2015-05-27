@@ -51,9 +51,9 @@ class MessageAPI(webapp2.RequestHandler):
             group = Group.query(Group.uuid == uuid).get()
 
         if group:
-            query = Message.query(ancestor=group.key)
+            query = Message.query(ancestor=group.key).order(-Message.create_time)
         else:
-            query = Message.query(Message.sender == user.key)
+            query = Message.query(Message.sender == user.key).order(-Message.create_time)
 
         messages = []
         for message in query:
