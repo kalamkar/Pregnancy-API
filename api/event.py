@@ -64,10 +64,9 @@ def get_event_query(user, event_type, start_millis, end_millis):
         start = get_time_from_millis(start_millis)
         return Event.query(ndb.AND(Event.time > start, Event.time < end), ancestor=user.key)
     elif event_type:
-        return Event.query(Event.event_type == event_type, ancestor=user.key).order(
-                                                                                -Event.create_time)
+        return Event.query(Event.event_type == event_type, ancestor=user.key).order(-Event.time)
     else:
-        return Event.query(ancestor=user.key).order(-Event.create_time)
+        return Event.query(ancestor=user.key).order(-Event.time)
 
 def get_time_from_millis(millis):
     time = datetime.datetime.utcfromtimestamp(int(millis) // 1000)
