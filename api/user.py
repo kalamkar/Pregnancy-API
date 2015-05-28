@@ -73,7 +73,7 @@ class UserAPI(webapp2.RequestHandler):
             return
 
         json = get_user_json(user, public=False)
-        api.write_message(self.response, 'success', extra={'user' : json})
+        api.write_message(self.response, 'success', extra={'users' : [json]})
 
 def get_user_json(user, public=True):
     email = None
