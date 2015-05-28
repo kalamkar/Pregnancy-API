@@ -18,7 +18,15 @@ class UserAPI(webapp2.RequestHandler):
             self.put()
             return
 
+        push_token = self.request.get('token')
+        device_type = self.request.get('type')
+
+        if not push_token or not device_type:
+            api.write_error(self.response, 400, 'Missing required parameter')
+            return
+
         user = User(uuid=str(uuid.uuid4()))
+        user.devices.append(Device(device_type=device_type, data=push_token))
         user.put()
 
         json = {'id': user.key.urlsafe(), 'uuid': user.uuid,
