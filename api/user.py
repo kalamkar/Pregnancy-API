@@ -10,6 +10,7 @@ import webapp2
 
 from datastore import User
 from datastore import Device
+from datastore import Pair
 
 class UserAPI(webapp2.RequestHandler):
 
@@ -40,6 +41,7 @@ class UserAPI(webapp2.RequestHandler):
         email = self.request.get('email')
         push_token = self.request.get('token')
         device_type = self.request.get('type')
+        features = self.request.get('feature', allow_multiple=True)
 
         user = api.get_user(self.request)
         if not user:
@@ -60,10 +62,14 @@ class UserAPI(webapp2.RequestHandler):
         if not token_updated and push_token:
             user.devices.append(Device(device_type=device_type, data=push_token))
 
-        user.last_location = api.get_geo_point(self.request)
-        user.put_async()
+        for feature in features:
+            update_feature(user, feature)
 
-        api.write_message(self.response, 'Updated user')
+        user.last_location = api.get_geo_point(self.request)
+        user.put()
+
+        json = get_user_json(user, public=False)
+        api.write_message(self.response, 'Updated user', extra={'users' : [json]})
 
 
     def get(self):
@@ -85,5 +91,22 @@ def get_user_json(user, public=True):
             'create_time': user.create_time.isoformat(' ')}
     if not public:
         json['email'] = email
+        features = {}
+        for feature in user.features:
+            if feature.name and not feature.name[0] == '_':
+                features[feature.name] = feature.value
+        json['features'] = features
     return json
+
+def update_feature(user, new_feature):
+    if not new_feature:
+        return
+    name, value = new_feature.split('=', 1)
+    if not name:
+        return
+    for feature in user.features:
+        if feature.name == name:
+            feature.value = value
+            return
+    user.features.append(Pair(name=name, value=value))
 
