@@ -33,7 +33,7 @@ class UserAPI(webapp2.RequestHandler):
                 'update_time': user.update_time.isoformat(' '),
                 'create_time': user.create_time.isoformat(' ')}
 
-        api.write_message(self.response, 'success', extra={'user' : json})
+        api.write_message(self.response, 'success', extra={'users' : [json]})
 
     def put(self):
         name = self.request.get('name')
