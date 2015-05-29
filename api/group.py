@@ -24,7 +24,7 @@ class GroupAPI(webapp2.RequestHandler):
             return
 
         name = self.request.get('name')
-        member_ids = self.request.get('member_uuid', allow_multiple=True)
+        member_ids = self.request.get_all('member_uuid')
 
         user = api.get_user(self.request)
         if not user:
@@ -50,8 +50,8 @@ class GroupAPI(webapp2.RequestHandler):
     def put(self):
         uuid = self.request.get('group_uuid')
         name = self.request.get('name')
-        admin_ids = self.request.get('admin_uuid', allow_multiple=True)
-        member_ids = self.request.get('member_uuid', allow_multiple=True)
+        admin_ids = self.request.get_all('admin_uuid')
+        member_ids = self.request.get_all('member_uuid')
 
         if not uuid:
             api.write_error(self.response, 400, 'Missing required parameter')

@@ -41,7 +41,7 @@ class UserAPI(webapp2.RequestHandler):
         email = self.request.get('email')
         push_token = self.request.get('token')
         device_type = self.request.get('type')
-        features = self.request.get('feature', allow_multiple=True)
+        features = self.request.get_all('feature')
 
         user = api.get_user(self.request)
         if not user:
@@ -52,15 +52,19 @@ class UserAPI(webapp2.RequestHandler):
             user.name = name
 
         token_updated = False
+        email_updated = False
         for device in user.devices:
             if email and device.device_type == 'EMAIL':
                 device.data = email
+                email_updated = True
             elif push_token and device_type and device.device_type == device_type:
                 device.data = push_token
                 token_updated = True
 
         if not token_updated and push_token:
             user.devices.append(Device(device_type=device_type, data=push_token))
+        if not email_updated and email:
+            user.devices.append(Device(device_type='EMAIL', data=email))
 
         for feature in features:
             update_feature(user, feature)
