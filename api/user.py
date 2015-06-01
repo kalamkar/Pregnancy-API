@@ -30,9 +30,8 @@ class UserAPI(webapp2.RequestHandler):
         user.devices.append(Device(device_type=device_type, data=push_token))
         user.put()
 
-        json = {'id': user.key.urlsafe(), 'uuid': user.uuid,
-                'update_time': user.update_time.isoformat(' '),
-                'create_time': user.create_time.isoformat(' ')}
+        json = get_user_json(user, public=False)
+        json['id'] = user.key.urlsafe();
 
         api.write_message(self.response, 'success', extra={'users' : [json]})
 
@@ -88,7 +87,7 @@ class UserAPI(webapp2.RequestHandler):
 def get_user_json(user, public=True):
     email = None
     for device in user.devices:
-        if email and device.device_type == 'EMAIL':
+        if device.data and device.device_type == 'EMAIL':
             email = device.data
     json = {'uuid': user.uuid, 'name': user.name,
             'update_time': user.update_time.isoformat(' '),
