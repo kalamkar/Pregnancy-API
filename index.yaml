@@ -10,8 +10,32 @@ indexes:
   ancestor: yes
   properties:
   - name: time
-  
+
 - kind: Event
   ancestor: yes
   properties:
   - name: event_type
+
+- kind: Group
+  properties:
+  - name: members
+  - name: update_time
+    direction: desc
+
+- kind: Group
+  properties:
+  - name: admins
+  - name: update_time
+    direction: desc
+
+- kind: Message
+  properties:
+  - name: sender
+  - name: create_time
+    direction: desc
+
+- kind: Message
+  ancestor: yes
+  properties:
+  - name: create_time
+    direction: desc
