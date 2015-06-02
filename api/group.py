@@ -104,9 +104,10 @@ class GroupAPI(webapp2.RequestHandler):
                     group.members.append(member.key)
             else:
                 logging.warn('Unknown user %s' % (member_id))
-        group.put_async()
+        group.put()
 
-        api.write_message(self.response, 'Updated group')
+        api.write_message(self.response, 'Updated group',
+                          extra={'groups' : [ get_group_json(group) ]})
 
 
     def get(self):
