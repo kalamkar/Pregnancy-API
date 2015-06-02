@@ -42,11 +42,7 @@ class GroupAPI(webapp2.RequestHandler):
                 group.members.append(member)
         group.put()
 
-        json = {'uuid': group.uuid,
-                'update_time': get_time_millis(group.update_time),
-                'create_time': get_time_millis(group.create_time)}
-
-        api.write_message(self.response, 'success', extra={'user' : json})
+        api.write_message(self.response, 'success', extra={'groups' : [ get_group_json(group) ]})
 
     def put(self):
         uuid = self.request.get('group_uuid')
