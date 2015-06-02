@@ -11,6 +11,7 @@ import webapp2
 from datastore import User
 from datastore import Device
 from datastore import Pair
+from api import get_time_millis
 
 class UserAPI(webapp2.RequestHandler):
 
@@ -90,8 +91,8 @@ def get_user_json(user, public=True):
         if device.data and device.device_type == 'EMAIL':
             email = device.data
     json = {'uuid': user.uuid, 'name': user.name,
-            'update_time': user.update_time.isoformat(' '),
-            'create_time': user.create_time.isoformat(' ')}
+            'update_time': get_time_millis(user.update_time),
+            'create_time': get_time_millis(user.create_time)}
     if not public:
         json['email'] = email
         features = {}

@@ -15,6 +15,7 @@ from datastore import User
 from user import get_user_json
 
 from google.appengine.ext import ndb
+from api import get_time_millis
 
 class GroupAPI(webapp2.RequestHandler):
 
@@ -42,8 +43,8 @@ class GroupAPI(webapp2.RequestHandler):
         group.put()
 
         json = {'uuid': group.uuid,
-                'update_time': group.update_time.isoformat(' '),
-                'create_time': group.create_time.isoformat(' ')}
+                'update_time': get_time_millis(group.update_time),
+                'create_time': get_time_millis(group.create_time)}
 
         api.write_message(self.response, 'success', extra={'user' : json})
 
@@ -140,7 +141,7 @@ def get_group_json(group):
         members.append(get_user_json(member.get()))
 
     json = {'uuid': group.uuid, 'name': group.name, 'admins': admins, 'members': members,
-            'update_time': group.update_time.isoformat(' '),
-            'create_time': group.create_time.isoformat(' ')}
+            'update_time': get_time_millis(group.update_time),
+            'create_time': get_time_millis(group.create_time)}
     return json
 

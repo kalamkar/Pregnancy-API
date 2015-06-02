@@ -12,6 +12,7 @@ from datastore import Message
 from datastore import Group
 
 from user import get_user_json
+from api import get_time_millis
 
 class MessageAPI(webapp2.RequestHandler):
 
@@ -57,8 +58,12 @@ class MessageAPI(webapp2.RequestHandler):
 
         messages = []
         for message in query:
-            messages.append({'sender': get_user_json(user), 'text': message.text})
+            messages.append(get_message_json(message))
 
         api.write_message(self.response, 'success', extra={'messages' : messages})
+
+def get_message_json(message):
+    return {'sender': get_user_json(message.sender.get()), 'text': message.text,
+            'create_time': get_time_millis(message.create_time)}
 
 
