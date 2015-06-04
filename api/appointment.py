@@ -73,7 +73,7 @@ class AppointmentAPI(webapp2.RequestHandler):
             if consumer and remove_user and appointment.consumer == consumer:
                 appointment.consumer = None
             elif consumer and not appointment.consumer:
-                appointment.consumer = consumer
+                appointment.consumer = consumer.key
 
         if time_millis:
             appointment.time = datetime.datetime.utcfromtimestamp(int(time_millis) // 1000)
@@ -135,6 +135,6 @@ def get_appointment_json(appointment):
             'update_time': get_time_millis(appointment.update_time),
             'create_time': get_time_millis(appointment.create_time)}
     if appointment.consumer:
-        json['consumer'] = get_user_json(appointment.consumer)
+        json['consumer'] = get_user_json(appointment.consumer.get())
     return json
 

@@ -86,14 +86,15 @@ class UserAPI(webapp2.RequestHandler):
         api.write_message(self.response, 'success', extra={'users' : [json]})
 
 def get_user_json(user, public=True):
-    email = None
-    for device in user.devices:
-        if device.data and device.device_type == 'EMAIL':
-            email = device.data
     json = {'uuid': user.uuid, 'name': user.name,
             'update_time': get_time_millis(user.update_time),
             'create_time': get_time_millis(user.create_time)}
     if not public:
+        email = None
+        if user.devices:
+            for device in user.devices:
+                if device.data and device.device_type == 'EMAIL':
+                    email = device.data
         json['email'] = email
         features = {}
         for feature in user.features:
