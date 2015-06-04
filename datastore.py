@@ -43,6 +43,15 @@ class User(ndb.Model):
     create_time = ndb.DateTimeProperty(auto_now_add=True)
 
 
+# Child of User object representing an appointment or available slot
+class Appointment(ndb.Model):
+    consumer = ndb.KeyProperty(kind=User)  # optional, when null it is an available slot
+    time = ndb.DateTimeProperty()
+    minutes = ndb.IntegerProperty(default=60)
+    update_time = ndb.DateTimeProperty(auto_now=True)
+    create_time = ndb.DateTimeProperty(auto_now_add=True)
+
+
 # Child of User object represents an event and optional data item
 class Event(ndb.Model):
     event_type = ndb.StringProperty()
@@ -54,7 +63,8 @@ class Event(ndb.Model):
 # Top level object representing a chat among few users or even just two users
 class Group(ndb.Model):
     name = ndb.StringProperty()  # Optional
-    uuid = ndb.StringProperty()  # public
+    uuid = ndb.StringProperty()  # public visible
+    public = ndb.BooleanProperty()
     admins = ndb.KeyProperty(kind=User, repeated=True)
     members = ndb.KeyProperty(kind=User, repeated=True)
     update_time = ndb.DateTimeProperty(auto_now=True)

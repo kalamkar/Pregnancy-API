@@ -39,3 +39,13 @@ indexes:
   properties:
   - name: create_time
     direction: desc
+
+- kind: Appointment
+  ancestor: yes
+  properties:
+  - name: time
+
+- kind: Appointment
+  properties:
+  - name: consumer
+  - name: time

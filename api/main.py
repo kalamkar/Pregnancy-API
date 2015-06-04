@@ -12,10 +12,12 @@ from api.event import EventAPI
 from api.group import GroupAPI
 from api.message import MessageAPI
 from api.user import UserAPI
+from api.appointment import AppointmentAPI
 
 app = ndb.toplevel(webapp2.WSGIApplication([
     ('/event', EventAPI),
     ('/group', GroupAPI),
     ('/message', MessageAPI),
-    ('/user', UserAPI)
+    ('/user', UserAPI),
+    ('/appointment', AppointmentAPI)
 ], debug=False))
