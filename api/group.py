@@ -12,10 +12,10 @@ import uuid
 from datastore import Group
 from datastore import User
 
-from user import get_user_json
+from api.renderer import get_group_json
 
 from google.appengine.ext import ndb
-from api import get_time_millis
+from api.search import update_index
 
 class GroupAPI(webapp2.RequestHandler):
 
@@ -41,6 +41,7 @@ class GroupAPI(webapp2.RequestHandler):
             if member:
                 group.members.append(member)
         group.put()
+        update_index(group)
 
         api.write_message(self.response, 'success', extra={'groups' : [ get_group_json(group) ]})
 
@@ -101,6 +102,7 @@ class GroupAPI(webapp2.RequestHandler):
             else:
                 logging.warn('Unknown user %s' % (member_id))
         group.put()
+        update_index(group)
 
         api.write_message(self.response, 'Updated group',
                           extra={'groups' : [ get_group_json(group) ]})
@@ -126,19 +128,3 @@ class GroupAPI(webapp2.RequestHandler):
                 groups.append(get_group_json(group))
 
         api.write_message(self.response, 'success', extra={'groups' : groups})
-
-def get_group_json(group):
-    admins = []
-    members = []
-
-    for admin in group.admins:
-        admins.append(get_user_json(admin.get()))
-
-    for member in group.members:
-        members.append(get_user_json(member.get()))
-
-    json = {'uuid': group.uuid, 'name': group.name, 'admins': admins, 'members': members,
-            'update_time': get_time_millis(group.update_time),
-            'create_time': get_time_millis(group.create_time)}
-    return json
-

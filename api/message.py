@@ -11,8 +11,8 @@ import webapp2
 from datastore import Message
 from datastore import Group
 
-from user import get_user_json
-from api import get_time_millis
+from api.search import update_index
+from api.renderer import get_message_json
 
 class MessageAPI(webapp2.RequestHandler):
 
@@ -35,7 +35,8 @@ class MessageAPI(webapp2.RequestHandler):
             return
 
         message = Message(parent=group.key, sender=user.key, text=text)
-        message.put_async()
+        message.put()
+        update_index(message)
 
         api.write_message(self.response, 'Successfully added message')
 
@@ -61,9 +62,3 @@ class MessageAPI(webapp2.RequestHandler):
             messages.append(get_message_json(message))
 
         api.write_message(self.response, 'success', extra={'messages' : messages})
-
-def get_message_json(message):
-    return {'sender': get_user_json(message.sender.get()), 'text': message.text,
-            'create_time': get_time_millis(message.create_time)}
-
-

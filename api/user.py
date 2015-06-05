@@ -11,7 +11,8 @@ import webapp2
 from datastore import User
 from datastore import Device
 from datastore import Pair
-from api import get_time_millis
+from api.renderer import get_user_json
+from api.search import update_index
 
 class UserAPI(webapp2.RequestHandler):
 
@@ -30,6 +31,7 @@ class UserAPI(webapp2.RequestHandler):
         user = User(uuid=str(uuid.uuid4()))
         user.devices.append(Device(device_type=device_type, data=push_token))
         user.put()
+        update_index(user)
 
         json = get_user_json(user, public=False)
         json['id'] = user.key.urlsafe();
@@ -71,6 +73,7 @@ class UserAPI(webapp2.RequestHandler):
 
         user.last_location = api.get_geo_point(self.request)
         user.put()
+        update_index(user)
 
         json = get_user_json(user, public=False)
         api.write_message(self.response, 'Updated user', extra={'users' : [json]})
@@ -84,24 +87,6 @@ class UserAPI(webapp2.RequestHandler):
 
         json = get_user_json(user, public=False)
         api.write_message(self.response, 'success', extra={'users' : [json]})
-
-def get_user_json(user, public=True):
-    json = {'uuid': user.uuid, 'name': user.name,
-            'update_time': get_time_millis(user.update_time),
-            'create_time': get_time_millis(user.create_time)}
-    if not public:
-        email = None
-        if user.devices:
-            for device in user.devices:
-                if device.data and device.device_type == 'EMAIL':
-                    email = device.data
-        json['email'] = email
-        features = {}
-        for feature in user.features:
-            if feature.name and not feature.name[0] == '_':
-                features[feature.name] = feature.value
-        json['features'] = features
-    return json
 
 def update_feature(user, new_feature):
     if not new_feature:
