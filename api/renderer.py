@@ -46,6 +46,7 @@ def get_group_json(group):
         members.append(get_user_json(member.get()))
 
     json = {'uuid': group.uuid, 'name': group.name, 'admins': admins, 'members': members,
+            'public': group.public,
             'update_time': get_time_millis(group.update_time),
             'create_time': get_time_millis(group.create_time)}
     return json

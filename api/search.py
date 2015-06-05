@@ -39,18 +39,21 @@ class SearchAPI(webapp2.RequestHandler):
         results = []
         result = ndb.get_multi_async(object_keys)
         ndb.Future.wait_all(result)
-        for obj in result:
-            if isinstance(obj, Message):
-                data = get_message_json(obj.get_result())
+        for handle in result:
+            data = None
+            obj = handle.get_result()
+            if isinstance(obj, Message) and api.is_user_allowed_message_view(user, obj):
+                data = get_message_json(obj)
                 data['type'] = 'Message'
-            elif isinstance(obj, Group):
-                data = get_group_json(obj.get_result())
+            elif isinstance(obj, Group) and api.is_user_allowed_group_view(user, obj):
+                data = get_group_json(obj)
                 data['type'] = 'Group'
             elif isinstance(obj, User):
-                data = get_user_json(obj.get_result())
+                data = get_user_json(obj)
                 data['type'] = 'User'
 
-            results.append(data)
+            if data:
+                results.append(data)
 
         api.write_message(self.response, 'success', extra={'results' : results})
 

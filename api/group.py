@@ -26,6 +26,7 @@ class GroupAPI(webapp2.RequestHandler):
 
         name = self.request.get('name')
         member_ids = self.request.get_all('member_uuid')
+        public = self.request.get('public')
 
         user = api.get_user(self.request)
         if not user:
@@ -36,6 +37,8 @@ class GroupAPI(webapp2.RequestHandler):
         group.admins.append(user.key)
         group.members.append(user.key)
         group.name = name
+        if 'public' in self.request.params and not public == '':
+            group.public = public.lower() in ("yes", "true", "t", "1", "on")
         for member_id in member_ids:
             member = User.query(User.uuid == member_id).get()
             if member:
@@ -50,6 +53,7 @@ class GroupAPI(webapp2.RequestHandler):
         name = self.request.get('name')
         admin_ids = self.request.get_all('admin_uuid')
         member_ids = self.request.get_all('member_uuid')
+        public = self.request.get('public')
 
         if not uuid:
             api.write_error(self.response, 400, 'Missing required parameter')
@@ -70,6 +74,9 @@ class GroupAPI(webapp2.RequestHandler):
             return
 
         group.name = name
+        if 'public' in self.request.params and not public == '':
+            group.public = public.lower() in ("yes", "true", "t", "1", "on")
+
         for admin_id in admin_ids:
             remove_user = False
             if admin_id and admin_id[0] == '-':

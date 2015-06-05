@@ -60,3 +60,13 @@ def get_user(request):
     if not user_id:
         return None
     return ndb.Key(urlsafe=user_id).get()
+
+def is_user_allowed_message_view(user, message):
+    if message.sender == user.key:
+        return True
+    # TODO(abhi): allow messages to groups that user is member of
+    return message.key.parent().get().public
+
+def is_user_allowed_group_view(user, group):
+    return group.public or user.key in group.members
+

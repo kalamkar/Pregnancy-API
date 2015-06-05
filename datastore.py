@@ -64,7 +64,7 @@ class Event(ndb.Model):
 class Group(ndb.Model):
     name = ndb.StringProperty()  # Optional
     uuid = ndb.StringProperty()  # public visible
-    public = ndb.BooleanProperty()
+    public = ndb.BooleanProperty(default=False)
     admins = ndb.KeyProperty(kind=User, repeated=True)
     members = ndb.KeyProperty(kind=User, repeated=True)
     update_time = ndb.DateTimeProperty(auto_now=True)
