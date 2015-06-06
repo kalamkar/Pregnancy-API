@@ -38,6 +38,9 @@ class MessageAPI(webapp2.RequestHandler):
         message.put()
         update_index(message)
 
+        # Update the group update date
+        group.put_async()
+
         api.write_message(self.response, 'Successfully added message')
 
     def get(self):
