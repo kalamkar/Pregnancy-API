@@ -42,7 +42,7 @@ class GroupAPI(webapp2.RequestHandler):
         for member_id in member_ids:
             member = User.query(User.uuid == member_id).get()
             if member:
-                group.members.append(member)
+                group.members.append(member.key)
         group.put()
         update_index(group)
 
