@@ -73,7 +73,8 @@ class GroupAPI(webapp2.RequestHandler):
             api.write_error(self.response, 403, 'User not allowed to update group')
             return
 
-        group.name = name
+        if name:
+            group.name = name
         if 'public' in self.request.params and not public == '':
             group.public = public.lower() in ("yes", "true", "t", "1", "on")
 
@@ -84,13 +85,13 @@ class GroupAPI(webapp2.RequestHandler):
                 admin_id = admin_id[1:]
             admin = User.query(User.uuid == admin_id).get()
             if admin:
-                if remove_user:
+                if remove_user and admin.key in group.admins:
                     if len(group.admins) > 1:
                         group.admins.remove(admin.key)
                     else:
                         api.write_error(self.response, 403, 'Cannot remove last admin')
                         return
-                else:
+                elif not admin.key in group.admins:
                     group.admins.append(admin.key)
             else:
                 logging.warn('Unknown user %s' % (admin_id))
@@ -102,9 +103,9 @@ class GroupAPI(webapp2.RequestHandler):
                 member_id = member_id[1:]
             member = User.query(User.uuid == member_id).get()
             if member:
-                if remove_user:
+                if remove_user and member.key in group.members:
                     group.members.remove(member.key)
-                else:
+                elif not member.key in group.members:
                     group.members.append(member.key)
             else:
                 logging.warn('Unknown user %s' % (member_id))
