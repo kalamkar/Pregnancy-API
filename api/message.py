@@ -38,6 +38,18 @@ class MessageAPI(webapp2.RequestHandler):
         message.put()
         update_index(message)
 
+        gcm = []
+        for member in group.members:
+            device = get_user_device(member.get())
+            if device and device.device_type == 'APPLE':
+                api.apns(device.data, message.text)
+            elif device and device.device_type == 'GOOGLE':
+                gcm.append(device.data)
+            elif device and device.device_type == 'EMAIL':
+                api.email(device.data, get_message_json(message))
+        if gcm:
+            api.gcm(gcm, get_message_json(message))
+
         # Update the group update date
         group.put_async()
 
@@ -65,3 +77,21 @@ class MessageAPI(webapp2.RequestHandler):
             messages.append(get_message_json(message))
 
         api.write_message(self.response, 'success', extra={'messages' : messages})
+
+def get_user_device(user):
+    if not user or not user.devices:
+        return None
+    if len(user.devices) == 1:
+        return user.devices[0]
+    app_device = None
+    email_device = None
+    for device in user.devices:
+        if device.device_type == 'EMAIL':
+            email_device = device
+        elif device.device_type in ['GOOGLE', 'APPLE', 'AMAZON']:
+            app_device = device
+    if app_device:
+        return app_device
+    if email_device:
+        return email_device
+    return None

@@ -4,12 +4,20 @@ Created on Mar 18, 2015
 @author: abhijit
 '''
 
+import binascii
+import config
 import datetime
 import json
 import logging
 import sys
+import StringIO
+import socket
+import ssl
+import struct
+
 
 from datastore import Location
+from google.appengine.api import urlfetch
 from google.appengine.ext import ndb
 
 def write_error(response, code, message):
@@ -70,3 +78,43 @@ def is_user_allowed_message_view(user, message):
 def is_user_allowed_group_view(user, group):
     return group.public or user.key in group.members
 
+
+
+def apns(token, message, gateway):
+    payload = json.dumps({"aps": {"alert" : message, "sound": "bingbong.aiff"}})
+
+    if gateway == 'sandbox':
+        sock = ssl.wrap_socket(socket.socket(),
+                                server_side=False,
+                                keyfile=StringIO.StringIO(config.KEY_DEV),
+                                certfile=StringIO.StringIO(config.CERT_DEV),
+                                ssl_version=ssl.PROTOCOL_SSLv3)
+        sock.connect(config.APNS_DEV)
+    else:
+        sock = ssl.wrap_socket(socket.socket(),
+                                server_side=False,
+                                keyfile=StringIO.StringIO(config.KEY),
+                                certfile=StringIO.StringIO(config.CERT),
+                                ssl_version=ssl.PROTOCOL_SSLv3)
+        sock.connect(config.APNS)
+
+
+    token = binascii.unhexlify(token)
+    fmt = "!cH32sH{0:d}s".format(len(payload))
+    cmd = '\x00'
+    msg = struct.pack(fmt, cmd, len(token), token, len(payload), payload)
+    sock.write(msg)
+    sock.close()
+
+def gcm(tokens, message):
+    payload = {'registration_ids': tokens, 'data': {'message': message}}
+    headers = {'Content-Type': 'application/json',
+               'Authorization': 'key=' + config.GCM_API_KEY}
+    result = urlfetch.fetch(url=config.GCM_URL,
+                            payload=json.dumps(payload),
+                            method=urlfetch.POST,
+                            headers=headers)
+    logging.info(result.content)
+
+def email(address, message):
+    pass
