@@ -48,7 +48,7 @@ class MessageAPI(webapp2.RequestHandler):
             elif device and device.device_type == 'EMAIL':
                 api.email(device.data, get_message_json(message))
         if gcm:
-            api.gcm(gcm, get_message_json(message))
+            api.gcm(gcm, {'message': get_message_json(message), 'group_uuid': group.uuid})
 
         # Update the group update date
         group.put_async()

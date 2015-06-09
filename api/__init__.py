@@ -106,8 +106,8 @@ def apns(token, message, gateway):
     sock.write(msg)
     sock.close()
 
-def gcm(tokens, message):
-    payload = {'registration_ids': tokens, 'data': {'message': message}}
+def gcm(tokens, data):
+    payload = {'registration_ids': tokens, 'data': data}
     headers = {'Content-Type': 'application/json',
                'Authorization': 'key=' + config.GCM_API_KEY}
     result = urlfetch.fetch(url=config.GCM_URL,
