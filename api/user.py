@@ -80,12 +80,22 @@ class UserAPI(webapp2.RequestHandler):
 
 
     def get(self):
+        uuid = self.request.get('uuid')
+
         user = api.get_user(self.request)
         if not user:
             api.write_error(self.response, 400, 'Unknown or missing user')
             return
 
-        json = get_user_json(user, public=False)
+        json = None
+        if uuid:
+            other = User.query(User.uuid == uuid).get()
+            if other:
+                json = get_user_json(other)
+
+        if not json:
+            json = get_user_json(user, public=False)
+
         api.write_message(self.response, 'success', extra={'users' : [json]})
 
 def update_feature(user, new_feature):
