@@ -35,6 +35,9 @@ class AppointmentAPI(webapp2.RequestHandler):
             api.write_error(self.response, 400, 'Unknown or missing user')
             return
 
+        if not minutes:
+            minutes = 60
+
         time = datetime.datetime.utcfromtimestamp(int(time_millis) // 1000)
         appointment = Appointment(parent=user.key, time=time, minutes=int(minutes))
         appointment.put()
