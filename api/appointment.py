@@ -88,17 +88,28 @@ class AppointmentAPI(webapp2.RequestHandler):
     def get(self):
         start_millis = self.request.get('start_time')
         end_millis = self.request.get('end_time')
+        uuid = self.request.get('uuid')
 
         user = api.get_user(self.request)
         if not user:
             api.write_error(self.response, 400, 'Unknown or missing user')
             return
 
+        provider = user
+        if uuid:
+            other = User.query(User.uuid == uuid).get()
+            if other:
+                provider = other
+
         appointments = []
-        for appointment in get_provider_appointment_query(user, start_millis, end_millis):
-            appointments.append(get_appointment_json(appointment))
+
+        for appointment in get_provider_appointment_query(provider, start_millis, end_millis):
+            if provider == user or not appointment.consumer:
+                appointments.append(get_appointment_json(appointment))
+
         for appointment in get_consumer_appointment_query(user, start_millis, end_millis):
-            appointments.append(get_appointment_json(appointment))
+            if provider == user:
+                appointments.append(get_appointment_json(appointment))
 
         api.write_message(self.response, 'success', extra={'appointments' : appointments})
 
