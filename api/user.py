@@ -25,7 +25,7 @@ class UserAPI(webapp2.RequestHandler):
         device_type = self.request.get('type')
 
         if not push_token or not device_type:
-            api.write_error(self.response, 400, 'Missing required parameter')
+            api.write_error(self.response, 400, 'Missing required parameter, token or type')
             return
 
         user = User(uuid=str(uuid.uuid4()))

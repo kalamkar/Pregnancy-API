@@ -21,7 +21,7 @@ class MessageAPI(webapp2.RequestHandler):
         text = self.request.get('text')
 
         if not uuid:
-            api.write_error(self.response, 400, 'Missing required parameter')
+            api.write_error(self.response, 400, 'Missing required parameter, group_uuid')
             return
 
         user = api.get_user(self.request)
@@ -31,7 +31,7 @@ class MessageAPI(webapp2.RequestHandler):
 
         group = Group.query(Group.uuid == uuid).get()
         if not group:
-            api.write_error(self.response, 404, 'Unknown or missing group')
+            api.write_error(self.response, 404, 'Unknown or missing group for ')
             return
 
         message = Message(parent=group.key, sender=user.key, text=text)

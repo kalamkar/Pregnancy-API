@@ -56,7 +56,7 @@ class GroupAPI(webapp2.RequestHandler):
         public = self.request.get('public')
 
         if not uuid:
-            api.write_error(self.response, 400, 'Missing required parameter')
+            api.write_error(self.response, 400, 'Missing required parameter, group_uuid')
             return
 
         user = api.get_user(self.request)
