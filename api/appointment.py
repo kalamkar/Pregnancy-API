@@ -13,8 +13,7 @@ from datastore import Appointment
 from datastore import User
 
 from google.appengine.ext import ndb
-from api import get_time_millis
-from api.user import get_user_json
+from api.renderer import get_appointment_json
 
 class AppointmentAPI(webapp2.RequestHandler):
 
@@ -107,12 +106,18 @@ class AppointmentAPI(webapp2.RequestHandler):
         appointments = []
 
         for appointment in get_provider_appointment_query(provider, start_millis, end_millis):
-            if provider == user or not appointment.consumer:
-                appointments.append(get_appointment_json(appointment))
+            # Show appts where
+            #   1. User is provider
+            #   2. There is no consumer so it is available slot
+            #   3. Consumer is current user
+            if provider == user or not appointment.consumer or appointment.consumer == user.key:
+                appointments.append(get_appointment_json(appointment, provider))
 
         for appointment in get_consumer_appointment_query(user, start_millis, end_millis):
+            # Show appts where
+            #   1. User is the consumer and its not filtered for other user's appointment
             if provider == user:
-                appointments.append(get_appointment_json(appointment))
+                appointments.append(get_appointment_json(appointment, appointment.key.parent.get()))
 
         api.write_message(self.response, 'success', extra={'appointments' : appointments})
 
@@ -141,14 +146,3 @@ def get_consumer_appointment_query(user, start_millis, end_millis):
                                          ndb.AND(Appointment.time > start, Appointment.time < end)))
     else:
         return Appointment.query(Appointment.consumer == user.key).order(Appointment.time)
-
-def get_appointment_json(appointment):
-    json = {'id': appointment.key.urlsafe(),
-            'time': get_time_millis(appointment.time),
-            'minutes': appointment.minutes,
-            'update_time': get_time_millis(appointment.update_time),
-            'create_time': get_time_millis(appointment.create_time)}
-    if appointment.consumer:
-        json['consumer'] = get_user_json(appointment.consumer.get())
-    return json
-

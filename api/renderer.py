@@ -51,3 +51,16 @@ def get_group_json(group):
             'create_time': get_time_millis(group.create_time)}
     return json
 
+
+def get_appointment_json(appointment, provider):
+    json = {'id': appointment.key.urlsafe(),
+            'time': get_time_millis(appointment.time),
+            'minutes': appointment.minutes,
+            'update_time': get_time_millis(appointment.update_time),
+            'create_time': get_time_millis(appointment.create_time)}
+    if appointment.consumer:
+        json['consumer'] = get_user_json(appointment.consumer.get())
+    if provider:
+        json['provider'] = get_user_json(provider)
+    return json
+
