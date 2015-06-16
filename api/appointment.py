@@ -61,30 +61,32 @@ class AppointmentAPI(webapp2.RequestHandler):
 
         appointment = ndb.Key(urlsafe=app_id).get()
 
-        if not appointment.consumer == user.key and not appointment.key.parent() == user.key:
-            api.write_error(self.response, 403, 'Unauthorized')
+        if not appointment:
+            api.write_error(self.response, 404, 'Unknown appointment')
             return
 
-        remove_user = False
+        # Only provider can change the time and length of appointment
+        if appointment.key.parent() == user.key:
+            if time_millis:
+                appointment.time = datetime.datetime.utcfromtimestamp(int(time_millis) // 1000)
+            if minutes:
+                appointment.minutes = int(minutes)
+        elif appointment.consumer and not appointment.consumer == user.key:
+            api.write_error(self.response, 403, 'Not authorized')
+            return
+
+        # All the authorization checks should be verified by now.
+
         if consumer_id and consumer_id[0] == '-':
-            remove_user = True
-            consumer_id = consumer_id[1:]
-
-        if consumer_id:
+            appointment.consumer = None
+        elif consumer_id and not appointment.consumer:
             consumer = User.query(User.uuid == consumer_id).get()
-            if consumer and remove_user and appointment.consumer == consumer:
-                appointment.consumer = None
-            elif consumer and not appointment.consumer:
+            if consumer:
                 appointment.consumer = consumer.key
-
-        if time_millis:
-            appointment.time = datetime.datetime.utcfromtimestamp(int(time_millis) // 1000)
-        if minutes:
-            appointment.minutes = int(minutes)
 
         appointment.put()
 
-        json = get_appointment_json(appointment)
+        json = get_appointment_json(appointment, appointment.key.parent().get())
         api.write_message(self.response, 'Updated appointment', extra={'appointments' : [json]})
 
     def get(self):
@@ -117,7 +119,8 @@ class AppointmentAPI(webapp2.RequestHandler):
             # Show appts where
             #   1. User is the consumer and its not filtered for other user's appointment
             if provider == user:
-                appointments.append(get_appointment_json(appointment, appointment.key.parent.get()))
+                appointments.append(get_appointment_json(appointment,
+                                                         appointment.key.parent().get()))
 
         api.write_message(self.response, 'success', extra={'appointments' : appointments})
 
