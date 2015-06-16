@@ -179,6 +179,14 @@
                 <label>uuid</label>
                 <input type="text" name="uuid" size="25" class="textfield"/></div>
             </form>
+            <form action="/appointment" method="post" class="box-block"><div>
+                <input type="hidden" name="_delete" value="true"/>
+                <button type="submit">Delete</button><br/><br/>
+                <label>user_id</label>
+                <input type="text" name="user_id" size="25" class="textfield"/><br/><br/>
+                <label>appointment_id</label>
+                <input type="text" name="appointment_id" size="25" class="textfield"/></div>
+            </form>
         </div>
         <div class="column">
             <form action="/search" method="get" class="box-block"><div>

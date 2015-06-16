@@ -21,6 +21,9 @@ class AppointmentAPI(webapp2.RequestHandler):
         if self.request.get('_put'):
             self.put()
             return
+        elif self.request.get('_delete'):
+            self.delete()
+            return
 
         time_millis = self.request.get('time')
         minutes = self.request.get('minutes')
@@ -123,6 +126,31 @@ class AppointmentAPI(webapp2.RequestHandler):
                                                          appointment.key.parent().get()))
 
         api.write_message(self.response, 'success', extra={'appointments' : appointments})
+
+    def delete(self):
+        app_id = self.request.get('appointment_id')
+
+        user = api.get_user(self.request)
+        if not user:
+            api.write_error(self.response, 400, 'Unknown or missing user')
+            return
+
+        if not app_id:
+            api.write_error(self.response, 400, 'Missing required parameter')
+            return
+
+        appointment = ndb.Key(urlsafe=app_id).get()
+
+        if not appointment:
+            api.write_error(self.response, 404, 'Unknown appointment')
+            return
+
+        if not appointment.key.parent() == user.key:
+            api.write_error(self.response, 403, 'Not authorized')
+            return
+
+        appointment.key.delete()
+        api.write_message(self.response, 'success')
 
 def get_provider_appointment_query(user, start_millis, end_millis):
     if start_millis:
