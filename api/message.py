@@ -44,7 +44,7 @@ class MessageAPI(webapp2.RequestHandler):
                 continue
             device = get_user_device(member.get())
             if device and device.device_type == 'APPLE':
-                api.apns(device.data, message.text)
+                api.apns(device.data, message.text, 'sandbox')
             elif device and device.device_type == 'GOOGLE':
                 gcm.append(device.data)
             elif device and device.device_type == 'EMAIL':

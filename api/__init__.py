@@ -110,6 +110,7 @@ def gcm(tokens, data):
     payload = {'registration_ids': tokens, 'data': data}
     headers = {'Content-Type': 'application/json',
                'Authorization': 'key=' + config.GCM_API_KEY}
+    logging.info(json.dumps(payload))
     result = urlfetch.fetch(url=config.GCM_URL,
                             payload=json.dumps(payload),
                             method=urlfetch.POST,
