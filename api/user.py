@@ -72,6 +72,7 @@ class UserAPI(webapp2.RequestHandler):
             update_feature(user, feature)
 
         user.last_location = api.get_geo_point(self.request)
+        user.insights = api.make_insights(user)
         user.put()
         update_index(user)
 

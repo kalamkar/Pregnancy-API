@@ -17,10 +17,10 @@ class Location(ndb.Model):
     latlon = ndb.GeoPtProperty()
     name = ndb.StringProperty()
 
-# Child of User
+# Part of User
 class Insight(ndb.Model):
     title = ndb.StringProperty()
-    tags = ndb.StringProperty(repeated=True)
+    tags = ndb.StringProperty()
     priority = ndb.IntegerProperty()
     create_time = ndb.DateTimeProperty(auto_now_add=True)
 
@@ -39,6 +39,7 @@ class User(ndb.Model):
     last_location = ndb.StructuredProperty(Location)
     devices = ndb.StructuredProperty(Device, repeated=True)
     features = ndb.StructuredProperty(Pair, repeated=True)
+    insights = ndb.StructuredProperty(Insight, repeated=True)
     update_time = ndb.DateTimeProperty(auto_now=True)
     create_time = ndb.DateTimeProperty(auto_now_add=True)
 

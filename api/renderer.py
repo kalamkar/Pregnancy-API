@@ -26,6 +26,11 @@ def get_user_json(user, public=True):
             if feature.name and not feature.name[0] == '_':
                 features[feature.name] = feature.value
         json['features'] = features
+        insights = []
+        for insight in user.insights:
+            insights.append({'title': insight.title, 'tags': insight.tags.split(','),
+                             'priority': insight.priority})
+        json['insights'] = insights
     return json
 
 
