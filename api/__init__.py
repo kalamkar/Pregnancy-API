@@ -88,18 +88,17 @@ def apns(token, message, gateway):
         sock = ssl.wrap_socket(socket.socket(),
                                 server_side=False,
                                 keyfile=StringIO.StringIO(config.KEY_DEV),
-                                certfile=StringIO.StringIO(config.CERT_DEV),
-                                ssl_version=ssl.PROTOCOL_SSLv3)
+                                certfile=StringIO.StringIO(config.CERT_DEV))
         sock.connect(config.APNS_DEV)
     else:
         sock = ssl.wrap_socket(socket.socket(),
                                 server_side=False,
                                 keyfile=StringIO.StringIO(config.KEY),
-                                certfile=StringIO.StringIO(config.CERT),
-                                ssl_version=ssl.PROTOCOL_SSLv3)
+                                certfile=StringIO.StringIO(config.CERT))
         sock.connect(config.APNS)
 
 
+    logging.info('token is %s' % (token))
     token = binascii.unhexlify(token)
     fmt = "!cH32sH{0:d}s".format(len(payload))
     cmd = '\x00'
