@@ -4,6 +4,9 @@ Created on Jun 8, 2015
 @author: abhijit kalamkar
 '''
 
+PROFILE_BUCKET = '/dovetail-profiles/'
+MEDIA_MAX_AGE = 30 * 24 * 60 * 60
+
 APNS_DEV = ('gateway.sandbox.push.apple.com', 2195)
 APNS = ('gateway.push.apple.com', 2195)
 GCM_URL = 'https://android.googleapis.com/gcm/send'

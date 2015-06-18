@@ -5,6 +5,8 @@ Created on Sep 25, 2014
 '''
 
 import api
+import config
+import cloudstorage as gcs
 import uuid
 import webapp2
 
@@ -98,6 +100,35 @@ class UserAPI(webapp2.RequestHandler):
             json = get_user_json(user, public=False)
 
         api.write_message(self.response, 'success', extra={'users' : [json]})
+
+class UserPhotoAPI(webapp2.RequestHandler):
+
+    def post(self):
+        user = api.get_user(self.request)
+        if not user:
+            api.write_error(self.response, 400, 'Unknown or missing user')
+            return
+        try:
+            uploaded_file = self.request.POST['file']
+            if not uploaded_file.type:
+                api.write_error(self.response, 400, 'Missing content type')
+                return
+        except:
+            uploaded_file = None
+
+        if uploaded_file == None:
+            api.write_error(self.response, 400, 'Missing content')
+            return
+
+        filename = config.PROFILE_BUCKET + user.uuid
+        gcs_file = gcs.open(filename, mode='w', content_type=uploaded_file.type,
+                            options={'x-goog-acl': 'public-read',
+                                     'Cache-Control' : 'public,max-age=%d' % (config.MEDIA_MAX_AGE)})
+        gcs_file.write(uploaded_file.file.read())
+        gcs_file.close();
+
+        api.write_message(self.response, 'success')
+
 
 def update_feature(user, new_feature):
     if not new_feature:

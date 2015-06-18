@@ -15,20 +15,7 @@
 				border: thin solid gray; padding: 10px; margin:10px; vertical-align:top;
 				margin-bottom:20px;display:block;
 			}
-			#searchResult {overflow: hidden; overflow-y:hidden;
-					height:75%; width:100%;}
 		</style>
-		<script type="text/javascript">
-			function search() {
-				var query = document.getElementById('query').value;
-				var contentType = document.getElementById('content-type').value;
-				var url = '/media/search?tags=' + query;
-				if (contentType) {
-					url += '&content-type=' + contentType;
-				}
-				document.getElementById('searchResult').src = url;
-			}
-		</script>
 	</head>
 	<body>
         <div class="column">
@@ -62,6 +49,12 @@
                 <input type="text" name="user_id" size="25" class="textfield"/><br/><br/>
                 <label>uuid</label>
                 <input type="text" name="uuid" size="25" class="textfield"/></div>
+            </form>
+            <form action="/user/photo" enctype="multipart/form-data" method="post" class="box-block"><div>
+                <button type="submit">Photo</button><br/><br/>
+                <label>user_id</label>
+                <input type="text" name="user_id" size="25" class="textfield"/><br/><br/>
+                <input type="file" name="file" id="file"/></div>
             </form>
         </div>
         <div class="column">
