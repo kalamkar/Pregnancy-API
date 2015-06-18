@@ -82,6 +82,9 @@ def is_user_allowed_group_view(user, group):
 
 
 def apns(token, message, gateway):
+    if not token or not message:
+        logging.warn('Invalid token or message')
+
     payload = json.dumps({"aps": {"alert" : message, "sound": "bingbong.aiff"}})
 
     if gateway == 'sandbox':
