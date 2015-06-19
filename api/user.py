@@ -31,7 +31,7 @@ class UserAPI(webapp2.RequestHandler):
             return
 
         user = User(uuid=str(uuid.uuid4()))
-        user.devices.append(Device(device_type=device_type, data=push_token))
+        user.devices.append(Device(device_type=device_type.upper(), data=push_token))
         user.put()
         update_index(user)
 
@@ -66,7 +66,7 @@ class UserAPI(webapp2.RequestHandler):
                 token_updated = True
 
         if not token_updated and push_token:
-            user.devices.append(Device(device_type=device_type, data=push_token))
+            user.devices.append(Device(device_type=device_type.upper(), data=push_token))
         if not email_updated and email:
             user.devices.append(Device(device_type='EMAIL', data=email))
 
