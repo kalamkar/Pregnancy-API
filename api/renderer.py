@@ -47,8 +47,10 @@ def get_group_json(group):
     for admin in group.admins:
         admins.append(get_user_json(admin.get()))
 
-    for member in group.members:
-        members.append(get_user_json(member.get()))
+    for member_key in group.members:
+        member = member_key.get()
+        if member:
+            members.append(get_user_json(member))
 
     json = {'uuid': group.uuid, 'name': group.name, 'admins': admins, 'members': members,
             'public': group.public,
