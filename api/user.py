@@ -30,7 +30,7 @@ class UserAPI(webapp2.RequestHandler):
             api.write_error(self.response, 400, 'Missing required parameter, token or type')
             return
 
-        user = User(uuid=str(uuid.uuid4()))
+        user = User(uuid=str(uuid.uuid4()), auth=str(uuid.uuid4()))
         user.devices.append(Device(device_type=device_type.upper(), data=push_token))
         user.put()
         update_index(user)

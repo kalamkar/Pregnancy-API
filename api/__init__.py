@@ -9,6 +9,7 @@ import config
 import datetime
 import json
 import logging
+import re
 import sys
 import StringIO
 import socket
@@ -18,6 +19,7 @@ import struct
 
 from datastore import Insight
 from datastore import Location
+from datastore import User
 from google.appengine.api import urlfetch
 from google.appengine.ext import ndb
 
@@ -66,9 +68,37 @@ def get_region(request):
 
 def get_user(request):
     user_id = request.get('user_id')
-    if not user_id:
-        return None
-    return ndb.Key(urlsafe=user_id).get()
+    auth_header = None
+    try:
+        auth_header = request.headers['Authorization']
+    except KeyError:
+        pass
+
+    if auth_header:
+        uuid, auth = get_uuid_auth(auth_header)
+        if uuid and auth:
+            user = User.query(User.uuid == uuid).get()
+            if user and user.auth == auth:
+                return user
+    elif user_id:
+        return ndb.Key(urlsafe=user_id).get()
+
+    return None
+
+def get_uuid_auth(auth_header):
+    m = re.search('^(UUID-TOKEN) *(uuid)="(.*)" *, *(token)="(.*)"$', auth_header)
+    if not m:
+        logging.warn('Invalid authorization header %s' % (auth_header))
+        return (None, None)
+    try:
+        if not m.group(1) == 'UUID-TOKEN':
+            return (None, None)
+        return(m.group(3), m.group(5))
+    except IndexError:
+        logging.warn('Invalid authorization header %s' % (auth_header))
+
+    return (None, None)
+
 
 def is_user_allowed_message_view(user, message):
     if message.sender == user.key:

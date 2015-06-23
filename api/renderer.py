@@ -21,6 +21,7 @@ def get_user_json(user, public=True):
                 if device.data and device.device_type == 'EMAIL':
                     email = device.data
         json['email'] = email
+        json['auth'] = user.auth
         features = {}
         for feature in user.features:
             if feature.name and not feature.name[0] == '_':

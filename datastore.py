@@ -29,12 +29,12 @@ class Device(ndb.Model):
     device_type = ndb.StringProperty(required=True, choices=['UNKNOWN', 'EMAIL', 'PHONE', \
                                                              'GOOGLE', 'APPLE', 'AMAZON'])
     data = ndb.StringProperty()  # Push token, email address, phone number etc.
-    auth = ndb.StringProperty()  # Password or token user to authenticate the device.
 
 
 # Top level object representing a user
 class User(ndb.Model):
     uuid = ndb.StringProperty()  # public
+    auth = ndb.StringProperty()  # Password or token user to authenticate the user
     name = ndb.StringProperty()
     last_location = ndb.StructuredProperty(Location)
     devices = ndb.StructuredProperty(Device, repeated=True)
