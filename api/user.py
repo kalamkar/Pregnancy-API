@@ -7,6 +7,7 @@ Created on Sep 25, 2014
 import api
 import config
 import cloudstorage as gcs
+import datetime
 import random
 import uuid
 import webapp2
@@ -143,11 +144,37 @@ class UserRecoveryAPI(webapp2.RequestHandler):
         push_token = self.request.get('token')
         device_type = self.request.get('type')
 
+        uuid = self.request.get('uuid')
+        code = self.request.get('code')
+        if uuid and code:
+            code = int(code)
+            user = User.query(User.uuid == uuid).get()
+
+            if not user or not user.recovery:
+                api.write_error(self.response, 404, 'User not found')
+                return
+
+            if not user.recovery.code == code:
+                api.write_error(self.response, 403, 'Invalid recovery code')
+                return
+
+            if (datetime.datetime.now() - user.recovery.time).seconds > (15 * 60):
+                api.write_error(self.response, 403, 'Old recovery code')
+                return
+
+            api.write_message(self.response, 'success',
+                              extra={'users' : [get_user_json(user, public=False)]})
+            return
+
+
         users = User.query(User.devices.data == email)
         if not users:
             api.write_error(self.response, 404, 'User not found')
             return
 
+
+
+        extra = None
         push_token_found = False;
         first_user = None
         for user in users:
@@ -173,8 +200,9 @@ class UserRecoveryAPI(webapp2.RequestHandler):
             first_user.recovery.code = random.randint(1000, 9999)
             api.email(email, 'Account recovery code is %s' % (first_user.recovery.code))
             first_user.put()
+            extra = {'users' : [get_user_json(first_user)]}
 
-        api.write_message(self.response, 'success')
+        api.write_message(self.response, 'success', extra=extra)
 
 
 def update_feature(user, new_feature):

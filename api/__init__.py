@@ -20,6 +20,7 @@ import struct
 from datastore import Insight
 from datastore import Location
 from datastore import User
+from google.appengine.api import mail
 from google.appengine.api import urlfetch
 from google.appengine.ext import ndb
 
@@ -151,7 +152,12 @@ def gcm(tokens, data):
     logging.info(result.content)
 
 def email(address, message):
-    pass
+    if not mail.is_email_valid(address):
+        logging.info('Invalid email address %s' % (address))
+        return
+
+    sender_address = "Dovetail.care Support <support@dovetail-api1.appspotmail.com>"
+    mail.send_mail(sender_address, address, message, message)
 
 
 def make_insights(user):
