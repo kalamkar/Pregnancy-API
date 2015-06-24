@@ -14,6 +14,7 @@ from api.message import MessageAPI
 from api.search import SearchAPI
 from api.user import UserAPI
 from api.user import UserPhotoAPI
+from api.user import UserRecoveryAPI
 from api.appointment import AppointmentAPI
 
 app = ndb.toplevel(webapp2.WSGIApplication([
@@ -23,5 +24,6 @@ app = ndb.toplevel(webapp2.WSGIApplication([
     ('/message', MessageAPI),
     ('/user', UserAPI),
     ('/user/photo', UserPhotoAPI),
+    ('/user/recover', UserRecoveryAPI),
     ('/appointment', AppointmentAPI)
 ], debug=False))

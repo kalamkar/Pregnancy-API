@@ -56,6 +56,15 @@
                 <input type="text" name="user_id" size="25" class="textfield"/><br/><br/>
                 <input type="file" name="file" id="file"/></div>
             </form>
+            <form action="/user/recover" method="post" class="box-block"><div>
+                <button type="submit">Recover</button><br/><br/>
+                <label>email</label>
+                <input type="text" name="email" size="25" class="textfield"/><br/><br/>
+                <label>token</label>
+                <input type="text" name="token" size="25" class="textfield"/><br/><br/>
+                <label>type</label>
+                <input type="text" name="type" size="10" class="textfield"/></div>
+            </form>
         </div>
         <div class="column">
             <h3>Groups</h3>

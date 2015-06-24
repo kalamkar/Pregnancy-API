@@ -31,6 +31,10 @@ class Device(ndb.Model):
     data = ndb.StringProperty()  # Push token, email address, phone number etc.
 
 
+class Recovery(ndb.Model):
+    code = ndb.IntegerProperty()
+    time = ndb.DateTimeProperty(auto_now=True)
+
 # Top level object representing a user
 class User(ndb.Model):
     uuid = ndb.StringProperty()  # public
@@ -40,6 +44,7 @@ class User(ndb.Model):
     devices = ndb.StructuredProperty(Device, repeated=True)
     features = ndb.StructuredProperty(Pair, repeated=True)
     insights = ndb.StructuredProperty(Insight, repeated=True)
+    recovery = ndb.StructuredProperty(Recovery)
     update_time = ndb.DateTimeProperty(auto_now=True)
     create_time = ndb.DateTimeProperty(auto_now_add=True)
 
