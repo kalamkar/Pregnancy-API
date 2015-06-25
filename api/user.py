@@ -176,7 +176,7 @@ class UserRecoveryAPI(webapp2.RequestHandler):
 
 
 
-        extra = None
+        extra = {}
         push_token_found = False;
         first_user = None
         for user in users:
