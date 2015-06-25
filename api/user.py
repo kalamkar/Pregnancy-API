@@ -144,11 +144,11 @@ class UserRecoveryAPI(webapp2.RequestHandler):
         push_token = self.request.get('token')
         device_type = self.request.get('type')
 
-        uuid = self.request.get('uuid')
+        user_uuid = self.request.get('uuid')
         code = self.request.get('code')
-        if uuid and code:
+        if user_uuid and code:
             code = int(code)
-            user = User.query(User.uuid == uuid).get()
+            user = User.query(User.uuid == user_uuid).get()
 
             if not user or not user.recovery:
                 api.write_error(self.response, 404, 'User not found')
@@ -162,6 +162,8 @@ class UserRecoveryAPI(webapp2.RequestHandler):
                 api.write_error(self.response, 403, 'Old recovery code')
                 return
 
+            user.auth = str(uuid.uuid4())
+            user.put()
             api.write_message(self.response, 'success',
                               extra={'users' : [get_user_json(user, public=False)]})
             return
