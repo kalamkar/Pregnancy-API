@@ -190,6 +190,8 @@ class UserRecoveryAPI(webapp2.RequestHandler):
                 if device.device_type == device_type and device.data == push_token:
                     push_token_found = True
                     if device.device_type == 'GOOGLE':
+                        user.auth = str(uuid.uuid4())
+                        user.put()
                         api.gcm([push_token], {'user': get_user_json(user, public=False)})
                     elif device.device_type == 'APPLE':
                         # Until we can deliver data to iOS app directly, use email for them
