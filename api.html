@@ -125,6 +125,17 @@
                 <label>group_uuid</label>
                 <input type="text" name="group_uuid" size="25" class="textfield"/></div>
             </form>
+            <br /><hr /><br />
+            <h3>Search</h3>
+            <form action="/search" method="get" class="box-block"><div>
+                <button type="submit">Search</button><br/><br/>
+                <label>user_id</label>
+                <input type="text" name="user_id" size="25" class="textfield"/><br/><br/>
+                <label>q</label>
+                <input type="text" name="q" size="25" class="textfield"/><br/><br/>
+                <label>nearby</label>
+                <input type="checkbox" name="nearby" /></div>
+            </form>
         </div>
 		<div class="column">
 		    <h3>Events</h3>
@@ -135,7 +146,9 @@
 				<label>type</label>
 				<input type="text" name="type" size="10" class="textfield"/><br/><br/>
 				<label>time</label>
-				<input type="text" name="time" size="25" class="textfield"/></div>
+				<input type="text" name="time" size="25" class="textfield"/><br/><br/>
+				<label>data</label>
+                <textarea name="data" rows="5" cols="30" class="textfield"></textarea></div>
 			</form>
             <form action="/event" method="get" class="box-block"><div>
                 <button type="submit">Get</button><br/><br/>
@@ -194,17 +207,5 @@
                 <input type="text" name="appointment_id" size="25" class="textfield"/></div>
             </form>
         </div>
-        <div class="column">
-            <form action="/search" method="get" class="box-block"><div>
-                <button type="submit">Search</button><br/><br/>
-                <label>user_id</label>
-                <input type="text" name="user_id" size="25" class="textfield"/><br/><br/>
-                <label>q</label>
-                <input type="text" name="q" size="25" class="textfield"/><br/><br/>
-                <label>nearby</label>
-                <input type="checkbox" name="nearby" /></div>
-            </form>
-        </div>
-
 	</body>
 </html>

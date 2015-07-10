@@ -19,6 +19,7 @@ class EventAPI(webapp2.RequestHandler):
     def post(self):
         event_type = self.request.get('type')
         time_millis = int(self.request.get('time'))
+        data = int(self.request.get('data'))
 
         user = api.get_user(self.request)
         if not user:
@@ -27,7 +28,7 @@ class EventAPI(webapp2.RequestHandler):
 
         time = datetime.datetime.utcfromtimestamp(time_millis // 1000)
         time = time.replace(microsecond=time_millis % 1000 * 1000)
-        event = Event(parent=user.key, event_type=event_type, time=time)
+        event = Event(parent=user.key, event_type=event_type, time=time, data=data)
         event.put_async()
 
         api.write_message(self.response, 'Successfully added event %s' % (event.key.urlsafe()))
