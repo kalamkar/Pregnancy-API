@@ -176,8 +176,9 @@ def make_insights(user):
                 insights.append(Insight(title='%d weeks %d days to go!' % (days / 7, days % 7),
                                         tags='mother', priority=2))
 
+            image_url = config.STORAGE_URL + config.IMAGES_BUCKET + 'eggplant.png'
             insights.append(Insight(title='Your baby is A inches and B lbs now. Roughly the size of a DDDD.',
-                            tags='image:eggplant,mother', priority=3))
+                            tags='image:%s,mother' % (image_url), priority=3))
             insights.append(Insight(title='Expected birth date is %s.' % (due_date.strftime('%b %d %Y')), tags='baby',
                                     priority=2))
             insights.append(Insight(title='Eat 1/2 apple everyday.', tags='mother', priority=1))

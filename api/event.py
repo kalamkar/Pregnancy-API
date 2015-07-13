@@ -19,7 +19,7 @@ class EventAPI(webapp2.RequestHandler):
     def post(self):
         event_type = self.request.get('type')
         time_millis = int(self.request.get('time'))
-        data = int(self.request.get('data'))
+        data = self.request.get('data')
 
         user = api.get_user(self.request)
         if not user:
