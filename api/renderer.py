@@ -37,6 +37,7 @@ def get_user_json(user, public=True):
 
 def get_message_json(message):
     return {'sender': get_user_json(message.sender.get()), 'text': message.text,
+            'group_uuid': message.key.parent().get().uuid,
             'create_time': get_time_millis(message.create_time)}
 
 
