@@ -19,7 +19,7 @@ from datastore import Pair
 from api.renderer import get_user_json
 from api.search import update_index
 
-from PIL import Image, ImageOps, ImageDraw
+from PIL import Image, ImageDraw
 from google.appengine.api import images
 from google.appengine.ext import blobstore
 

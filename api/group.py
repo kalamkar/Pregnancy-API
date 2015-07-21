@@ -6,13 +6,14 @@ Created on Sep 25, 2014
 
 import api
 import config
+import cloudstorage as gcs
 import logging
 import StringIO
 import webapp2
 import uuid
 
-from PIL import Image, ImageOps, ImageDraw
-from google.appengine.api import images
+from PIL import Image, ImageDraw
+from google.appengine.api import images as ImageApi
 from google.appengine.ext import blobstore
 
 from datastore import Group
@@ -159,32 +160,39 @@ class GroupPhotoAPI(webapp2.RequestHandler):
             api.write_error(self.response, 404, 'Unknown or missing group')
             return
 
-        png_data = []
-        positions = [(0, 0), (size / 2, 0), (0, size / 2), (size / 2, size / 2)]
+        images = []
+        positions = [(0, 0), (size / 2, 0), (size / 2, size / 2)]
 
         for member_key in group.members:
-            if len(png_data) == len(positions):
+            if len(images) == len(positions):
                 break
             member = member_key.get()
             if not member:
                 continue
 
             filename = config.PROFILE_BUCKET + member.uuid
-            image = images.Image(blob_key=blobstore.create_gs_key('/gs' + filename))
-            image.resize(width=size, height=size, crop_to_fit=True, allow_stretch=False)
+            image = ImageApi.Image(blob_key=blobstore.create_gs_key('/gs' + filename))
             try:
-                png_data.append(StringIO.StringIO(
-                                    image.execute_transforms(output_encoding=images.PNG)))
+                gcs_file = gcs.open(filename, 'r')
+                images.append(image)
             except:
                 pass
 
-        if len(png_data) == 0:
+        if len(images) == 0:
             api.write_error(self.response, 404, 'No group photo available')
             return
+        elif len(images) == 1:
+            sizes = [(size, size)]
+        elif len(images) == 2:
+            sizes = [(size / 2, size), (size / 2, size)]
+        else:
+            sizes = [(size / 2, size), (size / 2, size / 2), (size / 2, size / 2)]
 
-        new_im = Image.new('RGB', (size, size))
-        for data in png_data:
-            im = Image.open(data)
+        new_im = Image.new('RGB', (size, size), color=(255, 255, 255, 0))
+        for image in images:
+            (width, height) = sizes.pop(0)
+            image.resize(width=width, height=height, crop_to_fit=True, allow_stretch=False)
+            im = Image.open(StringIO.StringIO(image.execute_transforms(output_encoding=ImageApi.PNG)))
             new_im.paste(im, positions.pop(0))
 
         bigsize = (new_im.size[0] * 3, new_im.size[1] * 3)
