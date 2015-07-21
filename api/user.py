@@ -20,7 +20,6 @@ from api.renderer import get_user_json
 from api.search import update_index
 
 from PIL import Image, ImageOps, ImageDraw
-
 from google.appengine.api import images
 from google.appengine.ext import blobstore
 
@@ -155,7 +154,11 @@ class UserPhotoAPI(webapp2.RequestHandler):
         filename = config.PROFILE_BUCKET + uuid
         image = images.Image(blob_key=blobstore.create_gs_key('/gs' + filename))
         image.resize(width=size, height=size, crop_to_fit=True, allow_stretch=False)
-        png_data = StringIO.StringIO(image.execute_transforms(output_encoding=images.PNG))
+        try:
+            png_data = StringIO.StringIO(image.execute_transforms(output_encoding=images.PNG))
+        except:
+            api.write_error(self.response, 404, 'Missing user photo')
+            return
 
         im = Image.open(png_data)
         bigsize = (im.size[0] * 3, im.size[1] * 3)
@@ -169,6 +172,7 @@ class UserPhotoAPI(webapp2.RequestHandler):
         im.save(output, 'PNG')
 
         self.response.headers['Content-Type'] = 'image/png'
+        self.response.headers['Cache-Control'] = 'public,max-age=%d' % (config.MEDIA_MAX_AGE)
         self.response.out.write(output.getvalue())
         output.close()
 

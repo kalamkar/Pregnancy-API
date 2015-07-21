@@ -5,9 +5,15 @@ Created on Sep 25, 2014
 '''
 
 import api
+import config
 import logging
+import StringIO
 import webapp2
 import uuid
+
+from PIL import Image, ImageOps, ImageDraw
+from google.appengine.api import images
+from google.appengine.ext import blobstore
 
 from datastore import Group
 from datastore import User
@@ -136,3 +142,62 @@ class GroupAPI(webapp2.RequestHandler):
                 groups.append(get_group_json(group))
 
         api.write_message(self.response, 'success', extra={'groups' : groups})
+
+
+class GroupPhotoAPI(webapp2.RequestHandler):
+    def get(self):
+        uuid = self.request.get('group_uuid')
+        size = self.request.get('size')
+        size = int(size) if size else config.PROFILE_ICON_SIZE
+
+        if not uuid:
+            api.write_error(self.response, 400, 'Unknown or missing user')
+            return
+
+        group = Group.query(Group.uuid == uuid).get()
+        if not group:
+            api.write_error(self.response, 404, 'Unknown or missing group')
+            return
+
+        png_data = []
+        positions = [(0, 0), (size / 2, 0), (0, size / 2), (size / 2, size / 2)]
+
+        for member_key in group.members:
+            if len(png_data) == len(positions):
+                break
+            member = member_key.get()
+            if not member:
+                continue
+
+            filename = config.PROFILE_BUCKET + member.uuid
+            image = images.Image(blob_key=blobstore.create_gs_key('/gs' + filename))
+            image.resize(width=size, height=size, crop_to_fit=True, allow_stretch=False)
+            try:
+                png_data.append(StringIO.StringIO(
+                                    image.execute_transforms(output_encoding=images.PNG)))
+            except:
+                pass
+
+        if len(png_data) == 0:
+            api.write_error(self.response, 404, 'No group photo available')
+            return
+
+        new_im = Image.new('RGB', (size, size))
+        for data in png_data:
+            im = Image.open(data)
+            new_im.paste(im, positions.pop(0))
+
+        bigsize = (new_im.size[0] * 3, new_im.size[1] * 3)
+        mask = Image.new('L', bigsize, 0)
+        draw = ImageDraw.Draw(mask)
+        draw.ellipse((0, 0) + bigsize, fill=255)
+        mask = mask.resize(new_im.size, Image.ANTIALIAS)
+        new_im.putalpha(mask)
+
+        output = StringIO.StringIO()
+        new_im.save(output, 'PNG')
+
+        self.response.headers['Content-Type'] = 'image/png'
+        self.response.headers['Cache-Control'] = 'public,max-age=%d' % (config.MEDIA_MAX_AGE)
+        self.response.out.write(output.getvalue())
+        output.close()

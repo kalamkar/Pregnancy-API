@@ -7,8 +7,7 @@ Created on Jun 8, 2015
 STORAGE_URL = 'http://commondatastorage.googleapis.com'
 IMAGES_BUCKET = '/dovetail-images/'
 PROFILE_BUCKET = '/dovetail-profiles/'
-# MEDIA_MAX_AGE = 30 * 24 * 60 * 60
-MEDIA_MAX_AGE = 60 * 60
+MEDIA_MAX_AGE = 30 * 24 * 60 * 60
 
 PROFILE_ICON_SIZE = 50
 

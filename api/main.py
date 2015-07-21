@@ -10,6 +10,7 @@ from google.appengine.ext import ndb
 
 from api.event import EventAPI
 from api.group import GroupAPI
+from api.group import GroupPhotoAPI
 from api.message import MessageAPI
 from api.search import SearchAPI
 from api.user import UserAPI
@@ -21,6 +22,7 @@ app = ndb.toplevel(webapp2.WSGIApplication([
     ('/event', EventAPI),
     ('/search', SearchAPI),
     ('/group', GroupAPI),
+    ('/group/photo', GroupPhotoAPI),
     ('/message', MessageAPI),
     ('/user', UserAPI),
     ('/user/photo', UserPhotoAPI),
