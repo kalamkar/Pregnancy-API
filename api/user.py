@@ -9,6 +9,7 @@ import config
 import cloudstorage as gcs
 import datetime
 import random
+import StringIO
 import uuid
 import webapp2
 
@@ -17,6 +18,11 @@ from datastore import Device
 from datastore import Pair
 from api.renderer import get_user_json
 from api.search import update_index
+
+from PIL import Image, ImageOps, ImageDraw
+
+from google.appengine.api import images
+from google.appengine.ext import blobstore
 
 class UserAPI(webapp2.RequestHandler):
 
@@ -136,6 +142,35 @@ class UserPhotoAPI(webapp2.RequestHandler):
         gcs_file.close();
 
         api.write_message(self.response, 'success')
+
+    def get(self):
+        uuid = self.request.get('uuid')
+        size = self.request.get('size')
+        size = int(size) if size else config.PROFILE_ICON_SIZE
+
+        if not uuid:
+            api.write_error(self.response, 400, 'Unknown or missing user')
+            return
+
+        filename = config.PROFILE_BUCKET + uuid
+        image = images.Image(blob_key=blobstore.create_gs_key('/gs' + filename))
+        image.resize(width=size, height=size, crop_to_fit=True, allow_stretch=False)
+        png_data = StringIO.StringIO(image.execute_transforms(output_encoding=images.PNG))
+
+        im = Image.open(png_data)
+        bigsize = (im.size[0] * 3, im.size[1] * 3)
+        mask = Image.new('L', bigsize, 0)
+        draw = ImageDraw.Draw(mask)
+        draw.ellipse((0, 0) + bigsize, fill=255)
+        mask = mask.resize(im.size, Image.ANTIALIAS)
+        im.putalpha(mask)
+
+        output = StringIO.StringIO()
+        im.save(output, 'PNG')
+
+        self.response.headers['Content-Type'] = 'image/png'
+        self.response.out.write(output.getvalue())
+        output.close()
 
 class UserRecoveryAPI(webapp2.RequestHandler):
 
