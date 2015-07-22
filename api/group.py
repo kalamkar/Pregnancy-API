@@ -161,7 +161,9 @@ class GroupPhotoAPI(webapp2.RequestHandler):
             return
 
         images = []
-        positions = [(0, 0), (size / 2, 0), (size / 2, size / 2)]
+        margin = int(size * 4 / 100)
+        margin = margin if margin else 2
+        positions = [(0, 0), (size / 2 + margin, 0), (size / 2 + margin, size / 2 + margin)]
 
         for member_key in group.members:
             if len(images) == len(positions):
@@ -175,6 +177,7 @@ class GroupPhotoAPI(webapp2.RequestHandler):
             try:
                 gcs_file = gcs.open(filename, 'r')
                 images.append(image)
+                gcs_file.close()
             except:
                 pass
 
