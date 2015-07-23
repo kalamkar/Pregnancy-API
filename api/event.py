@@ -60,10 +60,11 @@ def get_event_query(user, event_type, start_millis, end_millis):
         start = get_time_from_millis(start_millis)
         return Event.query(ndb.AND(Event.event_type == event_type,
                                    ndb.AND(Event.time > start, Event.time < end)),
-                            ancestor=user.key)
+                            ancestor=user.key).order(-Event.time)
     elif start_millis:
         start = get_time_from_millis(start_millis)
-        return Event.query(ndb.AND(Event.time > start, Event.time < end), ancestor=user.key)
+        return Event.query(ndb.AND(Event.time > start, Event.time < end),
+                           ancestor=user.key).order(-Event.time)
     elif event_type:
         return Event.query(Event.event_type == event_type, ancestor=user.key).order(-Event.time)
     else:
