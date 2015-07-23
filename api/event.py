@@ -12,7 +12,7 @@ import webapp2
 from datastore import Event
 
 from google.appengine.ext import ndb
-from api import get_time_millis
+from renderer import get_event_json
 
 class EventAPI(webapp2.RequestHandler):
 
@@ -46,7 +46,7 @@ class EventAPI(webapp2.RequestHandler):
         query = get_event_query(user, event_type, start_millis, end_millis)
         events = []
         for event in query:
-            events.append({'type': event.event_type, 'time': get_time_millis(event.time)})
+            events.append(get_event_json(event))
 
         api.write_message(self.response, 'success', extra={'events' : events})
 

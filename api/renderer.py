@@ -61,6 +61,11 @@ def get_group_json(group):
     return json
 
 
+def get_event_json(event):
+    json = {'type': event.event_type, 'time': get_time_millis(event.time), 'data': event.data}
+    return json
+
+
 def get_appointment_json(appointment, provider):
     json = {'id': appointment.key.urlsafe(),
             'time': get_time_millis(appointment.time),
