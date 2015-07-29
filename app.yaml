@@ -6,6 +6,9 @@ threadsafe: yes
 
 handlers:
 
+- url: /p
+  static_dir: pages
+  
 - url: /api.html
   static_files: api.html
   upload: api\.html

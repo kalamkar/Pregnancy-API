@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>pregnansi Cards</title>
+        <style type="text/css">
+            BODY {font-family: sans-serif;}
+            LABEL {font-size: large;}
+            button { font-weight: bold; font-size: large; padding:5px; width:125px; }
+            h3 {margin:10px; text-align:center;}
+            .card {display:inline-block; border: thin solid gray; margin:10px;
+                vertical-align:top; margin-bottom:20px; width:250px;}
+            .card-title {padding:15px; background-color: #ccc;}
+            .card-text {padding:15px;}
+            .card-url {padding:15px; }
+            a.card-url ,a.card-url:link, a.card-url:visited, a.card-url:hover, a.card-url:focus,
+            a.card-url:active{
+                color:blue;
+                text-decoration: none;
+            }
+            .poll {padding:15px; }
+        </style>
+        <script type="text/javascript" src="cards.js"></script>
+    </head>
+    <body>
+        <script type="text/javascript">
+        for (var key in data.weeks) {
+        	var week = data.weeks[key];
+        	document.write('<h3>' + key + '. ' + week['title'] + '</h3>');
+        	for (var i = 0; i < week['cards'].length; i++) {
+        		var card = week['cards'][i];
+        	    document.write('<div class="card">');
+        	    document.write('<div class="card-title">' + card['title'] + '</div>');
+        	    document.write('<div class="card-text">' + card['text'] + '</div>');
+        	    if (card['options'] != null) {
+        	    	   document.write('<form action="" class="poll">');
+        	    	   for (var j = 0; j < card['options'].length; j++) {
+        	    		   document.write('<input name="card' + i + '" type="radio">'
+        	    				   + card['options'][j] + '</input><br/>');
+        	    	   }
+        	    	   document.write('</form>');
+        	    }
+        	    if (card['url']) {
+        	        document.write('<a class="card-url" href="' + card['url'] +
+        	        		'" target="_blank">Learn more</a>');
+        	    }
+        	    document.write('</div>');
+        	}
+        	document.write('<br/><hr/><br/>');
+        }
+        </script>
+    </body>
+</html>
