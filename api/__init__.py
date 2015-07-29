@@ -17,7 +17,6 @@ import ssl
 import struct
 
 
-from datastore import Insight
 from datastore import Location
 from datastore import User
 from google.appengine.api import mail
@@ -158,31 +157,4 @@ def email(address, message):
 
     sender_address = "Dovetail.care Support <support@dovetail-api1.appspotmail.com>"
     mail.send_mail(sender_address, address, message, message)
-
-
-def make_insights(user):
-    insights = []
-    for feature in user.features:
-        if feature.name == 'DUE_DATE_MILLIS':
-            due_date = datetime.datetime.utcfromtimestamp(int(feature.value) // 1000)
-            days = (due_date - datetime.datetime.now()).days
-            if days < -365:
-                continue
-            if days < 0:
-                insights.append(Insight(title='Congratulations!', tags='mother', priority=2))
-            elif days < 7:
-                insights.append(Insight(title='%d days to go!' % (days), tags='mother', priority=2))
-            elif days < 275:
-                insights.append(Insight(title='%d weeks %d days to go!' % (days / 7, days % 7),
-                                        tags='mother', priority=2))
-
-            image_url = config.STORAGE_URL + config.IMAGES_BUCKET + 'eggplant.png'
-            insights.append(Insight(title='Your baby is A inches and B lbs now. Roughly the size of a DDDD.',
-                            tags='image:%s,mother' % (image_url), priority=3))
-            insights.append(Insight(title='Expected birth date is %s.' % (due_date.strftime('%b %d %Y')), tags='baby',
-                                    priority=2))
-            insights.append(Insight(title='Eat 1/2 apple everyday.', tags='mother', priority=1))
-
-    return insights
-
 

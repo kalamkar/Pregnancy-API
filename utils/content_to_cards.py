@@ -19,13 +19,13 @@ TAGS = {
          "tips for dad": 'tip,dad',
          }
 
-def parse_card(content, title):
-    json = {'title': title}
+def parse_card(content, card_type):
+    json = {'type': card_type}
     result = re.search('(?P<url>https?://[^\s]+)', content)
     if result:
         json['url'] = result.group('url')
         content = content.replace(json['url'], '')
-    json['tags'] = TAGS[title.lower()]
+    json['tags'] = TAGS[card_type.lower()]
 
     options = re.findall('#\d\. [^#]+', content)
     if json['tags'] == 'poll' and options:
@@ -36,7 +36,7 @@ def parse_card(content, title):
                 choices.append(re.sub('^#\d\.', '', option).strip())
         json['options'] = choices
 
-    json['text'] = content.replace('%', '').replace('//', '').strip()
+    json['title'] = content.replace('%', '').replace('//', '').strip()
 
     return json
 
@@ -58,5 +58,5 @@ with open(sys.argv[1]) as tsv:
     for column in columns[1:]:
         (week_number, week) = parse_week(column, type_column)
         weeks[week_number] = week
-    print 'data = \n%s\n;' % (json.dumps({'weeks': weeks}, indent=4))
+    print 'data = %s' % (json.dumps({'weeks': weeks}, indent=4))
 

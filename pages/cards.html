@@ -30,8 +30,8 @@
         	for (var i = 0; i < week['cards'].length; i++) {
         		var card = week['cards'][i];
         	    document.write('<div class="card">');
-        	    document.write('<div class="card-title">' + card['title'] + '</div>');
-        	    document.write('<div class="card-text">' + card['text'] + '</div>');
+        	    document.write('<div class="card-title">' + card['type'] + '</div>');
+        	    document.write('<div class="card-text">' + card['title'] + '</div>');
         	    if (card['options'] != null) {
         	    	   document.write('<form action="" class="poll">');
         	    	   for (var j = 0; j < card['options'].length; j++) {
