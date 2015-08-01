@@ -2,7 +2,7 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title>pregnansi Cards</title>
+        <title>Pregnansi Cards</title>
         <style type="text/css">
             BODY {font-family: sans-serif;}
             LABEL {font-size: large;}
@@ -11,14 +11,10 @@
             .card {display:inline-block; border: thin solid gray; margin:10px;
                 vertical-align:top; margin-bottom:20px; width:250px;}
             .card-title {padding:15px; background-color: #ccc;}
-            .card-text {padding:15px;}
-            .card-url {padding:15px; }
-            a.card-url ,a.card-url:link, a.card-url:visited, a.card-url:hover, a.card-url:focus,
-            a.card-url:active{
-                color:blue;
-                text-decoration: none;
-            }
-            .poll {padding:15px; }
+            .card-text {margin:15px;}
+            .card-url {}
+            .card-tags {padding:5px; font-size: small;}
+            .poll {margin:5px; }
         </style>
         <script type="text/javascript" src="cards.js"></script>
     </head>
@@ -31,19 +27,23 @@
         		var card = week['cards'][i];
         	    document.write('<div class="card">');
         	    document.write('<div class="card-title">' + card['type'] + '</div>');
-        	    document.write('<div class="card-text">' + card['title'] + '</div>');
+        	    document.write('<div class="card-text">' + card['text'] + '</div>');
         	    if (card['options'] != null) {
-        	    	   document.write('<form action="" class="poll">');
-        	    	   for (var j = 0; j < card['options'].length; j++) {
-        	    		   document.write('<input name="card' + i + '" type="radio">'
-        	    				   + card['options'][j] + '</input><br/>');
-        	    	   }
-        	    	   document.write('</form>');
+        	    	var type = card['tags'].indexOf('multi_select') >= 0 ? 'checkbox' : 'radio';
+        	    	document.write('<form action="" class="poll">');
+        	    	for (var j = 0; j < card['options'].length; j++) {
+        	    		  document.write('<input name="card' + i + '" type="' + type + '">'
+        	    				+ card['options'][j] + '</input><br/>');
+        	    	}
+        	    	document.write('</form>');
         	    }
+                document.write('<table width="100%"><tr>');
+                document.write('<td class="card-tags">' + card['tags'] + '</td>');
         	    if (card['url']) {
-        	        document.write('<a class="card-url" href="' + card['url'] +
-        	        		'" target="_blank">Learn more</a>');
+        	        document.write('<td class="card-url" align="right"><a href="' + card['url'] +
+        	        		'" target="_blank"><img width="30px" src="ic_info.png"/></a></td>');
         	    }
+        	    document.write('</tr></table>');
         	    document.write('</div>');
         	}
         	document.write('<br/><hr/><br/>');

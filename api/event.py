@@ -6,6 +6,7 @@ Created on Sep 25, 2014
 
 import api
 import datetime
+import json
 import webapp2
 
 
@@ -32,6 +33,15 @@ class EventAPI(webapp2.RequestHandler):
         event.put_async()
 
         api.write_message(self.response, 'Successfully added event %s' % (event.key.urlsafe()))
+
+        try:
+            if event_type == 'CARD_ARCHIVED':
+                card = json.loads(data)
+                card = ndb.Key(urlsafe=card['id']).get()
+                card.delete()
+        except:
+            pass
+
 
     def get(self):
         event_type = self.request.get('type')

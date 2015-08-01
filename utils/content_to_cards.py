@@ -10,33 +10,44 @@ import json
 import re
 
 TAGS = {
-         "baby's  milestone/fact": 'milestone,baby',
-         "baby's size  visualization": 'size',
-         "expectations for care": 'care',
-         "polls": 'poll',
-         "symptoms": 'symptom',
-         "tips": 'tip',
-         "tips for dad": 'tip,dad',
+         "baby's  milestone/fact":      ['milestone', 'baby'],
+         "baby's size  visualization":  ['size'],
+         "expectations for care":       ['care'],
+         "polls":                       ['poll'],
+         "symptoms":                    ['symptom'],
+         "tips":                        ['tip'],
+         "tips for dad":                ['tip', 'dad'],
          }
 
-def parse_card(content, card_type):
+def parse_card(content, card_type, week):
     json = {'type': card_type}
     result = re.search('(?P<url>https?://[^\s]+)', content)
     if result:
         json['url'] = result.group('url')
         content = content.replace(json['url'], '')
-    json['tags'] = TAGS[card_type.lower()]
+    json['tags'] = list(TAGS[card_type.lower()])
+    json['tags'].append('week:%d' % (week))
 
-    options = re.findall('#\d\. [^#]+', content)
-    if json['tags'] == 'poll' and options:
-        choices = []
-        for option in options:
+    single_options = re.findall('#\d\. [^#]+', content)
+    if single_options and ('poll' in json['tags'] or 'symptom' in json['tags']):
+        options = []
+        for option in single_options:
             if option:
                 content = content.replace(option, '')
-                choices.append(re.sub('^#\d\.', '', option).strip())
-        json['options'] = choices
+                options.append(re.sub('^#\d\.', '', option).strip())
+        json['options'] = options
 
-    json['title'] = content.replace('%', '').replace('//', '').strip()
+    multi_options = re.findall('@\d\. [^@]+', content)
+    if multi_options and ('poll' in json['tags'] or 'symptom' in json['tags']):
+        options = []
+        for option in multi_options:
+            if option:
+                content = content.replace(option, '')
+                options.append(re.sub('^@\d\.', '', option).strip())
+        json['options'] = options
+        json['tags'].append('multi_select')
+
+    json['text'] = content.replace('%', '').replace('//', '').strip()
 
     return json
 
@@ -47,7 +58,7 @@ def parse_week(week, types):
     json['cards'] = []
     for i in range(1, len(week)):
         if week[i] and week[i].strip():
-            json['cards'].append(parse_card(week[i], types[i]))
+            json['cards'].append(parse_card(week[i], types[i], week_number))
     return (week_number, json)
 
 weeks = {}

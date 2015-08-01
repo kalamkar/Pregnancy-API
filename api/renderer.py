@@ -6,6 +6,8 @@ Created on Sep 25, 2014
 
 from api import get_time_millis
 
+from datastore import Card
+
 
 def get_user_json(user, public=True):
     json = {'uuid': user.uuid, 'name': user.name,
@@ -27,16 +29,26 @@ def get_user_json(user, public=True):
             if feature.name and not feature.name[0] == '_':
                 features[feature.name] = feature.value
         json['features'] = features
-        insights = []
-        for insight in user.insights:
-            insights.append({'title': insight.title, 'tags': insight.tags.split(','),
-                             'priority': insight.priority})
-        json['insights'] = insights
+        cards = []
+        for card in Card.query(ancestor=user.key):
+            cards.append(get_card_json(card))
+        json['cards'] = cards
     return json
+
+def get_card_json(card):
+    return { 'id': card.key.urlsafe(),
+             'text': card.text,
+             'icon': card.icon,
+             'image': card.image,
+             'url': card.url,
+             'options': card.options,
+             'tags': card.tags,
+             'priority': card.priority }
 
 
 def get_message_json(message):
-    return {'sender': get_user_json(message.sender.get()), 'text': message.text,
+    return {'sender': get_user_json(message.sender.get()),
+            'text': message.text,
             'group_uuid': message.key.parent().get().uuid,
             'create_time': get_time_millis(message.create_time)}
 

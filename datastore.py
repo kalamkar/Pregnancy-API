@@ -17,13 +17,6 @@ class Location(ndb.Model):
     latlon = ndb.GeoPtProperty()
     name = ndb.StringProperty()
 
-# Part of User
-class Insight(ndb.Model):
-    title = ndb.StringProperty()
-    tags = ndb.StringProperty()
-    priority = ndb.IntegerProperty()
-    create_time = ndb.DateTimeProperty(auto_now_add=True)
-
 # Part of user
 class Device(ndb.Model):
     device_type = ndb.StringProperty(required=True, choices=['UNKNOWN', 'EMAIL', 'PHONE', \
@@ -43,9 +36,21 @@ class User(ndb.Model):
     last_location = ndb.StructuredProperty(Location)
     devices = ndb.StructuredProperty(Device, repeated=True)
     features = ndb.StructuredProperty(Pair, repeated=True)
-    insights = ndb.StructuredProperty(Insight, repeated=True)
     recovery = ndb.StructuredProperty(Recovery)
     update_time = ndb.DateTimeProperty(auto_now=True)
+    create_time = ndb.DateTimeProperty(auto_now_add=True)
+
+
+# Child of User object representing a UI card
+class Card(ndb.Model):
+    text = ndb.StringProperty()
+    icon = ndb.StringProperty()
+    image = ndb.StringProperty()
+    url = ndb.StringProperty()
+    options = ndb.StringProperty(repeated=True)
+    tags = ndb.StringProperty(repeated=True)
+    priority = ndb.IntegerProperty()
+    expire_time = ndb.DateTimeProperty()
     create_time = ndb.DateTimeProperty(auto_now_add=True)
 
 
