@@ -43,7 +43,8 @@ def get_card_json(card):
              'url': card.url,
              'options': card.options,
              'tags': card.tags,
-             'priority': card.priority }
+             'priority': card.priority,
+             'expire_time': get_time_millis(card.expire_time) }
 
 
 def get_message_json(message):
