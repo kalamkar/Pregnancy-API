@@ -37,7 +37,7 @@ class EventAPI(webapp2.RequestHandler):
         try:
             if event_type == 'CARD_ARCHIVED':
                 card = json.loads(data)
-                card = ndb.Key(urlsafe=card['id']).get()
+                card = ndb.Key(urlsafe=card['id'])
                 card.delete()
         except:
             pass
