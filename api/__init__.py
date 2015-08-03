@@ -67,12 +67,10 @@ def get_region(request):
     return name
 
 def get_user(request):
-    user_id = request.get('user_id')
-    auth_header = None
     try:
         auth_header = request.headers['Authorization']
     except KeyError:
-        pass
+        auth_header = request.get('auth')
 
     if auth_header:
         uuid, auth = get_uuid_auth(auth_header)
@@ -80,8 +78,6 @@ def get_user(request):
             user = User.query(User.uuid == uuid).get()
             if user and user.auth == auth:
                 return user
-    elif user_id:
-        return ndb.Key(urlsafe=user_id).get()
 
     return None
 

@@ -4,16 +4,15 @@ Created on Sep 25, 2014
 @author: abhi@dovetail.care (Abhijit Kalamkar)
 '''
 
-import api
 import datetime
-import json
-import webapp2
-
-
-from datastore import Event
 
 from google.appengine.ext import ndb
+import webapp2
+
+import api
+from datastore import Event
 from renderer import get_event_json
+
 
 class EventAPI(webapp2.RequestHandler):
 
@@ -33,15 +32,6 @@ class EventAPI(webapp2.RequestHandler):
         event.put_async()
 
         api.write_message(self.response, 'Successfully added event %s' % (event.key.urlsafe()))
-
-        try:
-            if event_type == 'CARD_ARCHIVED':
-                card = json.loads(data)
-                card = ndb.Key(urlsafe=card['id'])
-                card.delete()
-        except:
-            pass
-
 
     def get(self):
         event_type = self.request.get('type')

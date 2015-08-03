@@ -4,17 +4,76 @@ Created on Jul 28, 2015
 @author: abhi
 '''
 
+import api
 import datetime
 import logging
+import webapp2
 
 from utils import cards
 from datastore import Card
+from api.renderer import get_card_json
+
+from google.appengine.ext import ndb
+
+class CardAPI(webapp2.RequestHandler):
+
+    def post(self):
+        self.put()
+
+    def put(self):
+        card_id = self.request.get('card_id')
+        tag = self.request.get('tag')
+        tags = self.request.get('tags')
+
+        user = api.get_user(self.request)
+        if not user:
+            api.write_error(self.response, 400, 'Unknown or missing user')
+            return
+        if not card_id:
+            api.write_error(self.response, 400, 'Missing required parameter')
+            return
+        if not tag and not tags:
+            api.write_error(self.response, 400, 'Missing parameter to update')
+            return
+
+        card = ndb.Key(urlsafe=card_id).get()
+        if not card:
+            api.write_error(self.response, 404, 'Card not found')
+            return
+
+        if tags:
+            card.tags = tags.lower().split(',')
+        elif tag:
+            card.tags.append(tag.lower())
+
+        card.put_async()
+        api.write_message(self.response, 'Successfully updated the card')
+
+    def get(self):
+        tags = self.request.get('tags')
+
+        user = api.get_user(self.request)
+        if not user:
+            api.write_error(self.response, 400, 'Unknown or missing user')
+            return
+
+        cards = []
+        if tags:
+            query = Card.query(Card.tags.IN(tags.lower().split(',')),
+                               ancestor=user.key).order(-Card.create_time)
+        else:
+            query = Card.query(ancestor=user.key).order(-Card.create_time)
+
+        for card in query:
+            cards.append(get_card_json(card))
+
+        api.write_message(self.response, 'success', extra={'cards' : cards})
 
 
 def update_user_cards(user):
     current_cards = {}
     for card in Card.query(ancestor=user.key):
-        current_cards[card.text + ','.join(card.tags)] = card
+        current_cards[card.text] = card
 
     due_date = get_due_date(user)
     if not due_date:
@@ -23,16 +82,9 @@ def update_user_cards(user):
     start_date = due_date - datetime.timedelta(weeks=40)
     week = int((datetime.datetime.now() - start_date).days / 7)
 
-    # Delete old cards
-    for key, card in current_cards.iteritems():
-        if card.expire_time < datetime.datetime.now():
-            card.delete_async()
-            current_cards.pop(key)
-
     # Add new cards
     for card in get_week_based_cards(week, user):
-        key = card.text + ','.join(card.tags)
-        if key in current_cards.keys():
+        if card.text in current_cards.keys():
             continue
 
         # Let the card expire in 1 week (counting weeks from start_date and not 1 week from now)
