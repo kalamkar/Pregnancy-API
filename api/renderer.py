@@ -7,6 +7,7 @@ Created on Sep 25, 2014
 from api import get_time_millis
 
 from datastore import Card
+from datetime import datetime
 
 
 def get_user_json(user, public=True):
@@ -31,7 +32,8 @@ def get_user_json(user, public=True):
         json['features'] = features
         cards = []
         for card in Card.query(ancestor=user.key):
-            if not 'archived' in card.tags:
+            if not 'archived' in card.tags \
+                and (not card.expire_time or card.expire_time > datetime.now()):
                 cards.append(get_card_json(card))
         json['cards'] = cards
     return json
