@@ -78,6 +78,9 @@ def update_user_cards(user):
     due_date = get_due_date(user)
     if not due_date:
         logging.warn('Due date not available for user.')
+        Card(parent=user.key, priority=1, tags=['onboard', 'action:due_date'],
+             text='Expecting mother? Find out more about your pregnancy.' +
+             'Tap here and tell us your due date.').put_async()
         return
     start_date = due_date - datetime.timedelta(weeks=40)
     week = int((datetime.datetime.now() - start_date).days / 7)
@@ -91,6 +94,10 @@ def update_user_cards(user):
         card.expire_time = start_date + datetime.timedelta(weeks=week + 1)
         card.parent = user.key
         card.put_async()
+
+    for text, card in current_cards.iteritems():
+        if 'action:due_date' in card.tags:
+            card.key.delete_async()
 
 def create_user_cards(user):
     if user.name:
