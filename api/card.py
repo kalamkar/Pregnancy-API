@@ -92,6 +92,16 @@ def update_user_cards(user):
         card.parent = user.key
         card.put_async()
 
+def create_user_cards(user):
+    if user.name:
+        Card(parent=user.key, text='Hello %s' % user.name.split()[0], priority=0,
+             tags=['onboard']).put_async()
+
+    if not get_due_date(user):
+        Card(parent=user.key, priority=1, tags=['onboard', 'action:due_date'],
+             text='Expecting mother? Find out more about your pregnancy.' +
+             'Tap here and tell us your due date.').put_async()
+
 
 def get_week_based_cards(week, user):
     contents = cards.data['weeks'][str(week)]['cards']

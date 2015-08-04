@@ -35,6 +35,8 @@ def write_message(response, message, extra={}):
     response.out.write(json.dumps(output))
 
 def get_time_millis(time):
+    if not time:
+        return None
     # TODO(abhi): We are losing millisecond accuracy here, fix it.
     return int((time - datetime.datetime(1970, 1, 1)).total_seconds() * 1000)
 
