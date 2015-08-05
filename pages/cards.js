@@ -1,4 +1,4 @@
-data = {
+weekly = {
     "weeks": {
         "1": {
             "cards": [

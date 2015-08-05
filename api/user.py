@@ -22,7 +22,6 @@ from datastore import Pair
 from api.renderer import get_user_json
 from api.search import update_index
 from api.card import update_user_cards
-from api.card import create_user_cards
 
 from PIL import Image, ImageDraw
 from google.appengine.api import images
@@ -51,7 +50,7 @@ class UserAPI(webapp2.RequestHandler):
             user.devices.append(Device(device_type='EMAIL', data=email))
         user.devices.append(Device(device_type=device_type.upper(), data=push_token))
         user.put()
-        create_user_cards(user)
+        update_user_cards(user)
         update_index(user)
 
         api.write_message(self.response, 'success',

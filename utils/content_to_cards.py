@@ -69,5 +69,5 @@ with open(sys.argv[1]) as tsv:
     for column in columns[1:]:
         (week_number, week) = parse_week(column, type_column)
         weeks[week_number] = week
-    print 'data = %s' % (json.dumps({'weeks': weeks}, indent=4))
+    print 'weekly = %s' % (json.dumps({'weeks': weeks}, indent=2))
 

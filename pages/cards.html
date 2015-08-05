@@ -20,8 +20,8 @@
     </head>
     <body>
         <script type="text/javascript">
-        for (var key in data.weeks) {
-        	var week = data.weeks[key];
+        for (var key in weekly.weeks) {
+        	var week = weekly.weeks[key];
         	document.write('<h3>' + key + '. ' + week['title'] + '</h3>');
         	for (var i = 0; i < week['cards'].length; i++) {
         		var card = week['cards'][i];
