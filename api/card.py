@@ -120,9 +120,13 @@ def get_week_based_cards(user):
     start_date = due_date - datetime.timedelta(weeks=40)
     week = int((datetime.datetime.now() - start_date).days / 7)
 
-    contents = weekly_cards.weekly['weeks'][str(week)]['cards']
-    if not contents:
+    try:
+        contents = weekly_cards.weekly['weeks'][str(week)]['cards']
+        if not contents:
+            return []
+    except:
         return []
+
     priority = 1
     card_objects = []
     for content in contents:
