@@ -12,6 +12,7 @@ from utils import weekly_cards
 from utils import system_cards
 from datastore import Card
 from api.renderer import get_card_json
+from api.search import update_index
 
 from google.appengine.ext import ndb
 
@@ -48,6 +49,7 @@ class CardAPI(webapp2.RequestHandler):
 
         card.put_async()
         api.write_message(self.response, 'Successfully updated the card')
+        update_index(card)
 
     def get(self):
         tags = self.request.get('tags')
@@ -86,6 +88,7 @@ def update_user_cards(user):
             continue
 
         card.put_async()
+        update_index(card)
 
     if get_due_date(user):
         for text, card in current_cards.iteritems():

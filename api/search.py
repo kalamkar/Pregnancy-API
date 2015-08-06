@@ -15,7 +15,8 @@ from google.appengine.ext import ndb
 from datastore import Message
 from datastore import Group
 from datastore import User
-from api.renderer import get_message_json
+from datastore import Card
+from api.renderer import get_message_json, get_card_json
 from api.renderer import get_group_json
 from api.renderer import get_user_json
 
@@ -48,6 +49,8 @@ class SearchAPI(webapp2.RequestHandler):
                 data['group'] = get_group_json(obj)
             elif isinstance(obj, User):
                 data['user'] = get_user_json(obj)
+            elif isinstance(obj, Card):
+                data['card'] = get_card_json(obj)
 
             if data:
                 results.append(data)
@@ -81,6 +84,8 @@ def update_index(obj):
             data = get_message_json(obj)
         elif isinstance(obj, Group):
             data = get_group_json(obj)
+        elif isinstance(obj, Card):
+            data = get_card_json(obj)
         elif isinstance(obj, User):
             data = get_user_json(obj, public=False)
             location = obj.last_location
