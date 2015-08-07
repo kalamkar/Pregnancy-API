@@ -97,9 +97,12 @@ def update_user_cards(user):
 
 
 def get_system_cards(user):
+    priority = 1
     tagged_cards = {}
     for content in system_cards.data['cards']:
         card = make_card(content, user)
+        card.priority = priority
+        priority += 1
         for tag in card.tags:
             if not tag in tagged_cards.keys():
                 tagged_cards[tag] = []

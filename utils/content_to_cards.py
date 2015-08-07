@@ -12,7 +12,7 @@ import re
 TAGS = {
          "baby's  milestone/fact":      ['milestone', 'baby'],
          "baby's size  visualization":  ['size'],
-         "expectations for care":       ['care'],
+         "expectations for care":       ['care', 'action:to_do'],
          "polls":                       ['poll'],
          "symptoms":                    ['symptom'],
          "tips":                        ['tip'],
@@ -69,5 +69,5 @@ with open(sys.argv[1]) as tsv:
     for column in columns[1:]:
         (week_number, week) = parse_week(column, type_column)
         weeks[week_number] = week
-    print 'weekly = %s' % (json.dumps({'weeks': weeks}, indent=2))
+    print 'weekly = %s' % (json.dumps({'weeks': weeks}, indent=2, ensure_ascii=False))
 
