@@ -42,15 +42,18 @@ class SearchAPI(webapp2.RequestHandler):
         ndb.Future.wait_all(result)
         for handle in result:
             data = {}
-            obj = handle.get_result()
-            if isinstance(obj, Message) and api.is_user_allowed_message_view(user, obj):
-                data['message'] = get_message_json(obj)
-            elif isinstance(obj, Group) and api.is_user_allowed_group_view(user, obj):
-                data['group'] = get_group_json(obj)
-            elif isinstance(obj, User):
-                data['user'] = get_user_json(obj)
-            elif isinstance(obj, Card):
-                data['card'] = get_card_json(obj)
+            try:
+                obj = handle.get_result()
+                if isinstance(obj, Message) and api.is_user_allowed_message_view(user, obj):
+                    data['message'] = get_message_json(obj)
+                elif isinstance(obj, Group) and api.is_user_allowed_group_view(user, obj):
+                    data['group'] = get_group_json(obj)
+                elif isinstance(obj, User):
+                    data['user'] = get_user_json(obj)
+                elif isinstance(obj, Card):
+                    data['card'] = get_card_json(obj)
+            except:
+                pass
 
             if data:
                 results.append(data)

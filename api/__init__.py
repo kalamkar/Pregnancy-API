@@ -109,44 +109,47 @@ def is_user_allowed_group_view(user, group):
 
 
 
-def apns(token, message, gateway):
-    if not token or not message:
-        logging.warn('Invalid token or message')
-
-    payload = json.dumps({"aps": {"alert" : message, "sound": "bingbong.aiff"}})
-
-    if gateway == 'sandbox':
-        sock = ssl.wrap_socket(socket.socket(),
-                                server_side=False,
-                                keyfile=StringIO.StringIO(config.KEY_DEV),
-                                certfile=StringIO.StringIO(config.CERT_DEV))
-        sock.connect(config.APNS_DEV)
-    else:
-        sock = ssl.wrap_socket(socket.socket(),
-                                server_side=False,
-                                keyfile=StringIO.StringIO(config.KEY),
-                                certfile=StringIO.StringIO(config.CERT))
-        sock.connect(config.APNS)
-
-
-    logging.info('token is %s' % (token))
-    token = binascii.unhexlify(token)
-    fmt = "!cH32sH{0:d}s".format(len(payload))
-    cmd = '\x00'
-    msg = struct.pack(fmt, cmd, len(token), token, len(payload), payload)
-    sock.write(msg)
-    sock.close()
+# def apns(token, message, gateway):
+#     if not token or not message:
+#         logging.warn('Invalid token or message')
+#
+#     payload = json.dumps({"aps": {"alert" : message, "sound": "bingbong.aiff"}})
+#
+#     if gateway == 'sandbox':
+#         sock = ssl.wrap_socket(socket.socket(),
+#                                 server_side=False,
+#                                 keyfile=StringIO.StringIO(config.KEY_DEV),
+#                                 certfile=StringIO.StringIO(config.CERT_DEV))
+#         sock.connect(config.APNS_DEV)
+#     else:
+#         sock = ssl.wrap_socket(socket.socket(),
+#                                 server_side=False,
+#                                 keyfile=StringIO.StringIO(config.KEY),
+#                                 certfile=StringIO.StringIO(config.CERT))
+#         sock.connect(config.APNS)
+#
+#
+#     logging.info('token is %s' % (token))
+#     token = binascii.unhexlify(token)
+#     fmt = "!cH32sH{0:d}s".format(len(payload))
+#     cmd = '\x00'
+#     msg = struct.pack(fmt, cmd, len(token), token, len(payload), payload)
+#     sock.write(msg)
+#     sock.close()
 
 def gcm(tokens, data):
     payload = {'registration_ids': tokens, 'data': data}
     headers = {'Content-Type': 'application/json',
                'Authorization': 'key=' + config.GCM_API_KEY}
     logging.info(json.dumps(payload))
-    result = urlfetch.fetch(url=config.GCM_URL,
-                            payload=json.dumps(payload),
-                            method=urlfetch.POST,
-                            headers=headers)
-    logging.info(result.content)
+    try:
+        result = urlfetch.fetch(url=config.GCM_URL,
+                                payload=json.dumps(payload),
+                                method=urlfetch.POST,
+                                headers=headers)
+        logging.info(result.content)
+    except:
+        logging.warn('Exception sending message to GCM Servers')
 
 def email(address, message):
     if not mail.is_email_valid(address):
