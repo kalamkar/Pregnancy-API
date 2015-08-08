@@ -179,7 +179,7 @@ def get_due_date(user):
 def make_card(content, user):
     keys = content.keys()
     card = Card(parent=user.key)
-    card.text = content['text'] if 'text' in keys else None
+    card.text = content['text'].decode('utf-8', 'ignore') if 'text' in keys else None
     card.icon = content['icon'] if 'icon' in keys else None
     card.image = content['image'] if 'image' in keys else None
     card.url = content['url'] if 'url' in keys else None
