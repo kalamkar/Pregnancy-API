@@ -98,20 +98,20 @@ def update_user_cards(user):
 
 def get_system_cards(user):
     priority = 1
-    tagged_cards = {}
+    cards_by_tag = {}
     for content in system_cards.data['cards']:
         card = make_card(content, user)
         card.priority = priority
         priority += 1
         for tag in card.tags:
-            if not tag in tagged_cards.keys():
-                tagged_cards[tag] = []
-            tagged_cards[tag].append(card)
+            if not tag in cards_by_tag.keys():
+                cards_by_tag[tag] = []
+            cards_by_tag[tag].append(card)
 
     cards = []
     for tag in get_user_tags(user):
-        if tag in tagged_cards.keys():
-            cards.extend(tagged_cards[tag])
+        if tag in cards_by_tag.keys():
+            cards.extend(cards_by_tag[tag])
 
     return cards
 
@@ -130,15 +130,44 @@ def get_week_based_cards(user):
     except:
         return []
 
-    priority = 1
+    cards_by_tag = {}
     card_objects = []
     for content in contents:
         card = make_card(content, user)
-        card.priority = 0 if 'size' in card.tags else priority
-        priority += 1
         # Let the card expire in 1 week (counting weeks from start_date and not 1 week from now)
         card.expire_time = start_date + datetime.timedelta(weeks=week + 1)
         card_objects.append(card)
+
+        # Add them to a dict by tag for priority
+        for tag in card.tags:
+            if not tag in cards_by_tag.keys():
+                cards_by_tag[tag] = []
+            cards_by_tag[tag].append(card)
+
+    # Get the priority in this order: Size, Symptom1, Poll1, Care, Tips, Symptoms
+    priority = 0
+    if 'size' in cards_by_tag.keys():
+        card = cards_by_tag['size'].pop(0)
+        card.priority = priority
+        priority += 1
+    if 'symptom' in cards_by_tag.keys():
+        card = cards_by_tag['symptom'].pop(0)
+        card.priority = priority
+        priority += 1
+    if 'poll' in cards_by_tag.keys():
+        card = cards_by_tag['poll'].pop(0)
+        card.priority = priority
+        priority += 1
+    if 'care' in cards_by_tag.keys():
+        card = cards_by_tag['care'].pop(0)
+        card.priority = priority
+        priority += 1
+
+    for card in card_objects:
+        if card.priority >= 99:
+            card.priority = priority
+            priority += 1
+
     return card_objects
 
 def get_due_date(user):
@@ -156,6 +185,7 @@ def make_card(content, user):
     card.url = content['url'] if 'url' in keys else None
     card.options = content['options'] if 'options' in keys else []
     card.tags = content['tags'] if 'tags' in keys else []
+    card.priority = int(content['priority']) if 'priority' in keys else 99
     return card
 
 def get_user_tags(user):
