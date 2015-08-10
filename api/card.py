@@ -47,9 +47,9 @@ class CardAPI(webapp2.RequestHandler):
         elif tag:
             card.tags.append(tag.lower())
 
-        card.put_async()
+        future = card.put_async()
         api.write_message(self.response, 'Successfully updated the card')
-        update_index(card)
+        update_index(future.get_result())
 
     def get(self):
         tags = self.request.get('tags')
@@ -80,6 +80,7 @@ def update_user_cards(user):
     cards = get_system_cards(user)
     cards.extend(get_week_based_cards(user))
 
+    futures = []
     # Add new cards
     for card in cards:
         card.text = card.text.replace('%name%', user.name.split()[0] if user.name else '')
@@ -87,13 +88,15 @@ def update_user_cards(user):
         if card.text in current_cards.keys():
             continue
 
-        card.put_async()
-        update_index(card)
+        futures.append(card.put_async())
 
     if get_due_date(user):
         for text, card in current_cards.iteritems():
             if 'action:due_date' in card.tags:
                 card.key.delete_async()
+
+    for future in futures:
+        update_index(future.get_result())
 
 
 def get_system_cards(user):
