@@ -138,8 +138,7 @@ class UserPhotoAPI(webapp2.RequestHandler):
 
         filename = config.PROFILE_BUCKET + user.uuid
         gcs_file = gcs.open(filename, mode='w', content_type=uploaded_file.type,
-                            options={'x-goog-acl': 'public-read',
-                                     'Cache-Control' : 'public,max-age=%d' % (config.MEDIA_MAX_AGE)})
+                            options={'x-goog-acl': 'public-read'})
         gcs_file.write(uploaded_file.file.read())
         gcs_file.close();
 
