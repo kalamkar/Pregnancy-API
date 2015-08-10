@@ -81,7 +81,7 @@ class UserAPI(webapp2.RequestHandler):
                 device.data = push_token
                 token_updated = True
 
-        if not token_updated and push_token:
+        if not token_updated and push_token and device_type:
             user.devices.append(Device(device_type=device_type.upper(), data=push_token))
         if not email_updated and email:
             user.devices.append(Device(device_type='EMAIL', data=email))
@@ -234,7 +234,9 @@ class UserRecoveryAPI(webapp2.RequestHandler):
                     if device.device_type == 'GOOGLE':
                         user.auth = str(uuid.uuid4())
                         user.put()
-                        api.gcm([push_token], {'user': get_user_json(user, public=False)})
+                        user_json = get_user_json(user, public=False)
+                        user_json['cards'] = []
+                        api.gcm([push_token], {'user': user_json})
                     elif device.device_type == 'APPLE':
                         # Until we can deliver data to iOS app directly, use email for them
                         push_token_found = False
