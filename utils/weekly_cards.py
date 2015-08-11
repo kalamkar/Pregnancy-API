@@ -8,6 +8,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:1"
           ]
         }, 
@@ -17,6 +18,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:1"
           ]
         }, 
@@ -26,6 +28,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:1"
           ]
         }, 
@@ -123,7 +126,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:1"
           ]
         }, 
@@ -148,6 +151,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:5"
           ]
         }, 
@@ -157,6 +161,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:5"
           ]
         }, 
@@ -166,6 +171,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:5"
           ]
         }, 
@@ -252,7 +258,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:5"
           ]
         }, 
@@ -277,6 +283,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:6"
           ]
         }, 
@@ -286,6 +293,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:6"
           ]
         }, 
@@ -295,6 +303,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:6"
           ]
         }, 
@@ -345,7 +354,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:6"
           ]
         }, 
@@ -370,6 +379,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:7"
           ]
         }, 
@@ -379,6 +389,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:7"
           ]
         }, 
@@ -388,6 +399,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:7"
           ]
         }, 
@@ -437,7 +449,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:7"
           ]
         }, 
@@ -462,6 +474,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:8"
           ]
         }, 
@@ -471,6 +484,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:8"
           ]
         }, 
@@ -480,6 +494,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:8"
           ]
         }, 
@@ -529,7 +544,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:8"
           ]
         }, 
@@ -554,6 +569,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:9"
           ]
         }, 
@@ -563,6 +579,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:9"
           ]
         }, 
@@ -572,6 +589,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:9"
           ]
         }, 
@@ -622,7 +640,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:9"
           ]
         }, 
@@ -647,6 +665,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:10"
           ]
         }, 
@@ -656,6 +675,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:10"
           ]
         }, 
@@ -665,6 +685,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:10"
           ]
         }, 
@@ -716,7 +737,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:10"
           ]
         }, 
@@ -741,6 +762,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:11"
           ]
         }, 
@@ -750,6 +772,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:11"
           ]
         }, 
@@ -759,6 +782,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:11"
           ]
         }, 
@@ -808,7 +832,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:11"
           ]
         }, 
@@ -833,6 +857,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:12"
           ]
         }, 
@@ -842,6 +867,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:12"
           ]
         }, 
@@ -851,6 +877,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:12"
           ]
         }, 
@@ -900,7 +927,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:12"
           ]
         }, 
@@ -925,6 +952,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:13"
           ]
         }, 
@@ -934,6 +962,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:13"
           ]
         }, 
@@ -943,6 +972,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:13"
           ]
         }, 
@@ -993,7 +1023,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:13"
           ]
         }, 
@@ -1018,6 +1048,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:14"
           ]
         }, 
@@ -1027,6 +1058,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:14"
           ]
         }, 
@@ -1036,6 +1068,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:14"
           ]
         }, 
@@ -1085,7 +1118,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:14"
           ]
         }, 
@@ -1110,6 +1143,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:15"
           ]
         }, 
@@ -1119,6 +1153,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:15"
           ]
         }, 
@@ -1128,6 +1163,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:15"
           ]
         }, 
@@ -1167,7 +1203,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:15"
           ]
         }, 
@@ -1192,6 +1228,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:16"
           ]
         }, 
@@ -1201,6 +1238,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:16"
           ]
         }, 
@@ -1251,7 +1289,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:16"
           ]
         }, 
@@ -1276,6 +1314,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:17"
           ]
         }, 
@@ -1285,6 +1324,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:17"
           ]
         }, 
@@ -1294,6 +1334,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:17"
           ]
         }, 
@@ -1303,6 +1344,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:17"
           ]
         }, 
@@ -1352,7 +1394,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:17"
           ]
         }, 
@@ -1377,6 +1419,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:18"
           ]
         }, 
@@ -1386,6 +1429,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:18"
           ]
         }, 
@@ -1395,6 +1439,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:18"
           ]
         }, 
@@ -1445,7 +1490,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:18"
           ]
         }, 
@@ -1470,6 +1515,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:19"
           ]
         }, 
@@ -1479,6 +1525,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:19"
           ]
         }, 
@@ -1529,7 +1576,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:19"
           ]
         }, 
@@ -1554,6 +1601,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:20"
           ]
         }, 
@@ -1563,6 +1611,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:20"
           ]
         }, 
@@ -1572,6 +1621,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:20"
           ]
         }, 
@@ -1636,7 +1686,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:20"
           ]
         }, 
@@ -1661,6 +1711,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:21"
           ]
         }, 
@@ -1670,6 +1721,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:21"
           ]
         }, 
@@ -1720,7 +1772,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:21"
           ]
         }, 
@@ -1745,6 +1797,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:22"
           ]
         }, 
@@ -1754,6 +1807,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:22"
           ]
         }, 
@@ -1804,7 +1858,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:22"
           ]
         }, 
@@ -1829,6 +1883,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:23"
           ]
         }, 
@@ -1838,6 +1893,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:23"
           ]
         }, 
@@ -1889,7 +1945,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:23"
           ]
         }, 
@@ -1914,6 +1970,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:24"
           ]
         }, 
@@ -1964,7 +2021,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:24"
           ]
         }, 
@@ -1989,6 +2046,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:25"
           ]
         }, 
@@ -2039,7 +2097,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:25"
           ]
         }, 
@@ -2064,6 +2122,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:26"
           ]
         }, 
@@ -2073,6 +2132,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:26"
           ]
         }, 
@@ -2082,6 +2142,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:26"
           ]
         }, 
@@ -2141,7 +2202,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:26"
           ]
         }, 
@@ -2151,7 +2212,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:26"
           ]
         }, 
@@ -2176,6 +2237,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:27"
           ]
         }, 
@@ -2185,6 +2247,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:27"
           ]
         }, 
@@ -2263,7 +2326,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:27"
           ]
         }, 
@@ -2273,7 +2336,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:27"
           ]
         }, 
@@ -2298,6 +2361,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:28"
           ]
         }, 
@@ -2307,6 +2371,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:28"
           ]
         }, 
@@ -2316,6 +2381,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:28"
           ]
         }, 
@@ -2384,7 +2450,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:28"
           ]
         }, 
@@ -2394,7 +2460,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:28"
           ]
         }, 
@@ -2419,6 +2485,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:29"
           ]
         }, 
@@ -2428,6 +2495,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:29"
           ]
         }, 
@@ -2437,6 +2505,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:29"
           ]
         }, 
@@ -2495,7 +2564,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:29"
           ]
         }, 
@@ -2505,7 +2574,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:29"
           ]
         }, 
@@ -2530,6 +2599,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:30"
           ]
         }, 
@@ -2539,6 +2609,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:30"
           ]
         }, 
@@ -2548,6 +2619,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:30"
           ]
         }, 
@@ -2617,7 +2689,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:30"
           ]
         }, 
@@ -2627,7 +2699,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:30"
           ]
         }, 
@@ -2652,6 +2724,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:31"
           ]
         }, 
@@ -2661,6 +2734,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:31"
           ]
         }, 
@@ -2670,6 +2744,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:31"
           ]
         }, 
@@ -2749,7 +2824,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:31"
           ]
         }, 
@@ -2759,7 +2834,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:31"
           ]
         }, 
@@ -2784,6 +2859,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:32"
           ]
         }, 
@@ -2793,6 +2869,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:32"
           ]
         }, 
@@ -2802,6 +2879,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:32"
           ]
         }, 
@@ -2870,7 +2948,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:32"
           ]
         }, 
@@ -2880,7 +2958,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:32"
           ]
         }, 
@@ -2905,6 +2983,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:33"
           ]
         }, 
@@ -2914,6 +2993,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:33"
           ]
         }, 
@@ -2923,6 +3003,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:33"
           ]
         }, 
@@ -2991,7 +3072,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:33"
           ]
         }, 
@@ -3001,7 +3082,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:33"
           ]
         }, 
@@ -3026,6 +3107,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:34"
           ]
         }, 
@@ -3035,6 +3117,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:34"
           ]
         }, 
@@ -3044,6 +3127,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:34"
           ]
         }, 
@@ -3113,7 +3197,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:34"
           ]
         }, 
@@ -3123,7 +3207,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:34"
           ]
         }, 
@@ -3148,6 +3232,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:35"
           ]
         }, 
@@ -3157,6 +3242,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:35"
           ]
         }, 
@@ -3166,6 +3252,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:35"
           ]
         }, 
@@ -3234,7 +3321,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:35"
           ]
         }, 
@@ -3244,7 +3331,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:35"
           ]
         }, 
@@ -3269,6 +3356,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:36"
           ]
         }, 
@@ -3278,6 +3366,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:36"
           ]
         }, 
@@ -3287,6 +3376,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:36"
           ]
         }, 
@@ -3355,7 +3445,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:36"
           ]
         }, 
@@ -3365,7 +3455,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:36"
           ]
         }, 
@@ -3390,6 +3480,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:37"
           ]
         }, 
@@ -3399,6 +3490,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:37"
           ]
         }, 
@@ -3408,6 +3500,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:37"
           ]
         }, 
@@ -3476,7 +3569,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:37"
           ]
         }, 
@@ -3486,7 +3579,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:37"
           ]
         }, 
@@ -3511,6 +3604,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:38"
           ]
         }, 
@@ -3520,6 +3614,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:38"
           ]
         }, 
@@ -3529,6 +3624,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:38"
           ]
         }, 
@@ -3597,7 +3693,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:38"
           ]
         }, 
@@ -3607,7 +3703,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:38"
           ]
         }, 
@@ -3632,6 +3728,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:39"
           ]
         }, 
@@ -3692,7 +3789,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:39"
           ]
         }, 
@@ -3717,6 +3814,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:40"
           ]
         }, 
@@ -3767,7 +3865,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:40"
           ]
         }
@@ -3782,6 +3880,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:41"
           ]
         }, 
@@ -3832,7 +3931,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:41"
           ]
         }, 
@@ -3857,6 +3956,7 @@ weekly = {
           "type": "Symptoms", 
           "tags": [
             "symptom", 
+            "gender:female", 
             "week:42"
           ]
         }, 
@@ -3894,7 +3994,7 @@ weekly = {
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
-            "dad", 
+            "gender:male", 
             "week:42"
           ]
         }, 

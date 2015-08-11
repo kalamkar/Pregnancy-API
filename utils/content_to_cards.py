@@ -14,9 +14,9 @@ TAGS = {
          "baby's size  visualization":  ['size'],
          "expectations for care":       ['care', 'action:to_do'],
          "polls":                       ['poll'],
-         "symptoms":                    ['symptom'],
+         "symptoms":                    ['symptom', 'gender:female'],
          "tips":                        ['tip'],
-         "tips for dad":                ['tip', 'dad'],
+         "tips for dad":                ['tip', 'gender:male'],
          }
 
 def parse_card(content, card_type, week):
