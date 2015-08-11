@@ -19,6 +19,7 @@ import struct
 
 from datastore import Location
 from datastore import User
+from datastore import Pair
 from google.appengine.api import mail
 from google.appengine.api import urlfetch
 from google.appengine.ext import ndb
@@ -158,4 +159,16 @@ def email(address, message):
 
     sender_address = "Dovetail.care Support <support@dovetail-api1.appspotmail.com>"
     mail.send_mail(sender_address, address, message, message)
+
+def update_gender(user):
+    try:
+        first = user.name.split()[0] if user.name else ''
+        if not first or not first.strip():
+            return
+        result = urlfetch.fetch(url='https://api.genderize.io/?name=%s' % (first))
+        response = json.loads(result.content)
+        if float(response['probability']) > 0.5:
+            user.features.append(Pair(name='GENDER', value=response['gender'].upper()))
+    except:
+        logging.warn('Exception getting gender for %s' % first)
 

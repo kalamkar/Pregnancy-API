@@ -22,6 +22,7 @@ from datastore import Pair
 from api.renderer import get_user_json
 from api.search import update_index
 from api.card import update_user_cards
+from api import update_gender
 
 from PIL import Image, ImageDraw
 from google.appengine.api import images
@@ -46,6 +47,7 @@ class UserAPI(webapp2.RequestHandler):
         user = User(uuid=str(uuid.uuid4()), auth=str(uuid.uuid4()))
         if name:
             user.name = name
+            update_gender(user)
         if email:
             user.devices.append(Device(device_type='EMAIL', data=email))
         user.devices.append(Device(device_type=device_type.upper(), data=push_token))
