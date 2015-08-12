@@ -9,12 +9,15 @@
             button { font-weight: bold; font-size: large; padding:5px; width:125px; }
             h3 {margin:10px; text-align:center;}
             .card {display:inline-block; border: thin solid gray; margin:10px;
-                vertical-align:top; margin-bottom:20px; width:250px;}
+                vertical-align:top; margin-bottom:20px; width:250px;
+                background-size: cover; background-position: center;}
+            .white { color: white; }
+            .translucent { background-color: rgba(0, 0, 0, 0.2); }
             .card-title {padding:15px; background-color: #ccc;}
-            .card-text {margin:15px;}
+            .card-text {padding:15px;}
             .card-url {}
             .card-tags {padding:5px; font-size: small;}
-            .poll {margin:5px; }
+            .poll {padding:5px; }
         </style>
         <script type="text/javascript" src="cards.js"></script>
     </head>
@@ -25,20 +28,34 @@
         	document.write('<h3>' + key + '. ' + week['title'] + '</h3>');
         	for (var i = 0; i < week['cards'].length; i++) {
         		var card = week['cards'][i];
-        	    document.write('<div class="card">');
-        	    document.write('<div class="card-title">' + card['type'] + '</div>');
-        	    document.write('<div class="card-text">' + card['text'] + '</div>');
+        		if (card['image']) {
+        			document.write('<div class="card" style="background-image: url(\'' + card['image'] + '\')">');
+                    document.write('<div class="card-title">' + card['type'] + '</div>');
+                    document.write('<div class="card-text white translucent">' + card['text'] + '</div>');
+        		} else {
+        			document.write('<div class="card">');
+                    document.write('<div class="card-title">' + card['type'] + '</div>');
+                    document.write('<div class="card-text">' + card['text'] + '</div>');
+        		}
         	    if (card['options'] != null) {
         	    	var type = card['tags'].indexOf('multi_select') >= 0 ? 'checkbox' : 'radio';
-        	    	document.write('<form action="" class="poll">');
+        	    	if (card['image']) {
+        	    	    document.write('<form action="" class="poll white translucent">');
+        	    	} else {
+        	    		document.write('<form action="" class="poll">');
+        	    	}
         	    	for (var j = 0; j < card['options'].length; j++) {
         	    		  document.write('<input name="card' + i + '" type="' + type + '">'
         	    				+ card['options'][j] + '</input><br/>');
         	    	}
         	    	document.write('</form>');
         	    }
-                document.write('<table width="100%"><tr>');
-                document.write('<td class="card-tags">' + card['tags'] + '</td>');
+                document.write('<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr>');
+                if (card['image']) {
+                    document.write('<td class="card-tags white translucent">' + card['tags'] + '</td>');
+                } else {
+                	document.write('<td class="card-tags">' + card['tags'] + '</td>');
+                }
         	    if (card['url']) {
         	        document.write('<td class="card-url" align="right"><a href="' + card['url'] +
         	        		'" target="_blank"><img width="30px" src="ic_info.png"/></a></td>');
