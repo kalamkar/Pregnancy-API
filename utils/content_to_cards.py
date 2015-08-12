@@ -9,26 +9,34 @@ import csv
 import json
 import re
 
+URL_PATTERN = re.compile('(?P<url>https?://[^\s]+)')
+PHOTO_PATTERN = re.compile('#photo#(?P<photo>https?://[^\s]+)')
+
 TAGS = {
          "baby's  milestone/fact":      ['milestone', 'baby'],
          "baby's size  visualization":  ['size'],
          "expectations for care":       ['care', 'action:to_do'],
          "polls":                       ['poll'],
          "symptoms":                    ['symptom', 'gender:female'],
-         "tips":                        ['tip'],
+         "tip/factoid":                 ['tip'],
          "tips for dad":                ['tip', 'gender:male'],
          }
 
 def parse_card(content, card_type, week):
     json = {'type': card_type}
-    result = re.search('(?P<url>https?://[^\s]+)', content)
+    result = URL_PATTERN.search(content)
     if result:
         json['url'] = result.group('url')
         content = content.replace(json['url'], '')
+    result = PHOTO_PATTERN.search(content)
+    if result:
+        json['image'] = result.group('photo')
+        content = content.replace(json['image'], '')
+        content = content.replace('#photo#', '')
     json['tags'] = list(TAGS[card_type.lower()])
     json['tags'].append('week:%d' % (week))
 
-    single_options = re.findall('#\d\. [^#]+', content)
+    single_options = re.findall('#\d\. ?[^#]+', content)
     if single_options and ('poll' in json['tags'] or 'symptom' in json['tags']):
         options = []
         for option in single_options:
