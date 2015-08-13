@@ -8,7 +8,7 @@ STORAGE_URL = 'http://commondatastorage.googleapis.com'
 IMAGES_BUCKET = '/dovetail-images/'
 PROFILE_BUCKET = '/dovetail-profiles/'
 MEDIA_MAX_AGE = 30 * 24 * 60 * 60
-
+DEFAULT_PHOTO_URL = 'https://storage.googleapis.com' + PROFILE_BUCKET + 'ic_user.png'
 PROFILE_ICON_SIZE = 50
 
 APNS_DEV = ('gateway.sandbox.push.apple.com', 2195)

@@ -161,7 +161,7 @@ class UserPhotoAPI(webapp2.RequestHandler):
         try:
             png_data = StringIO.StringIO(image.execute_transforms(output_encoding=images.PNG))
         except:
-            api.write_error(self.response, 404, 'Missing user photo')
+            self.redirect(config.DEFAULT_PHOTO_URL)
             return
 
         im = Image.open(png_data)
