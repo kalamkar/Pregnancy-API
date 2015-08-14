@@ -213,7 +213,7 @@ class UserRecoveryAPI(webapp2.RequestHandler):
 
 
         users = User.query(User.devices.data == email)
-        if not users:
+        if not users or users.count(limit=1) < 1:
             api.write_error(self.response, 404, 'User not found')
             return
 
