@@ -157,7 +157,7 @@ def email(address, message):
         logging.info('Invalid email address %s' % (address))
         return
 
-    sender_address = "Dovetail.care Support <support@dovetail-api1.appspotmail.com>"
+    sender_address = "Pregnansi<support@dovetail-api1.appspotmail.com>"
     mail.send_mail(sender_address, address, message, message)
 
 def update_gender(user):
