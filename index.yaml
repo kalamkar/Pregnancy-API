@@ -6,6 +6,12 @@ indexes:
   - name: tags
   - name: time
     direction: desc
+    
+- kind: Event
+  properties:
+  - name: tags
+  - name: time
+    direction: desc
   
 - kind: Event
   ancestor: yes

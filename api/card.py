@@ -19,7 +19,34 @@ from google.appengine.ext import ndb
 class CardAPI(webapp2.RequestHandler):
 
     def post(self):
-        self.put()
+        if self.request.get('_put'):
+            self.put()
+            return
+
+        text = self.request.get('text')
+        tags = self.request.get('tags')
+
+        user = api.get_user(self.request)
+        if not user:
+            api.write_error(self.response, 400, 'Unknown or missing user')
+            return
+
+        if not tags or not text:
+            api.write_error(self.response, 400, 'Missing required parameter')
+            return
+
+        content = {'tags': tags.lower().split(','),
+                   'text': text,
+                   'priority': self.request.get('priority'),
+                   'image': self.request.get('image'),
+                   'icon': self.request.get('icon'),
+                   'url': self.request.get('url'),
+                   'options': self.request.get('option', allow_multiple=True) }
+        card = make_card(content, user)
+        card.put()
+
+        api.write_message(self.response, 'Successfully added card %s' % (card.key.urlsafe()))
+        update_index(card)
 
     def put(self):
         card_id = self.request.get('card_id')

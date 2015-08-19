@@ -99,26 +99,21 @@
                 <label>end_time</label>
                 <input type="text" name="end_time" size="25" class="textfield"/></div>
             </form>
-             <br /><hr /><br />
-            <h3>Cards</h3>
-            <form action="/user/card" method="get" class="box-block"><div>
-                <button type="submit">Get</button><br/><br/>
-                <label>auth</label>
-                <input type="text" name="auth" size="25" class="textfield"/><br/><br/>
+            <form action="/event/chart" method="get" class="box-block"><div>
+                <button type="submit">Chart</button><br/><br/>
                 <label>tags</label>
                 <input type="text" name="tags" size="25" class="textfield"/></div>
             </form>
-            <form action="/user/card" method="post" class="box-block"><div>
-                <input type="hidden" name="_put" value="true"/>
-                <button type="submit">Update</button><br/><br/>
+            <br /><hr /><br />
+            <h3>Search</h3>
+            <form action="/search" method="get" class="box-block"><div>
+                <button type="submit">Search</button><br/><br/>
                 <label>auth</label>
                 <input type="text" name="auth" size="25" class="textfield"/><br/><br/>
-                <label>card_id</label>
-                <input type="text" name="card_id" size="25" class="textfield"/><br/><br/>
-                <label>tag</label>
-                <input type="text" name="tag" size="15" class="textfield"/><br/><br/>
-                <label>tags</label>
-                <input type="text" name="tags" size="25" class="textfield"/></div>
+                <label>q</label>
+                <input type="text" name="q" size="25" class="textfield"/><br/><br/>
+                <label>nearby</label>
+                <input type="checkbox" name="nearby" /></div>
             </form>
         </div>
         <div class="column">
@@ -157,8 +152,7 @@
                 <label>group_uuid</label>
                 <input type="text" name="group_uuid" size="25" class="textfield"/></div>
             </form>
-        </div>
-        <div class="column">
+            <br /><hr /><br />
             <h3>Messages</h3>
             <form action="/message" method="post" class="box-block"><div>
                 <button type="submit">Add</button><br/><br/>
@@ -176,16 +170,42 @@
                 <label>group_uuid</label>
                 <input type="text" name="group_uuid" size="25" class="textfield"/></div>
             </form>
-            <br /><hr /><br />
-            <h3>Search</h3>
-            <form action="/search" method="get" class="box-block"><div>
-                <button type="submit">Search</button><br/><br/>
+        </div>
+        <div class="column">
+            <h3>Cards</h3>
+            <form action="/user/card" method="post" class="box-block"><div>
+                <button type="submit">Add</button><br/><br/>
                 <label>auth</label>
                 <input type="text" name="auth" size="25" class="textfield"/><br/><br/>
-                <label>q</label>
-                <input type="text" name="q" size="25" class="textfield"/><br/><br/>
-                <label>nearby</label>
-                <input type="checkbox" name="nearby" /></div>
+                <label>text</label>
+                <input type="text" name="text" size="25" class="textfield"/><br/><br/>
+                <label>tags</label>
+                <input type="text" name="tags" size="25" class="textfield"/><br/><br/>
+                <label>priority</label>
+                <input type="text" name="priority" size="3" class="textfield"/><br/><br/>
+                <label>image</label>
+                <input type="text" name="image" size="25" class="textfield"/><br/><br/>
+                <label>icon</label>
+                <input type="text" name="icon" size="25" class="textfield"/></div>
+            </form>
+            <form action="/user/card" method="post" class="box-block"><div>
+                <input type="hidden" name="_put" value="true"/>
+                <button type="submit">Update</button><br/><br/>
+                <label>auth</label>
+                <input type="text" name="auth" size="25" class="textfield"/><br/><br/>
+                <label>card_id</label>
+                <input type="text" name="card_id" size="25" class="textfield"/><br/><br/>
+                <label>tag</label>
+                <input type="text" name="tag" size="15" class="textfield"/><br/><br/>
+                <label>tags</label>
+                <input type="text" name="tags" size="25" class="textfield"/></div>
+            </form>
+            <form action="/user/card" method="get" class="box-block"><div>
+                <button type="submit">Get</button><br/><br/>
+                <label>auth</label>
+                <input type="text" name="auth" size="25" class="textfield"/><br/><br/>
+                <label>tags</label>
+                <input type="text" name="tags" size="25" class="textfield"/></div>
             </form>
         </div>
 		<!-- div class="column">

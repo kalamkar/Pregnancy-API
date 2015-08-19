@@ -31,3 +31,6 @@ libraries:
   
 - name: PIL
   version: latest
+  
+- name: matplotlib
+  version: latest
