@@ -65,7 +65,7 @@ class Appointment(ndb.Model):
 
 # Child of User object represents an event and optional data item
 class Event(ndb.Model):
-    event_type = ndb.StringProperty()
+    tags = ndb.StringProperty(repeated=True)
     time = ndb.DateTimeProperty()
     data = ndb.TextProperty()
     create_time = ndb.DateTimeProperty(auto_now_add=True)

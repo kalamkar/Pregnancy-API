@@ -3,7 +3,7 @@ indexes:
 - kind: Event
   ancestor: yes
   properties:
-  - name: event_type
+  - name: tags
   - name: time
     direction: desc
   
@@ -16,7 +16,7 @@ indexes:
 - kind: Event
   ancestor: yes
   properties:
-  - name: event_type
+  - name: tags
 
 - kind: Group
   properties:

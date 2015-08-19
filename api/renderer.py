@@ -79,7 +79,7 @@ def get_group_json(group):
 
 
 def get_event_json(event):
-    json = {'type': event.event_type, 'time': get_time_millis(event.time), 'data': event.data}
+    json = {'tags': event.tags, 'time': get_time_millis(event.time), 'data': event.data}
     return json
 
 
