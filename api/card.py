@@ -130,7 +130,7 @@ def update_user_cards(user):
 
 
 def get_system_cards(user):
-    priority = 1
+    priority = 3
     cards_by_tag = {}
     for content in system_cards.data['cards']:
         card = make_card(content, user)
@@ -178,11 +178,10 @@ def get_week_based_cards(user):
             cards_by_tag[tag].append(card)
 
     # Get the priority in this order: Size, Symptom1, Poll1, Care, Tips, Symptoms
-    priority = 0
+    priority = 3
     if 'size' in cards_by_tag.keys():
         card = cards_by_tag['size'].pop(0)
-        card.priority = priority
-        priority += 1
+        card.priority = 0
     if 'symptom' in cards_by_tag.keys():
         card = cards_by_tag['symptom'].pop(0)
         card.priority = priority
