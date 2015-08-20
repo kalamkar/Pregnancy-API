@@ -6,6 +6,7 @@ Created on Jul 28, 2015
 
 import sys
 import csv
+import hashlib
 import json
 import re
 
@@ -36,7 +37,7 @@ def parse_card(content, card_type, week):
     json['tags'] = list(TAGS[card_type.lower()])
     json['tags'].append('week:%d' % (week))
 
-    single_options = re.findall('#\d\. ?[^#]+', content)
+    single_options = re.findall('#\d ?\. ?[^#]+', content)
     if single_options and ('poll' in json['tags'] or 'symptom' in json['tags']):
         options = []
         for option in single_options:
@@ -44,8 +45,9 @@ def parse_card(content, card_type, week):
                 content = content.replace(option, '')
                 options.append(re.sub('^#\d\.', '', option).strip())
         json['options'] = options
+        json['tags'].append('qid:%s' % (hashlib.sha224(content).hexdigest()))
 
-    multi_options = re.findall('@\d\. [^@]+', content)
+    multi_options = re.findall('@\d ?\. ?[^@]+', content)
     if multi_options and ('poll' in json['tags'] or 'symptom' in json['tags']):
         options = []
         for option in multi_options:
@@ -54,6 +56,7 @@ def parse_card(content, card_type, week):
                 options.append(re.sub('^@\d\.', '', option).strip())
         json['options'] = options
         json['tags'].append('multi_select')
+        json['tags'].append('qid:%s' % (hashlib.sha224(content).hexdigest()))
 
     json['text'] = content.replace('%', '').replace('//', '').strip()
 
