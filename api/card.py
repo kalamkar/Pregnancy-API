@@ -52,6 +52,7 @@ class CardAPI(webapp2.RequestHandler):
         card_id = self.request.get('card_id')
         tag = self.request.get('tag')
         tags = self.request.get('tags')
+        text = self.request.get('text')
 
         user = api.get_user(self.request)
         if not user:
@@ -73,6 +74,8 @@ class CardAPI(webapp2.RequestHandler):
             card.tags = tags.lower().split(',')
         elif tag:
             card.tags.append(tag.lower())
+
+        card.text = text if text else card.text
 
         future = card.put_async()
         api.write_message(self.response, 'Successfully updated the card')
