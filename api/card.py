@@ -41,7 +41,7 @@ class CardAPI(webapp2.RequestHandler):
                    'image': self.request.get('image'),
                    'icon': self.request.get('icon'),
                    'url': self.request.get('url'),
-                   'options': self.request.get('option', allow_multiple=True) }
+                   'options': self.request.get_all('option') }
         card = make_card(content, user)
         card.put()
 

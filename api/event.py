@@ -80,8 +80,9 @@ class EventChartAPI(webapp2.RequestHandler):
                 results[event.data] = 1
 
         labels = results.keys()
-        charts.barh(range(len(labels)), results.values(), align='center', alpha=0.6)
-        charts.yticks(range(len(labels)), labels)
+        charts.barh(range(len(labels)), results.values(), align='center', alpha=0.6,
+                    color='#C47AA3', linewidth=0)
+        charts.yticks(range(len(labels)), labels, family='sans-serif', ha='left', color='w')
         charts.box(False)
 
         output = StringIO.StringIO()
@@ -89,7 +90,7 @@ class EventChartAPI(webapp2.RequestHandler):
         charts.close()
 
         self.response.headers['Content-Type'] = 'image/png'
-        self.response.headers['Cache-Control'] = 'public,max-age=%d' % (config.CHART_MAX_AGE)
+        # self.response.headers['Cache-Control'] = 'public,max-age=%d' % (config.CHART_MAX_AGE)
         self.response.out.write(output.getvalue())
         output.close()
 
