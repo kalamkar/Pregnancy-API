@@ -8,12 +8,6 @@ indexes:
     direction: desc
     
 - kind: Event
-  properties:
-  - name: tags
-  - name: time
-    direction: desc
-  
-- kind: Event
   ancestor: yes
   properties:
   - name: time
@@ -23,6 +17,12 @@ indexes:
   ancestor: yes
   properties:
   - name: tags
+
+- kind: Event
+  properties:
+  - name: tags
+  - name: time
+    direction: desc
 
 - kind: Group
   properties:
@@ -47,17 +47,6 @@ indexes:
   properties:
   - name: create_time
     direction: desc
-
-- kind: Appointment
-  ancestor: yes
-  properties:
-  - name: time
-
-- kind: Appointment
-  properties:
-  - name: consumer
-  - name: time
-  
 
 - kind: Card
   ancestor: yes
