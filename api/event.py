@@ -66,6 +66,8 @@ class EventAPI(webapp2.RequestHandler):
 class EventChartAPI(webapp2.RequestHandler):
     def get(self):
         tags = self.request.get('tags')
+        start_millis = self.request.get('start_time')
+        end_millis = self.request.get('end_time')
 
         if not tags:
             api.write_error(self.response, 400, 'Missing required parameter, tags')
@@ -79,15 +81,21 @@ class EventChartAPI(webapp2.RequestHandler):
             except:
                 results[event.data] = 1
 
+        charts.clf()
         labels = results.keys()
-        charts.barh(range(len(labels)), results.values(), align='center', alpha=0.6,
-                    color='#C47AA3', linewidth=0)
-        charts.yticks(range(len(labels)), labels, family='sans-serif', ha='left', color='w')
+        charts.barh(range(len(labels)), results.values(), align='center', color='#C47AA3',
+                    linewidth=0)
+        charts.yticks(range(len(labels)), labels, family='sans-serif', ha='left', color='w',
+                      weight='normal', size='large', x=0.03)
+        charts.xticks([])
+        charts.tick_params(left='off', right='off')
         charts.box(False)
 
         output = StringIO.StringIO()
-        charts.savefig(output, orientation='landscape', format='png', transparent=True)
-        charts.close()
+        figure = charts.gcf()
+        figure.set_size_inches(5, 3)
+        figure.savefig(output, dpi=100, orientation='landscape', format='png', transparent=True,
+                       frameon=False, bbox_inches='tight', pad_inches=0)
 
         self.response.headers['Content-Type'] = 'image/png'
         # self.response.headers['Cache-Control'] = 'public,max-age=%d' % (config.CHART_MAX_AGE)
