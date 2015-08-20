@@ -82,8 +82,12 @@ class EventChartAPI(webapp2.RequestHandler):
                 results[event.data] = 1
 
         charts.clf()
-        labels = results.keys()
-        charts.barh(range(len(labels)), results.values(), align='center', color='#C47AA3',
+        total = sum(results.values())
+        labels = []
+        for label in results.keys():
+            labels.append(str(results[label] * 100 / total) + '%  ' + label)
+
+        charts.barh(range(len(labels)), results.values(), align='center', color='#E0A6C6',
                     linewidth=0)
         charts.yticks(range(len(labels)), labels, family='sans-serif', ha='left', color='w',
                       weight='normal', size='large', x=0.03)
