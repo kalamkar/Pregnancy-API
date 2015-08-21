@@ -72,7 +72,7 @@ class CardAPI(webapp2.RequestHandler):
 
         if tags:
             card.tags = tags.lower().split(',')
-        elif tag:
+        elif tag and not tag.lower() in card.tags:
             card.tags.append(tag.lower())
 
         card.text = text if text else card.text
