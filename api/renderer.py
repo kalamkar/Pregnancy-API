@@ -32,9 +32,11 @@ def get_user_json(user, public=True):
         json['features'] = features
         cards = []
         for card in Card.query(ancestor=user.key):
-            if not 'archived' in card.tags \
-                and (not card.expire_time or card.expire_time > datetime.now()):
-                cards.append(get_card_json(card))
+            if 'archived' in card.tags:
+                continue
+            if card.expire_time and card.expire_time < datetime.now() and not 'liked' in card.tags:
+                continue
+            cards.append(get_card_json(card))
         json['cards'] = cards
     return json
 
