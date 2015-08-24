@@ -41,6 +41,17 @@ def get_time_millis(time):
     # TODO(abhi): We are losing millisecond accuracy here, fix it.
     return int((time - datetime.datetime(1970, 1, 1)).total_seconds() * 1000)
 
+def get_time_from_millis(millis):
+    time = datetime.datetime.utcfromtimestamp(int(millis) // 1000)
+    return time.replace(microsecond=int(millis) % 1000 * 1000)
+
+def get_last_week_start():
+    year, week = datetime.date.today().isocalendar()[0:2]
+    start = datetime.datetime.strptime('%04d-%02d-1' % (year, week), '%Y-%W-%w')
+    if datetime.date(year, 1, 4).isoweekday() > 4:
+        start -= datetime.timedelta(days=7)
+    return start
+
 def get_geo_point(request):
     try:
         latlon = request.headers['X-AppEngine-CityLatLong'].split(',')
@@ -171,4 +182,6 @@ def update_gender(user):
             user.features.append(Pair(name='GENDER', value=response['gender'].upper()))
     except:
         logging.warn('Exception getting gender for %s' % first)
+
+
 

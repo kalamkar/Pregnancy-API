@@ -34,3 +34,6 @@ libraries:
   
 - name: matplotlib
   version: latest
+  
+- name: numpy
+  version: latest

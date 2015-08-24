@@ -5,8 +5,9 @@ Created on Sep 25, 2014
 '''
 
 import datetime
+import json
 import StringIO
-import config
+import numpy
 
 from google.appengine.ext import ndb
 import webapp2
@@ -109,17 +110,17 @@ class EventChartAPI(webapp2.RequestHandler):
 
 def get_user_event_query(user, tags, start_millis, end_millis):
     if end_millis:
-        end = get_time_from_millis(end_millis)
+        end = api.get_time_from_millis(end_millis)
     else:
         end = datetime.datetime.now()
 
     if tags and start_millis:
-        start = get_time_from_millis(start_millis)
+        start = api.get_time_from_millis(start_millis)
         return Event.query(ndb.AND(Event.tags.IN(tags.lower().split(',')),
                                    ndb.AND(Event.time > start, Event.time < end)),
                             ancestor=user.key).order(-Event.time)
     elif start_millis:
-        start = get_time_from_millis(start_millis)
+        start = api.get_time_from_millis(start_millis)
         return Event.query(ndb.AND(Event.time > start, Event.time < end),
                            ancestor=user.key).order(-Event.time)
     elif tags:
@@ -130,23 +131,31 @@ def get_user_event_query(user, tags, start_millis, end_millis):
 
 def get_event_query(tags, start_millis, end_millis):
     if end_millis:
-        end = get_time_from_millis(end_millis)
+        end = api.get_time_from_millis(end_millis)
     else:
         end = datetime.datetime.now()
 
     if tags and start_millis:
-        start = get_time_from_millis(start_millis)
+        start = api.get_time_from_millis(start_millis)
         return Event.query(ndb.AND(Event.tags.IN(tags.lower().split(',')),
                                    ndb.AND(Event.time > start, Event.time < end))).order(-Event.time)
     elif start_millis:
-        start = get_time_from_millis(start_millis)
+        start = api.get_time_from_millis(start_millis)
         return Event.query(ndb.AND(Event.time > start, Event.time < end)).order(-Event.time)
     elif tags:
         return Event.query(Event.tags.IN(tags.lower().split(','))).order(-Event.time)
     else:
         return Event.query().order(-Event.time)
 
+def get_average_measurement(user, tags, start_millis, end_millis):
+    values = []
+    query = get_user_event_query(user, tags, start_millis, end_millis)
+    for event in query:
+        try:
+            measurement = json.loads(event.data)
+            values.append(int(measurement['value']))
+        except:
+            continue
 
-def get_time_from_millis(millis):
-    time = datetime.datetime.utcfromtimestamp(int(millis) // 1000)
-    return time.replace(microsecond=int(millis) % 1000 * 1000)
+    return numpy.mean(values)
+
