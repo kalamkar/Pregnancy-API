@@ -96,8 +96,14 @@ class CardAPI(webapp2.RequestHandler):
 
         cards = []
         if tags:
-            query = Card.query(Card.tags.IN(tags.lower().split(',')),
-                               ancestor=user.key).order(-Card.create_time)
+            tags = tags.lower().split(',')
+            if 'archived' in tags:
+                now = datetime.datetime.now()
+                query = Card.query(ndb.OR(Card.tags.IN(tags), Card.expire_time < now),
+                                   ancestor=user.key).order(-Card.expire_time)
+            else:
+                query = Card.query(Card.tags.IN(tags),
+                                   ancestor=user.key).order(-Card.create_time)
         else:
             query = Card.query(ancestor=user.key).order(-Card.create_time)
 
@@ -109,8 +115,15 @@ class CardAPI(webapp2.RequestHandler):
 
 def update_user_cards(user):
     current_cards = {}
+    pregnancy_week = get_pregnancy_week(user)
     for card in Card.query(ancestor=user.key):
-        current_cards[card.text] = card
+        # Expire cards for previous week
+        card_week = get_card_week(card)
+        if card_week and pregnancy_week and not (card_week == pregnancy_week):
+            card.expire_time = datetime.datetime.now()
+            card.put_async()
+
+        current_cards[get_card_type(card)] = card
 
     cards = get_system_cards(user)
     cards.extend(get_week_based_cards(user))
@@ -134,13 +147,14 @@ def update_user_cards(user):
         if missing_variable_value:
             continue
 
-        if card.text in current_cards.keys():
+        # Skip the card if it is already there
+        if get_card_type(card) in current_cards.keys():
             continue
 
         futures.append(card.put_async())
 
     if get_due_date(user):
-        for text, card in current_cards.iteritems():
+        for card_id, card in current_cards.iteritems():
             if 'action:due_date' in card.tags:
                 card.key.delete_async()
 
@@ -182,7 +196,7 @@ def get_week_based_cards(user):
         return []
 
     start_date = due_date - datetime.timedelta(weeks=40)
-    week = int((datetime.datetime.now() - start_date).days / 7)
+    week = get_pregnancy_week(user)
 
     try:
         contents = weekly_cards.weekly['weeks'][str(week)]['cards']
@@ -236,6 +250,14 @@ def get_due_date(user):
             return api.get_time_from_millis(feature.value)
     return None
 
+def get_pregnancy_week(user):
+    try:
+        due_date = get_due_date(user)
+        start_date = due_date - datetime.timedelta(weeks=40)
+        return int((datetime.datetime.now() - start_date).days / 7)
+    except:
+        return None
+
 def make_card(content, user):
     keys = content.keys()
     card = Card(parent=user.key)
@@ -262,7 +284,7 @@ def get_user_tags(user):
 
 def get_card_variables(user):
     variables = {}
-    variables['name'] = user.name if user.name else ''
+    variables['name'] = user.name.split()[0] if user.name else ''
     last_week_start = api.get_last_week_start()
     last_week_end = last_week_start + datetime.timedelta(days=7)
     weekly_avg_steps = get_average_measurement(user, 'STEPS', api.get_time_millis(last_week_start),
@@ -275,3 +297,20 @@ def get_card_variables(user):
         variables['weekly_average_sleep'] = str(weekly_avg_sleep)
     return variables
 
+def get_card_type(card):
+    tags = list(card.tags)
+    if 'archived' in tags:
+        tags.remove('archived')
+    tags.sort()
+    return ','.join(tags)
+
+def get_card_week(card):
+    week = None
+    for tag in card.tags:
+        if tag.startswith('week:'):
+            try:
+                return int(tag.split(':')[1])
+            except:
+                pass
+
+    return week

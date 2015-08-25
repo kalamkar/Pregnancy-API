@@ -16,7 +16,6 @@ import webapp2
 
 from datastore import User
 from datastore import Recovery
-from datastore import Card
 from datastore import Device
 from datastore import Pair
 from api.renderer import get_user_json
@@ -263,16 +262,5 @@ def update_feature(user, new_feature):
     for feature in user.features:
         if feature.name == name:
             feature.value = value
-            # Delete week based cards if DUE_DATE_MILLIS changed
-            if name == 'DUE_DATE_MILLIS':
-                delete_weekly_cards(user)
             return
     user.features.append(Pair(name=name, value=value))
-
-def delete_weekly_cards(user):
-    for card in Card.query(ancestor=user.key):
-        for tag in card.tags:
-            if tag and tag.startswith('week:'):
-                card.key.delete_async()
-
-

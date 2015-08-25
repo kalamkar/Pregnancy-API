@@ -58,6 +58,19 @@ indexes:
 - kind: Card
   ancestor: yes
   properties:
+  - name: tags
+  - name: expire_time 
+    direction: desc
+
+- kind: Card
+  ancestor: yes
+  properties:
+  - name: expire_time
+    direction: desc
+
+- kind: Card
+  ancestor: yes
+  properties:
   - name: create_time
     direction: desc
 

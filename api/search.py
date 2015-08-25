@@ -50,7 +50,7 @@ class SearchAPI(webapp2.RequestHandler):
                     data['group'] = get_group_json(obj)
                 elif isinstance(obj, User):
                     data['user'] = get_user_json(obj)
-                elif isinstance(obj, Card):
+                elif isinstance(obj, Card) and api.is_user_allowed_card_view(user, obj):
                     data['card'] = get_card_json(obj)
             except:
                 pass
@@ -84,13 +84,13 @@ def update_index(obj):
         location = None
         data = {}
         if isinstance(obj, Message):
-            data = get_message_json(obj)
+            data = obj.text
         elif isinstance(obj, Group):
-            data = get_group_json(obj)
+            data = '%s' % (obj.name)
         elif isinstance(obj, Card):
-            data = get_card_json(obj)
+            data = '%s. %s. %s' % (obj.text, obj.url, ','.join(obj.options))
         elif isinstance(obj, User):
-            data = get_user_json(obj, public=False)
+            data = '%s' % (obj.name)
             location = obj.last_location
 
         data['update_time'] = None
