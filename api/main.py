@@ -18,7 +18,6 @@ from api.user import UserAPI
 from api.user import UserPhotoAPI
 from api.user import UserRecoveryAPI
 from api.card import CardAPI
-from api.appointment import AppointmentAPI
 
 app = ndb.toplevel(webapp2.WSGIApplication([
     ('/event', EventAPI),
@@ -30,6 +29,5 @@ app = ndb.toplevel(webapp2.WSGIApplication([
     ('/user', UserAPI),
     ('/user/photo', UserPhotoAPI),
     ('/user/recover', UserRecoveryAPI),
-    ('/user/card', CardAPI),
-    ('/appointment', AppointmentAPI)
+    ('/user/card', CardAPI)
 ], debug=False))

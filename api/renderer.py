@@ -84,16 +84,3 @@ def get_event_json(event):
     json = {'tags': event.tags, 'time': get_time_millis(event.time), 'data': event.data}
     return json
 
-
-def get_appointment_json(appointment, provider):
-    json = {'id': appointment.key.urlsafe(),
-            'time': get_time_millis(appointment.time),
-            'minutes': appointment.minutes,
-            'update_time': get_time_millis(appointment.update_time),
-            'create_time': get_time_millis(appointment.create_time)}
-    if appointment.consumer:
-        json['consumer'] = get_user_json(appointment.consumer.get())
-    if provider:
-        json['provider'] = get_user_json(provider)
-    return json
-
