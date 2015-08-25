@@ -23,7 +23,7 @@ TAGS = {
          "tips for dad":                ['tip', 'gender:male'],
          }
 
-def parse_card(content, card_type, week):
+def parse_card(content, card_type, week, card_number):
     json = {'type': card_type}
     result = URL_PATTERN.search(content)
     if result:
@@ -36,6 +36,7 @@ def parse_card(content, card_type, week):
         content = content.replace('#photo#', '')
     json['tags'] = list(TAGS[card_type.lower()])
     json['tags'].append('week:%d' % (week))
+    json['tags'].append('card:%d' % (card_number))
 
     single_options = re.findall('#\d ?\. ?[^#]+', content)
     if single_options and ('poll' in json['tags'] or 'symptom' in json['tags']):
@@ -45,7 +46,7 @@ def parse_card(content, card_type, week):
                 content = content.replace(option, '')
                 options.append(re.sub('^#\d\.', '', option).strip())
         json['options'] = options
-        json['tags'].append('qid:%s' % (hashlib.sha224(content).hexdigest()))
+        json['tags'].append('qid:%s' % (hashlib.sha224(','.join(json['tags'])).hexdigest()))
 
     multi_options = re.findall('@\d ?\. ?[^@]+', content)
     if multi_options and ('poll' in json['tags'] or 'symptom' in json['tags']):
@@ -56,7 +57,7 @@ def parse_card(content, card_type, week):
                 options.append(re.sub('^@\d\.', '', option).strip())
         json['options'] = options
         json['tags'].append('multi_select')
-        json['tags'].append('qid:%s' % (hashlib.sha224(content).hexdigest()))
+        json['tags'].append('qid:%s' % (hashlib.sha224(','.join(json['tags'])).hexdigest()))
 
     json['text'] = content.replace('%', '').replace('//', '').strip()
 
@@ -69,7 +70,7 @@ def parse_week(week, types):
     json['cards'] = []
     for i in range(1, len(week)):
         if week[i] and week[i].strip():
-            json['cards'].append(parse_card(week[i], types[i], week_number))
+            json['cards'].append(parse_card(week[i], types[i], week_number, i))
     return (week_number, json)
 
 weeks = {}

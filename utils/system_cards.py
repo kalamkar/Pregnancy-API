@@ -4,7 +4,8 @@ data = {
       "text": "Hello %name%",
       "type": "System",
       "tags": [
-        "onboard"
+        "onboard",
+        "welcome"
       ]
     },
     {
