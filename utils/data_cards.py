@@ -1,7 +1,8 @@
 data = {
   "cards": [
     {
-      "text": "You walked %weekly_average_steps% steps everyday on average last week",
+      "text": "You walked %weekly_average_steps% steps on average everyday last week",
+      "icon": "https://storage.googleapis.com/dovetail-images/steps.png",
       "expire_seconds": 7 * 24 * 60 * 60,
       "tags": [
         "insight",
@@ -11,6 +12,7 @@ data = {
     },
     {
       "text": "You slept %weekly_average_sleep% hours on average every night last week",
+      "icon": "https://storage.googleapis.com/dovetail-images/sleep.png",
       "expire_seconds": 7 * 24 * 60 * 60,
       "tags": [
         "insight",

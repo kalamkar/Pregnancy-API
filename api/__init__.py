@@ -42,6 +42,8 @@ def get_time_millis(time):
     return int((time - datetime.datetime(1970, 1, 1)).total_seconds() * 1000)
 
 def get_time_from_millis(millis):
+    if not millis:
+        return None
     time = datetime.datetime.utcfromtimestamp(int(millis) // 1000)
     return time.replace(microsecond=int(millis) % 1000 * 1000)
 

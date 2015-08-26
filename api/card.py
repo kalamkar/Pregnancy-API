@@ -6,6 +6,7 @@ Created on Jul 28, 2015
 
 import api
 import datetime
+import logging
 import math
 import re
 import webapp2
@@ -114,14 +115,21 @@ class CardAPI(webapp2.RequestHandler):
 
 
 def update_user_cards(user):
+    now = datetime.datetime.now()
     current_cards = {}
     pregnancy_week = get_pregnancy_week(user)
     for card in Card.query(ancestor=user.key):
         # Expire cards for previous week
         card_week = get_card_week(card)
-        if card_week and pregnancy_week and not (card_week == pregnancy_week):
-            card.expire_time = datetime.datetime.now()
+        if card_week and pregnancy_week and card.expire_time > now \
+            and not (card_week == pregnancy_week):
+            logging.info('Archiving card with tags %s for %s' % (card.tags, user.name))
+            card.expire_time = now
             card.put_async()
+
+        # Expired cards are not current (visible) cards
+        if card.expire_time and card.expire_time < now:
+            continue
 
         current_cards[get_card_type(card)] = card
 
