@@ -82,25 +82,32 @@ class EventChartAPI(webapp2.RequestHandler):
             except:
                 results[event.data] = 1
 
-        charts.clf()
-        total = sum(results.values())
-        labels = []
-        for label in results.keys():
-            labels.append(str(results[label] * 100 / total) + '%  ' + label)
-
-        charts.barh(range(len(labels)), results.values(), align='center', color='#E0A6C6',
-                    linewidth=0)
-        charts.yticks(range(len(labels)), labels, family='sans-serif', ha='left', color='w',
-                      weight='normal', size='large', x=0.03)
-        charts.xticks([])
-        charts.tick_params(left='off', right='off')
-        charts.box(False)
+        if query.count() == 0:
+            api.write_error(self.response, 404, 'Not enough data points for chart.')
+            return
 
         output = StringIO.StringIO()
-        figure = charts.gcf()
-        figure.set_size_inches(5, 3)
-        figure.savefig(output, dpi=100, orientation='landscape', format='png', transparent=True,
-                       frameon=False, bbox_inches='tight', pad_inches=0)
+        try:
+            charts.clf()
+            total = sum(results.values())
+            labels = []
+            for label in results.keys():
+                labels.append(str(results[label] * 100 / total) + '%  ' + label)
+
+            charts.barh(range(len(labels)), results.values(), align='center', color='#E0A6C6',
+                                linewidth=0)
+            charts.yticks(range(len(labels)), labels, family='sans-serif', ha='left', color='w',
+                          weight='normal', size='large', x=0.03)
+            charts.xticks([])
+            charts.tick_params(left='off', right='off')
+            charts.box(False)
+
+            figure = charts.gcf()
+            figure.set_size_inches(5, 3)
+            figure.savefig(output, dpi=100, orientation='landscape', format='png', transparent=True,
+                           frameon=False, bbox_inches='tight', pad_inches=0)
+        except:
+            pass
 
         self.response.headers['Content-Type'] = 'image/png'
         # self.response.headers['Cache-Control'] = 'public,max-age=%d' % (config.CHART_MAX_AGE)
