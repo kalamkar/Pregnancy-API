@@ -5,8 +5,8 @@ Created on Sep 25, 2014
 '''
 
 import api
-import json
 import logging
+import sys
 import webapp2
 
 from google.appengine.api import search
@@ -82,26 +82,32 @@ def search_objects(query, location):
 def update_index(obj):
     try:
         location = None
-        data = {}
-        if isinstance(obj, Message):
+        data = ''
+        if isinstance(obj, Message) and obj.text:
             data = obj.text
-        elif isinstance(obj, Group):
-            data = '%s' % (obj.name)
+        elif isinstance(obj, Group) and obj.name:
+            data = obj.name
         elif isinstance(obj, Card):
-            data = '%s. %s. %s' % (obj.text, obj.url, ','.join(obj.options))
-        elif isinstance(obj, User):
-            data = '%s' % (obj.name)
+            if obj.text and obj.url and obj.options:
+                data = '%s. %s. %s' % (obj.text, obj.url, ','.join(obj.options))
+            elif obj.text and obj.url:
+                data = '%s. %s' % (obj.text, obj.url)
+            else:
+                data = obj.text
+        elif isinstance(obj, User) and obj.name:
+            data = obj.name
             location = obj.last_location
-
-        data['update_time'] = None
-        data['create_time'] = None
+        else:
+            logging.warn('Invalid object %s to index.' % (str(obj)))
+            return
 
         index = search.Index(name=SEARCH_INDEX)
-        fields = [search.TextField(name='text', value=json.dumps(data))]
+        fields = [search.TextField(name='text', value=data)]
         if location and location.latlon:
             latlon = location.latlon
             fields.append(search.GeoField(name='location',
                                           value=search.GeoPoint(latlon.lat, latlon.lon)))
         index.put(search.Document(doc_id=obj.key.urlsafe(), fields=fields))
     except:
-        logging.warn('Adding question %s to search index failed.' % (str(obj)))
+        logging.warn('Adding object %s to search index failed.' % (str(obj)))
+        logging.warn(sys.exc_info()[0])

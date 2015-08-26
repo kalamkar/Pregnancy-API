@@ -82,9 +82,9 @@ class CardAPI(webapp2.RequestHandler):
 
         card.text = text if text else card.text
 
-        future = card.put_async()
+        card.put()
         api.write_message(self.response, 'Successfully updated the card')
-        update_index(future.get_result())
+        update_index(card)
 
     def get(self):
         tags = self.request.get('tags')
@@ -159,7 +159,7 @@ def update_user_cards(user):
                 card.key.delete_async()
 
     for future in futures:
-        update_index(future.get_result())
+        update_index(future.get_result().get())
 
 
 def get_system_cards(user):
