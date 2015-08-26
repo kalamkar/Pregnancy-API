@@ -121,7 +121,7 @@ def update_user_cards(user):
     for card in Card.query(ancestor=user.key):
         # Expire cards for previous week
         card_week = get_card_week(card)
-        if card_week and pregnancy_week and card.expire_time > now \
+        if card_week and pregnancy_week and card.expire_time and card.expire_time > now \
             and not (card_week == pregnancy_week):
             logging.info('Archiving card with tags %s for %s' % (card.tags, user.name))
             card.expire_time = now
