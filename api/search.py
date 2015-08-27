@@ -88,12 +88,7 @@ def update_index(obj):
         elif isinstance(obj, Group) and obj.name:
             data = obj.name
         elif isinstance(obj, Card):
-            if obj.text and obj.url and obj.options:
-                data = '%s. %s. %s' % (obj.text, obj.url, ','.join(obj.options))
-            elif obj.text and obj.url:
-                data = '%s. %s' % (obj.text, obj.url)
-            else:
-                data = obj.text
+            data = '%s. %s. %s. %s' % (obj.text, obj.url, ','.join(obj.options), ','.join(obj.tags))
         elif isinstance(obj, User) and obj.name:
             data = obj.name
             location = obj.last_location
