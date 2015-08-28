@@ -9,12 +9,15 @@ import datetime
 import logging
 import math
 import re
+import sys
 import webapp2
 
 from utils import weekly_cards
 from utils import system_cards
 from utils import data_cards
 from datastore import Card
+from datastore import User
+from datastore import Pair
 from api.renderer import get_card_json
 from api.search import update_index
 from api.event import get_average_measurement
@@ -190,9 +193,11 @@ def get_system_cards(user):
     return cards
 
 def get_data_cards(user):
+    week = get_pregnancy_week(user)
     cards = []
     for content in data_cards.data['cards']:
         card = make_card(content, user)
+        card.tags.append('week:%d' % week)
         card.priority = 2
         cards.append(card)
 
@@ -205,7 +210,6 @@ def get_week_based_cards(user):
 
     start_date = due_date - datetime.timedelta(weeks=40)
     week = get_pregnancy_week(user)
-
     try:
         contents = weekly_cards.weekly['weeks'][str(week)]['cards']
         if not contents:
@@ -228,22 +232,25 @@ def get_week_based_cards(user):
             cards_by_tag[tag].append(card)
 
     # Get the priority in this order: Size, Symptom1, Poll1, Care, Tips, Symptoms
-    priority = 3
     if 'size' in cards_by_tag.keys():
         card = cards_by_tag['size'].pop(0)
         card.priority = 0
-    if 'symptom' in cards_by_tag.keys():
-        card = cards_by_tag['symptom'].pop(0)
-        card.priority = priority
-        priority += 1
-    if 'poll' in cards_by_tag.keys():
-        card = cards_by_tag['poll'].pop(0)
-        card.priority = priority
-        priority += 1
-    if 'care' in cards_by_tag.keys():
-        card = cards_by_tag['care'].pop(0)
-        card.priority = priority
-        priority += 1
+
+    card_type_order = ['symptom', 'poll', 'care', 'tip']
+    card_type_index = 0
+    priority = 3
+    while len(cards_by_tag):
+        card_type = card_type_order[card_type_index]
+        try:
+            card = cards_by_tag[card_type].pop(0)
+            card.priority = priority
+            priority += 1
+        except:
+            card_type_order.remove(card_type)
+            if not card_type_order:
+                break
+
+        card_type_index = card_type_index + 1 if card_type_index + 1 < len(card_type_order) else 0
 
     for card in card_objects:
         if card.priority >= 99:
@@ -322,3 +329,10 @@ def get_card_week(card):
                 pass
 
     return week
+
+
+if __name__ == '__main__':
+    user = User()
+    user.features.append(Pair(name='DUE_DATE_MILLIS', value=sys.argv[1]))
+    for card in get_week_based_cards(user):
+        print get_card_json(card)
