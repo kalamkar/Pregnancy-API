@@ -21,7 +21,7 @@ class EventAPI(webapp2.RequestHandler):
 
     def post(self):
         event_type = self.request.get('type')
-        time_millis = int(self.request.get('time'))
+        time_millis = self.request.get('time')
         data = self.request.get('data')
         tags = self.request.get('tags')
 
@@ -34,8 +34,7 @@ class EventAPI(webapp2.RequestHandler):
         if event_type:
             tags = event_type
 
-        time = datetime.datetime.utcfromtimestamp(time_millis // 1000)
-        time = time.replace(microsecond=time_millis % 1000 * 1000)
+        time = api.get_time_from_millis(time_millis)
         event = Event(parent=user.key, tags=tags.lower().split(','), time=time, data=data)
         event.put_async()
 
