@@ -194,6 +194,8 @@ def get_system_cards(user):
 
 def get_data_cards(user):
     week = get_pregnancy_week(user)
+    if not week:
+        return []
     cards = []
     for content in data_cards.data['cards']:
         card = make_card(content, user)
