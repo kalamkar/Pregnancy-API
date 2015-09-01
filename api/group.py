@@ -22,7 +22,6 @@ from datastore import User
 from api.renderer import get_group_json
 
 from google.appengine.ext import ndb
-from api.search import update_index
 
 class GroupAPI(webapp2.RequestHandler):
 
@@ -51,7 +50,10 @@ class GroupAPI(webapp2.RequestHandler):
             if member:
                 group.members.append(member.key)
         group.put()
-        update_index(group)
+        if group.public:
+            api.search.update_public_index(group)
+        else:
+            api.search.update_private_index(group, user.uuid)
 
         api.write_message(self.response, 'success', extra={'groups' : [ get_group_json(group) ]})
 
@@ -117,7 +119,10 @@ class GroupAPI(webapp2.RequestHandler):
             else:
                 logging.warn('Unknown user %s' % (member_id))
         group.put()
-        update_index(group)
+        if group.public:
+            api.search.update_public_index(group)
+        else:
+            api.search.update_private_index(group, user.uuid)
 
         api.write_message(self.response, 'Updated group',
                           extra={'groups' : [ get_group_json(group) ]})

@@ -21,7 +21,8 @@ from api.renderer import get_group_json
 from api.renderer import get_user_json
 
 
-SEARCH_INDEX = 'SEARCH_INDEX'
+USER_SEARCH_INDEX_PREFIX = 'USER_SEARCH_INDEX_'
+PUBLIC_SEARCH_INDEX = 'PUBLIC_SEARCH_INDEX'
 
 class SearchAPI(webapp2.RequestHandler):
 
@@ -36,7 +37,7 @@ class SearchAPI(webapp2.RequestHandler):
             api.write_error(self.response, 403, 'Unknown or missing user')
             return
 
-        object_keys = search_objects(query, location)
+        object_keys = search_objects(query, location, user.uuid)
         results = []
         result = ndb.get_multi_async(object_keys)
         ndb.Future.wait_all(result)
@@ -60,7 +61,7 @@ class SearchAPI(webapp2.RequestHandler):
 
         api.write_message(self.response, 'success', extra={'results' : results})
 
-def search_objects(query, location):
+def search_objects(query, location, uuid):
     object_keys = []
 
     index_query = 'text: %s ' % (query)
@@ -68,35 +69,55 @@ def search_objects(query, location):
         geopt = location.latlon
         radius = 25000
         index_query += 'distance(location, geopoint(%s, %s)) < %s' % (geopt.lat, geopt.lon, radius)
-    logging.info('Querying search index %s' % index_query)
-    index = search.Index(name=SEARCH_INDEX)
+#    logging.info('Querying search index %s' % index_query)
+    user_index = search.Index(name=USER_SEARCH_INDEX_PREFIX + uuid)
+#     public_index = search.Index(name=PUBLIC_SEARCH_INDEX)
     try:
-        results = index.search(index_query)
+        results = user_index.search(index_query)
         for doc in results:
             object_keys.append(ndb.Key(urlsafe=doc.doc_id))
+#         results = public_index.search(index_query)
+#         for doc in results:
+#             object_keys.append(ndb.Key(urlsafe=doc.doc_id))
     except search.Error:
         logging.exception('Search failed')
 
     return object_keys
 
-def update_index(obj):
+def update_private_index(obj, uuid):
     try:
-        location = None
         data = ''
-        if isinstance(obj, Message) and obj.text:
+        if isinstance(obj, Card):
+            data = '%s. %s. %s. %s' % (obj.text, obj.url, ','.join(obj.options), ','.join(obj.tags))
+        elif isinstance(obj, Message) and obj.text:
             data = obj.text
         elif isinstance(obj, Group) and obj.name:
             data = obj.name
-        elif isinstance(obj, Card):
-            data = '%s. %s. %s. %s' % (obj.text, obj.url, ','.join(obj.options), ','.join(obj.tags))
-        elif isinstance(obj, User) and obj.name:
-            data = obj.name
-            location = obj.last_location
         else:
-            logging.warn('Invalid object %s to index.' % (str(obj)))
             return
 
-        index = search.Index(name=SEARCH_INDEX)
+        index = search.Index(name=USER_SEARCH_INDEX_PREFIX + uuid)
+        fields = [search.TextField(name='text', value=data)]
+        index.put(search.Document(doc_id=obj.key.urlsafe(), fields=fields))
+    except:
+        logging.warn('Adding object %s to search index failed.' % (str(obj)))
+        logging.warn(sys.exc_info()[0])
+
+def update_public_index(obj):
+    try:
+        location = None
+        data = ''
+        if isinstance(obj, User) and obj.name:
+            data = obj.name
+            location = obj.last_location
+        elif isinstance(obj, Message) and obj.text:
+            data = obj.text
+        elif isinstance(obj, Group) and obj.name:
+            data = obj.name
+        else:
+            return
+
+        index = search.Index(name=PUBLIC_SEARCH_INDEX)
         fields = [search.TextField(name='text', value=data)]
         if location and location.latlon:
             latlon = location.latlon

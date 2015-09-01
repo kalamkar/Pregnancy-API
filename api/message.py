@@ -11,7 +11,6 @@ import webapp2
 from datastore import Message
 from datastore import Group
 
-from api.search import update_index
 from api.renderer import get_message_json
 
 class MessageAPI(webapp2.RequestHandler):
@@ -36,7 +35,11 @@ class MessageAPI(webapp2.RequestHandler):
 
         message = Message(parent=group.key, sender=user.key, text=text)
         message.put()
-        update_index(message)
+
+        if group.public:
+            api.search.update_public_index(message)
+        else:
+            api.search.update_private_index(message, user.uuid)
 
         gcm = []
         for member in group.members:

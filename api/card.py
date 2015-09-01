@@ -19,7 +19,6 @@ from datastore import Card
 from datastore import User
 from datastore import Pair
 from api.renderer import get_card_json
-from api.search import update_index
 from api.event import get_average_measurement
 
 from google.appengine.ext import ndb
@@ -55,7 +54,7 @@ class CardAPI(webapp2.RequestHandler):
         card.put()
 
         api.write_message(self.response, 'Successfully added card %s' % (card.key.urlsafe()))
-        update_index(card)
+        api.search.update_private_index(card, user.uuid)
 
     def put(self):
         card_id = self.request.get('card_id')
@@ -88,7 +87,7 @@ class CardAPI(webapp2.RequestHandler):
 
         card.put()
         api.write_message(self.response, 'Successfully updated the card')
-        update_index(card)
+        api.search.update_private_index(card, user.uuid)
 
     def get(self):
         tags = self.request.get('tags')
@@ -170,7 +169,7 @@ def update_user_cards(user):
                 card.key.delete_async()
 
     for future in futures:
-        update_index(future.get_result().get())
+        api.search.update_private_index(future.get_result().get(), user.uuid)
 
 
 def get_system_cards(user):

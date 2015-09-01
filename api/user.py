@@ -19,7 +19,6 @@ from datastore import Recovery
 from datastore import Device
 from datastore import Pair
 from api.renderer import get_user_json
-from api.search import update_index
 from api.card import update_user_cards
 from api import update_gender
 
@@ -52,7 +51,7 @@ class UserAPI(webapp2.RequestHandler):
         user.devices.append(Device(device_type=device_type.upper(), data=push_token))
         user.put()
         update_user_cards(user)
-        update_index(user)
+        api.search.update_public_index(user)
 
         api.write_message(self.response, 'success',
                           extra={'users' : [get_user_json(user, public=False)]})
@@ -93,7 +92,7 @@ class UserAPI(webapp2.RequestHandler):
         user.last_location = api.get_geo_point(self.request)
         update_user_cards(user)
         user.put()
-        update_index(user)
+        api.search.update_public_index(user)
 
         json = get_user_json(user, public=False)
         api.write_message(self.response, 'Updated user', extra={'users' : [json]})
