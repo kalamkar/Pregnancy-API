@@ -6,6 +6,10 @@ threadsafe: yes
 
 handlers:
 
+- url: /favicon.ico
+  static_files: pages/favicon.ico
+  upload: pages/favicon\.ico
+
 - url: /p
   static_dir: pages
   

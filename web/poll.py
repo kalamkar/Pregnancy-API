@@ -39,4 +39,4 @@ class Poll(webapp2.RequestHandler):
         data['tags'] = 'vote,' + ','.join(card.tags)
         data['result_image'] = '/event/chart?tags=' + poll_id
         template = JINJA_ENVIRONMENT.get_template('poll.html')
-        self.response.write(template.render({'card': data}))
+        self.response.write(template.render({'card': data, 'domain': self.request.host}))
