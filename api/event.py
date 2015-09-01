@@ -25,7 +25,10 @@ class EventAPI(webapp2.RequestHandler):
         data = self.request.get('data')
         tags = self.request.get('tags')
 
-        referer = self.request.headers['Referer']
+        try:
+            referer = self.request.headers['Referer']
+        except:
+            referer = ''
 
         user = api.get_user(self.request)
         if not user and referer.find('/poll') < 0:
