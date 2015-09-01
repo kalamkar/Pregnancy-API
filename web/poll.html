@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Pregnansi</title>
+        <style type="text/css">
+            BODY {
+                font-family: sans-serif; margin:10px; padding:10px; color: #5C5C5C;
+                text-align: center;
+            }
+            #logo { max-width: 320px;}
+            #card { max-width: 500px; min-height: 300px;
+                    padding:20px;
+                    display: inline-block;
+                    background-size: contain;
+                    background-image: url('/p/card_back.png');
+                    background-repeat: no-repeat;
+                    background-position: left top;}
+            #content { position:relative; top: 80px; display: inline-block;}
+            .title { font-size: larger; }
+            .text { color: #9E9E9E; }
+            #options {margin-top: 20px;}
+            .option { padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px;
+                      border: solid #E0A6C6 2px; color: #E0A6C6; cursor: pointer; margin: 5px; float: left;}
+            .option:hover {background-color: #E0A6C6; color: #fff;}
+            #result {display:none;}
+            #footer {
+                color: #888; text-align:center;margin-top: 200px;
+            }
+        </style>
+        <script type="text/javascript">
+        function submitOption(option) {
+        	var xmlhttp = new XMLHttpRequest();
+        	xmlhttp.onreadystatechange = function() {
+        	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        	    	document.getElementById("card").style.display = 'none';
+        	    	document.getElementById("result").style.display = 'block';
+        	    }
+        	};
+        	xmlhttp.open("POST","/event", true);
+        	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        	xmlhttp.send("time=" + new Date().getTime() + "&tags={{card.tags}}" + "&data=" + option);
+        }
+        </script>
+    </head>
+    <body>
+        <div><img id="logo" src="/p/pregnansi.png"></div>
+        <div id="card">
+            <div id="content">
+                <span class="title">{{card.title}}</span><br/>
+                <span class="text">{{card.text}}</span>
+                <div id="options">
+                    {% for option in card.options %}
+                    <span class="option" onclick="submitOption('{{option}}');">{{option}}</span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div id="result">
+            <img src="{{card.result_image}}"/>
+        </div>
+        <div id="footer">
+            &copy; dovetail.care
+        </div>
+    </body>
+</html>
+{% endautoescape %}

@@ -25,8 +25,10 @@ class EventAPI(webapp2.RequestHandler):
         data = self.request.get('data')
         tags = self.request.get('tags')
 
+        referer = self.request.headers['Referer']
+
         user = api.get_user(self.request)
-        if not user:
+        if not user and referer.find('/poll') < 0:
             api.write_error(self.response, 400, 'Unknown or missing user')
             return
 
@@ -35,7 +37,10 @@ class EventAPI(webapp2.RequestHandler):
             tags = event_type
 
         time = api.get_time_from_millis(time_millis)
-        event = Event(parent=user.key, tags=tags.lower().split(','), time=time, data=data)
+        if user:
+            event = Event(parent=user.key, tags=tags.lower().split(','), time=time, data=data)
+        else:
+            event = Event(tags=tags.lower().split(','), time=time, data=data)
         event.put_async()
 
         api.write_message(self.response, 'Successfully added event %s' % (event.key.urlsafe()))

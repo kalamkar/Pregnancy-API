@@ -9,7 +9,9 @@ import webapp2
 from google.appengine.ext import ndb
 
 from web.chart import EventChart
+from web.poll import Poll
 
 app = ndb.toplevel(webapp2.WSGIApplication([
-    ('/chart/events', EventChart)
+    ('/chart/events', EventChart),
+    ('/poll/.*', Poll)
 ], debug=False))

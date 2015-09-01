@@ -16,6 +16,9 @@ handlers:
 - url: /chart/.*
   script: web.main.app
 
+- url: /poll/.*
+  script: web.main.app
+
 - url: /.*
   script: api.main.app
 
