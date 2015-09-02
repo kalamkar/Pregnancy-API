@@ -39,7 +39,7 @@ def parse_card(content, card_type, week, card_number):
     json['tags'].append('card:%d' % (card_number))
 
     single_options = re.findall('#\d ?\. ?[^#]+', content)
-    if single_options and ('poll' in json['tags'] or 'symptom' in json['tags']):
+    if single_options:  # and ('poll' in json['tags'] or 'symptom' in json['tags']):
         options = []
         for option in single_options:
             if option:
