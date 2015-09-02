@@ -221,6 +221,8 @@ def get_card_variables(user):
     last_week_end = last_week_end if last_week_end else api.get_week_start()
     last_week_start = last_week_end - datetime.timedelta(days=7)
     logging.info('Last week start %s end %s' % (str(last_week_start), str(last_week_end)))
+    variables['week_start'] = last_week_start.strftime('%b %-d')
+    variables['week_end'] = last_week_end.strftime('%b %-d')
     weekly_avg_steps = get_average_measurement(user, ['steps'], api.get_time_millis(last_week_start),
                                                api.get_time_millis(last_week_end))
     weekly_avg_sleep = get_average_measurement(user, ['sleep'], api.get_time_millis(last_week_start),
