@@ -100,13 +100,7 @@ class CardAPI(webapp2.RequestHandler):
         cards = []
         if tags:
             tags = tags.lower().split(',')
-            if 'archived' in tags:
-                now = datetime.datetime.now()
-                query = Card.query(ndb.OR(Card.tags.IN(tags), Card.expire_time < now),
-                                   ancestor=user.key).order(-Card.expire_time)
-            else:
-                query = Card.query(Card.tags.IN(tags),
-                                   ancestor=user.key).order(-Card.create_time)
+            query = Card.query(Card.tags.IN(tags), ancestor=user.key).order(-Card.create_time)
         else:
             query = Card.query(ancestor=user.key).order(-Card.create_time)
 
@@ -303,9 +297,9 @@ def get_card_variables(user):
     variables['name'] = user.name.split()[0] if user.name else ''
     last_week_start = api.get_last_week_start()
     last_week_end = last_week_start + datetime.timedelta(days=7)
-    weekly_avg_steps = get_average_measurement(user, 'STEPS', api.get_time_millis(last_week_start),
+    weekly_avg_steps = get_average_measurement(user, ['STEPS'], api.get_time_millis(last_week_start),
                                                api.get_time_millis(last_week_end))
-    weekly_avg_sleep = get_average_measurement(user, 'SLEEP', api.get_time_millis(last_week_start),
+    weekly_avg_sleep = get_average_measurement(user, ['SLEEP'], api.get_time_millis(last_week_start),
                                                api.get_time_millis(last_week_end))
     if weekly_avg_steps and not math.isnan(weekly_avg_steps):
         variables['weekly_average_steps'] = str(int(weekly_avg_steps))

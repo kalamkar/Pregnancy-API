@@ -6,17 +6,6 @@ indexes:
   - name: tags
   - name: time
     direction: desc
-    
-- kind: Event
-  ancestor: yes
-  properties:
-  - name: time
-    direction: desc
-
-- kind: Event
-  ancestor: yes
-  properties:
-  - name: tags
 
 - kind: Event
   properties:
@@ -53,19 +42,6 @@ indexes:
   properties:
   - name: tags
   - name: create_time
-    direction: desc
-
-- kind: Card
-  ancestor: yes
-  properties:
-  - name: tags
-  - name: expire_time 
-    direction: desc
-
-- kind: Card
-  ancestor: yes
-  properties:
-  - name: expire_time
     direction: desc
 
 - kind: Card

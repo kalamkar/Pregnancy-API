@@ -20,7 +20,6 @@ from renderer import get_event_json
 class EventAPI(webapp2.RequestHandler):
 
     def post(self):
-        event_type = self.request.get('type')
         time_millis = self.request.get('time')
         data = self.request.get('data')
         tags = self.request.get('tags')
@@ -35,21 +34,21 @@ class EventAPI(webapp2.RequestHandler):
             api.write_error(self.response, 400, 'Unknown or missing user')
             return
 
-        # TODO(abhi): Remove this hack once client changes type to tags
-        if event_type:
-            tags = event_type
+        if not tags or not time_millis:
+            api.write_error(self.response, 400, 'Missing required parameter.')
+            return
 
+        tags = tags.lower().split(',')
         time = api.get_time_from_millis(time_millis)
         if user:
-            event = Event(parent=user.key, tags=tags.lower().split(','), time=time, data=data)
+            event = Event(parent=user.key, tags=tags, time=time, data=data)
         else:
-            event = Event(tags=tags.lower().split(','), time=time, data=data)
+            event = Event(tags=tags, time=time, data=data)
         event.put_async()
 
         api.write_message(self.response, 'Successfully added event %s' % (event.key.urlsafe()))
 
     def get(self):
-        event_type = self.request.get('type')
         start_millis = self.request.get('start_time')
         end_millis = self.request.get('end_time')
         tags = self.request.get('tags')
@@ -59,10 +58,11 @@ class EventAPI(webapp2.RequestHandler):
             api.write_error(self.response, 400, 'Unknown or missing user')
             return
 
-        # TODO(abhi): Remove this hack once client changes type to tags
-        if event_type:
-            tags = event_type
+        if not tags:
+            api.write_error(self.response, 400, 'Missing required parameter, tags.')
+            return
 
+        tags = tags.lower().split(',')
         query = get_user_event_query(user, tags, start_millis, end_millis)
         events = []
         for event in query:
@@ -81,7 +81,8 @@ class EventChartAPI(webapp2.RequestHandler):
             api.write_error(self.response, 400, 'Missing required parameter, tags')
             return
 
-        query = get_event_query(tags, start_millis, end_millis)
+        tags = tags.lower().split(',')
+        query = get_user_event_query(None, tags, start_millis, end_millis)
         results = {}
         for event in query:
             try:
@@ -123,43 +124,21 @@ class EventChartAPI(webapp2.RequestHandler):
 
 
 def get_user_event_query(user, tags, start_millis, end_millis):
-    if end_millis:
-        end = api.get_time_from_millis(end_millis)
-    else:
+    end = api.get_time_from_millis(end_millis)
+    if not end:
         end = datetime.datetime.now()
 
-    if tags and start_millis:
-        start = api.get_time_from_millis(start_millis)
-        return Event.query(ndb.AND(Event.tags.IN(tags.lower().split(',')),
-                                   ndb.AND(Event.time > start, Event.time < end)),
-                            ancestor=user.key).order(-Event.time)
-    elif start_millis:
-        start = api.get_time_from_millis(start_millis)
-        return Event.query(ndb.AND(Event.time > start, Event.time < end),
+    start = api.get_time_from_millis(start_millis)
+    if not start:
+        start = api.get_time_from_millis('0')
+
+    if user:
+        return Event.query(ndb.AND(Event.tags.IN(tags), Event.time > start, Event.time < end),
                            ancestor=user.key).order(-Event.time)
-    elif tags:
-        return Event.query(Event.tags.IN(tags.lower().split(',')),
-                            ancestor=user.key).order(-Event.time)
     else:
-        return Event.query(ancestor=user.key).order(-Event.time)
+        return Event.query(ndb.AND(Event.tags.IN(tags), Event.time > start, Event.time < end)).\
+                            order(-Event.time)
 
-def get_event_query(tags, start_millis, end_millis):
-    if end_millis:
-        end = api.get_time_from_millis(end_millis)
-    else:
-        end = datetime.datetime.now()
-
-    if tags and start_millis:
-        start = api.get_time_from_millis(start_millis)
-        return Event.query(ndb.AND(Event.tags.IN(tags.lower().split(',')),
-                                   ndb.AND(Event.time > start, Event.time < end))).order(-Event.time)
-    elif start_millis:
-        start = api.get_time_from_millis(start_millis)
-        return Event.query(ndb.AND(Event.time > start, Event.time < end)).order(-Event.time)
-    elif tags:
-        return Event.query(Event.tags.IN(tags.lower().split(','))).order(-Event.time)
-    else:
-        return Event.query().order(-Event.time)
 
 def get_average_measurement(user, tags, start_millis, end_millis):
     values = []
