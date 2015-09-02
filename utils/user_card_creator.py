@@ -58,6 +58,7 @@ def update_user_cards(user):
                 card.text = card.text.replace('%' + variable + '%', str(var_values[variable]))
             else:
                 missing_variable_value = True
+                logging.info('Missing variable %s for card with tags %s' % (variable, card.tags))
 
         if missing_variable_value:
             continue
@@ -180,6 +181,15 @@ def get_pregnancy_week(user):
     except:
         return None
 
+def get_pregnancy_week_start(user):
+    try:
+        due_date = get_due_date(user)
+        start_date = due_date - datetime.timedelta(weeks=40)
+        days_back = int((datetime.datetime.now() - start_date).days % 7)
+        return datetime.datetime.now() - datetime.timedelta(days=days_back)
+    except:
+        return None
+
 def make_card(content, user):
     keys = content.keys()
     card = Card(parent=user.key)
@@ -207,11 +217,13 @@ def get_user_tags(user):
 def get_card_variables(user):
     variables = {}
     variables['name'] = user.name.split()[0] if user.name else ''
-    last_week_start = api.get_last_week_start()
-    last_week_end = last_week_start + datetime.timedelta(days=7)
-    weekly_avg_steps = get_average_measurement(user, ['STEPS'], api.get_time_millis(last_week_start),
+    last_week_end = get_pregnancy_week_start(user)
+    last_week_end = last_week_end if last_week_end else api.get_week_start()
+    last_week_start = last_week_end - datetime.timedelta(days=7)
+    logging.info('Last week start %s end %s' % (str(last_week_start), str(last_week_end)))
+    weekly_avg_steps = get_average_measurement(user, ['steps'], api.get_time_millis(last_week_start),
                                                api.get_time_millis(last_week_end))
-    weekly_avg_sleep = get_average_measurement(user, ['SLEEP'], api.get_time_millis(last_week_start),
+    weekly_avg_sleep = get_average_measurement(user, ['sleep'], api.get_time_millis(last_week_start),
                                                api.get_time_millis(last_week_end))
     if weekly_avg_steps and not math.isnan(weekly_avg_steps):
         variables['weekly_average_steps'] = str(int(weekly_avg_steps))
