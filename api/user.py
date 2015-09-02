@@ -19,7 +19,7 @@ from datastore import Recovery
 from datastore import Device
 from datastore import Pair
 from api.renderer import get_user_json
-from api.card import update_user_cards
+from utils.user_card_creator import update_user_cards
 from api import update_gender
 
 from PIL import Image, ImageDraw
