@@ -22,7 +22,7 @@ class CardAPI(webapp2.RequestHandler):
             self.put()
             return
         if self.request.get('_delete'):
-            self.put()
+            self.delete()
             return
 
         text = self.request.get('text')
@@ -127,5 +127,5 @@ class CardAPI(webapp2.RequestHandler):
             return
 
         api.search.delete_from_indices(card, user.uuid)
-        card.delete_async()
+        card.key.delete_async()
         api.write_message(self.response, 'success')
