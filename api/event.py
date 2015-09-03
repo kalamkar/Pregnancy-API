@@ -4,10 +4,12 @@ Created on Sep 25, 2014
 @author: abhi@dovetail.care (Abhijit Kalamkar)
 '''
 
+import config
 import datetime
 import json
-import StringIO
 import numpy
+import random
+import StringIO
 
 from google.appengine.ext import ndb
 import webapp2
@@ -76,6 +78,7 @@ class EventChartAPI(webapp2.RequestHandler):
         tags = self.request.get('tags')
         start_millis = self.request.get('start_time')
         end_millis = self.request.get('end_time')
+        debug = self.request.get('debug')
 
         if not tags:
             api.write_error(self.response, 400, 'Missing required parameter, tags')
@@ -84,11 +87,18 @@ class EventChartAPI(webapp2.RequestHandler):
         tags = tags.lower().split(',')
         query = get_user_event_query(None, tags, start_millis, end_millis)
         results = {}
+        events = []
         for event in query:
+            if debug:
+                events.append(get_event_json(event))
             try:
                 results[event.data] += 1
             except:
                 results[event.data] = 1
+
+        if debug:
+            api.write_message(self.response, 'success', extra={'events' : events})
+            return
 
         if query.count() == 0:
             api.write_error(self.response, 404, 'Not enough data points for chart.')
@@ -100,12 +110,14 @@ class EventChartAPI(webapp2.RequestHandler):
             total = sum(results.values())
             labels = []
             for label in results.keys():
-                labels.append(str(results[label] * 100 / total) + '%  ' + label)
+                labels.append(str(results[label] * 100 / total) + '% say ' + label)
 
-            charts.barh(range(len(labels)), results.values(), align='center', color='#E0A6C6',
-                                linewidth=0)
-            charts.yticks(range(len(labels)), labels, family='sans-serif', ha='left', color='w',
-                          weight='normal', size='large', x=0.03)
+            colors = list(config.CHART_COLORS)
+            random.shuffle(colors)
+            charts.barh(range(len(labels)), results.values(), align='center', linewidth=0,
+                                color=colors)
+            charts.yticks(range(len(labels)), labels, family='sans-serif', ha='left', x=0.03,
+                          color='#808080')
             charts.xticks([])
             charts.tick_params(left='off', right='off')
             charts.box(False)

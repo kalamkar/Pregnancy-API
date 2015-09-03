@@ -4,6 +4,7 @@ Created on Aug 28, 2015
 @author: abhi
 '''
 
+import config
 from datetime import datetime
 import random
 import urllib2
@@ -11,7 +12,7 @@ import sys
 
 from utils import weekly_cards
 
-URL = 'http://dovetail-api1.appspot.com/event'
+URL = 'http://api.pregnansi.com/event'
 AUTH_HEADER = 'UUID-TOKEN uuid="%s", token="%s"'
 
 
@@ -23,9 +24,7 @@ def get_poll_id(tags):
     return poll_id
 
 if __name__ == '__main__':
-    auth_header = AUTH_HEADER % ('440d8f96-177d-43a9-95c1-491002f8e677',
-                                 'f575c894-15de-40ac-bd30-03c78c61559e')
-
+    auth_header = AUTH_HEADER % (config.SUPER_USER_UUID, config.SUPER_USER_AUTH)
 
     for key, week in weekly_cards.weekly['weeks'].iteritems():
         for card in week['cards']:

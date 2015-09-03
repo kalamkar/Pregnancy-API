@@ -21,3 +21,5 @@ APNS = ('gateway.push.apple.com', 2195)
 GCM_URL = 'https://android.googleapis.com/gcm/send'
 
 GCM_API_KEY = 'AIzaSyBOrPebHVw-4vTWjcgXOVPQUjAOajCeXEw'
+
+CHART_COLORS = ['#EDB1C2', '#FDE6A7', '#EF9969', '#8FD2D7', '#A9D78F', '#D78FD2']
