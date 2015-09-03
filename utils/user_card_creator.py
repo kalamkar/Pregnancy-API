@@ -58,7 +58,7 @@ def update_user_cards(user):
                 card.text = card.text.replace('%' + variable + '%', str(var_values[variable]))
             else:
                 missing_variable_value = True
-                logging.info('Missing variable %s for card with tags %s' % (variable, card.tags))
+#                 logging.info('Missing variable %s for card with tags %s' % (variable, card.tags))
 
         if missing_variable_value:
             continue
@@ -177,7 +177,10 @@ def get_pregnancy_week(user):
     try:
         due_date = get_due_date(user)
         start_date = due_date - datetime.timedelta(weeks=40)
-        return int((datetime.datetime.now() - start_date).days / 7)
+        week = int((datetime.datetime.now() - start_date).days / 7)
+        week = abs(week) + 40 if week <= 0 and week > -10 else week
+        week = None if week <= 0 else week
+        return week
     except:
         return None
 
@@ -220,7 +223,7 @@ def get_card_variables(user):
     last_week_end = get_pregnancy_week_start(user)
     last_week_end = last_week_end if last_week_end else api.get_week_start()
     last_week_start = last_week_end - datetime.timedelta(days=7)
-    logging.info('Last week start %s end %s' % (str(last_week_start), str(last_week_end)))
+#     logging.info('Last week start %s end %s' % (str(last_week_start), str(last_week_end)))
     variables['week_start'] = last_week_start.strftime('%b %-d')
     variables['week_end'] = last_week_end.strftime('%b %-d')
     weekly_avg_steps = get_average_measurement(user, ['steps'], api.get_time_millis(last_week_start),

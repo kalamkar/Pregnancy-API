@@ -121,9 +121,6 @@ def is_user_allowed_message_view(user, message):
 def is_user_allowed_group_view(user, group):
     return group.public or user.key in group.members
 
-def is_user_allowed_card_view(user, card):
-    return card.key.parent() == user.key
-
 
 # def apns(token, message, gateway):
 #     if not token or not message:

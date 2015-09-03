@@ -5,6 +5,7 @@ Created on Sep 25, 2014
 '''
 
 import api
+import config
 import logging
 import sys
 import webapp2
@@ -51,7 +52,7 @@ class SearchAPI(webapp2.RequestHandler):
                     data['group'] = get_group_json(obj)
                 elif isinstance(obj, User):
                     data['user'] = get_user_json(obj)
-                elif isinstance(obj, Card) and api.is_user_allowed_card_view(user, obj):
+                elif isinstance(obj, Card):
                     data['card'] = get_card_json(obj)
             except:
                 pass
@@ -71,11 +72,17 @@ def search_objects(query, location, uuid):
         index_query += 'distance(location, geopoint(%s, %s)) < %s' % (geopt.lat, geopt.lon, radius)
 #    logging.info('Querying search index %s' % index_query)
     user_index = search.Index(name=USER_SEARCH_INDEX_PREFIX + uuid)
+    public_user_index = search.Index(name=USER_SEARCH_INDEX_PREFIX + config.SUPER_USER_UUID)
 #     public_index = search.Index(name=PUBLIC_SEARCH_INDEX)
     try:
         results = user_index.search(index_query)
         for doc in results:
             object_keys.append(ndb.Key(urlsafe=doc.doc_id))
+
+        results = public_user_index.search(index_query)
+        for doc in results:
+            object_keys.append(ndb.Key(urlsafe=doc.doc_id))
+
 #         results = public_index.search(index_query)
 #         for doc in results:
 #             object_keys.append(ndb.Key(urlsafe=doc.doc_id))
