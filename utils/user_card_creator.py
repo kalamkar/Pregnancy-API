@@ -51,9 +51,7 @@ def update_user_cards(user):
     # Add new cards
     for card in cards:
         missing_variable_value = False
-        match = var_pattern.search(card.text)
-        var_names = match.groups() if match else []
-        for variable in var_names:
+        for variable in var_pattern.findall(card.text):
             if variable in var_keys:
                 card.text = card.text.replace('%' + variable + '%', str(var_values[variable]))
             else:
