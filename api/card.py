@@ -21,6 +21,9 @@ class CardAPI(webapp2.RequestHandler):
         if self.request.get('_put'):
             self.put()
             return
+        if self.request.get('_delete'):
+            self.put()
+            return
 
         text = self.request.get('text')
         tags = self.request.get('tags')
@@ -105,3 +108,24 @@ class CardAPI(webapp2.RequestHandler):
 
         api.write_message(self.response, 'success', extra={'cards' : cards})
 
+
+    def delete(self):
+        card_id = self.request.get('card_id')
+
+        user = api.get_user(self.request)
+        if not user:
+            api.write_error(self.response, 400, 'Unknown or missing user')
+            return
+
+        card = ndb.Key(urlsafe=card_id).get()
+        if not card:
+            api.write_error(self.response, 404, 'Card not found')
+            return
+
+        if not card.key.parent() == user.key:
+            api.write_error(self.response, 403, 'Only owner of the card can delete it.')
+            return
+
+        api.search.delete_from_indices(card, user.uuid)
+        card.delete_async()
+        api.write_message(self.response, 'success')

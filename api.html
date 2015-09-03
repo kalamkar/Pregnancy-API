@@ -2,7 +2,7 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<title>Dovetail</title>
+		<title>Pregnansi</title>
 		<style type="text/css">
 			BODY {font-family: sans-serif; text-align:center;}
 			LABEL {font-size: large;}
@@ -208,6 +208,14 @@
                 <input type="text" name="auth" size="25" class="textfield"/><br/><br/>
                 <label>tags</label>
                 <input type="text" name="tags" size="25" class="textfield"/></div>
+            </form>
+            <form action="/user/card" method="post" class="box-block"><div>
+                <input type="hidden" name="_delete" value="true"/>
+                <button type="submit">Delete</button><br/><br/>
+                <label>auth</label>
+                <input type="text" name="auth" size="25" class="textfield"/><br/><br/>
+                <label>card_id</label>
+                <input type="text" name="card_id" size="25" class="textfield"/></div>
             </form>
         </div>
         <div class="footnote">

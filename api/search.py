@@ -75,11 +75,11 @@ def search_objects(query, location, uuid):
     public_user_index = search.Index(name=USER_SEARCH_INDEX_PREFIX + config.SUPER_USER_UUID)
 #     public_index = search.Index(name=PUBLIC_SEARCH_INDEX)
     try:
-        results = user_index.search(index_query)
+        results = user_index.search(index_query, ids_only=True)
         for doc in results:
             object_keys.append(ndb.Key(urlsafe=doc.doc_id))
 
-        results = public_user_index.search(index_query)
+        results = public_user_index.search(index_query, ids_only=True)
         for doc in results:
             object_keys.append(ndb.Key(urlsafe=doc.doc_id))
 
@@ -134,3 +134,15 @@ def update_public_index(obj):
     except:
         logging.warn('Adding object %s to search index failed.' % (str(obj)))
         logging.warn(sys.exc_info()[0])
+
+
+def delete_from_indices(obj, uuid):
+    user_index = search.Index(name=USER_SEARCH_INDEX_PREFIX + uuid)
+    public_index = search.Index(name=PUBLIC_SEARCH_INDEX)
+    try:
+        user_index.delete([obj.key.urlsafe()])
+        public_index.delete([obj.key.urlsafe()])
+    except:
+        logging.warn('Deleting object %s from search index failed.' % (str(obj)))
+        logging.warn(sys.exc_info()[0])
+
