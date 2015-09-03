@@ -5,9 +5,11 @@ Created on Jul 28, 2015
 '''
 
 import api
+import config
 import webapp2
 
 from datastore import Card
+from datastore import User
 from api.renderer import get_card_json
 from utils.user_card_creator import make_card
 
@@ -81,11 +83,15 @@ class CardAPI(webapp2.RequestHandler):
 
     def get(self):
         tags = self.request.get('tags')
+        public = self.request.get('public')
 
         user = api.get_user(self.request)
         if not user:
             api.write_error(self.response, 400, 'Unknown or missing user')
             return
+
+        if public:
+            user = User.query(User.uuid == config.SUPER_USER_UUID).get()
 
         cards = []
         if tags:

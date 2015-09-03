@@ -13,6 +13,9 @@ PROFILE_ICON_SIZE = 50
 
 CHART_MAX_AGE = 1 * 24 * 60 * 60
 
+SUPER_USER_UUID = 'da41806f-8761-4007-b675-352a9e46ce8a'
+SUPER_USER_AUTH = 'ee2ccf02-3e51-4a08-9609-7637539388ee'
+
 APNS_DEV = ('gateway.sandbox.push.apple.com', 2195)
 APNS = ('gateway.push.apple.com', 2195)
 GCM_URL = 'https://android.googleapis.com/gcm/send'
