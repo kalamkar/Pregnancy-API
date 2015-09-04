@@ -78,6 +78,8 @@ class EventChartAPI(webapp2.RequestHandler):
         tags = self.request.get('tags')
         start_millis = self.request.get('start_time')
         end_millis = self.request.get('end_time')
+        chart_type = self.request.get('type')
+        tz_offset = self.request.get('tz_offset')
         debug = self.request.get('debug')
 
         if not tags:
@@ -88,11 +90,18 @@ class EventChartAPI(webapp2.RequestHandler):
         query = get_user_event_query(None, tags, start_millis, end_millis)
         results = {}
         events = []
+        xdata = []
+        ydata = []
         for event in query:
             if debug:
                 events.append(get_event_json(event))
             try:
-                results[event.data] += 1
+                if chart_type and chart_type == 'time':
+                    measurement = json.loads(event.data)
+                    xdata.append(api.get_local_time(event.time, tz_offset))
+                    ydata.append(int(measurement['value']))
+                else:
+                    results[event.data] += 1
             except:
                 results[event.data] = 1
 
@@ -104,35 +113,78 @@ class EventChartAPI(webapp2.RequestHandler):
             api.write_error(self.response, 404, 'Not enough data points for chart.')
             return
 
-        output = StringIO.StringIO()
-        try:
-            charts.clf()
-            total = sum(results.values())
-            labels = []
-            for label in results.keys():
-                labels.append(str(results[label] * 100 / total) + '% say ' + label)
+        if chart_type and chart_type == 'time':
+            # Reverse the data as we query events in descending order of time
+            xdata.reverse()
+            ydata.reverse()
+            show_vertical_bars(self.response, xdata, ydata)
+        else:
+            show_horizontal_bars(self.response, results)
 
-            colors = list(config.CHART_COLORS)
-            random.shuffle(colors)
-            charts.barh(range(len(labels)), results.values(), align='center', linewidth=0,
-                                color=colors)
-            charts.yticks(range(len(labels)), labels, family='sans-serif', ha='left', x=0.03,
-                          color='#808080')
-            charts.xticks([])
-            charts.tick_params(left='off', right='off')
-            charts.box(False)
 
-            figure = charts.gcf()
-            figure.set_size_inches(5, 3)
-            figure.savefig(output, dpi=100, orientation='landscape', format='png', transparent=True,
-                           frameon=False, bbox_inches='tight', pad_inches=0)
-        except:
-            pass
+def show_vertical_bars(response, xdata, ydata):
+    output = StringIO.StringIO()
+    try:
+        xlabels = []
+        for time in xdata:
+            xlabels.append(time.strftime('%a'))
 
-        self.response.headers['Content-Type'] = 'image/png'
-        # self.response.headers['Cache-Control'] = 'public,max-age=%d' % (config.CHART_MAX_AGE)
-        self.response.out.write(output.getvalue())
-        output.close()
+        figure, axis1 = charts.subplots()
+        axis1.bar(range(len(ydata)), ydata, align='center', color='#F391A4', linewidth=0)
+
+        rects = axis1.patches
+        ylabels = ["%dk" % int(steps / 1000)  for steps in ydata]
+        for rect, label in zip(rects, ylabels):
+            height = rect.get_height()
+            axis1.text(rect.get_x() + rect.get_width() / 2, height, label, ha='center', va='top',
+                       color='w')
+
+        charts.xticks(range(len(xlabels)), xlabels, family='sans-serif')
+        charts.yticks([])
+        charts.tick_params(left='off', right='off', top='off', bottom='off')
+        charts.box(False)
+
+        figure.set_size_inches(5, 3)
+        figure.savefig(output, dpi=100, orientation='landscape', format='png', transparent=True,
+                        frameon=False, bbox_inches='tight', pad_inches=0)
+    except:
+        pass
+
+    response.headers['Content-Type'] = 'image/png'
+    # self.response.headers['Cache-Control'] = 'public,max-age=%d' % (config.CHART_MAX_AGE)
+    response.out.write(output.getvalue())
+    output.close()
+
+def show_horizontal_bars(response, results):
+    output = StringIO.StringIO()
+    try:
+        charts.clf()
+        total = sum(results.values())
+        labels = []
+        for label in results.keys():
+            labels.append(str(results[label] * 100 / total) + '% say ' + label)
+
+        colors = list(config.CHART_COLORS)
+        random.shuffle(colors)
+        charts.barh(range(len(labels)), results.values(), align='center', linewidth=0,
+                            color=colors)
+        charts.yticks(range(len(labels)), labels, family='sans-serif', ha='left', x=0.03,
+                        color='#808080')
+        charts.xticks([])
+        charts.tick_params(left='off', right='off')
+        charts.box(False)
+
+        figure = charts.gcf()
+        figure.set_size_inches(5, 3)
+        figure.savefig(output, dpi=100, orientation='landscape', format='png', transparent=True,
+                        frameon=False, bbox_inches='tight', pad_inches=0)
+    except:
+        pass
+
+    response.headers['Content-Type'] = 'image/png'
+    # self.response.headers['Cache-Control'] = 'public,max-age=%d' % (config.CHART_MAX_AGE)
+    response.out.write(output.getvalue())
+    output.close()
 
 
 def get_user_event_query(user, tags, start_millis, end_millis):

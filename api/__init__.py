@@ -47,6 +47,13 @@ def get_time_from_millis(millis):
     time = datetime.datetime.utcfromtimestamp(int(millis) // 1000)
     return time.replace(microsecond=int(millis) % 1000 * 1000)
 
+def get_local_time(time, tz_offset):
+    try:
+        delta = datetime.timedelta(hours=int(tz_offset[1:3]), minutes=int(tz_offset[3:5]))
+        return time - delta if tz_offset[0] == '-' else time + delta
+    except:
+        return time
+
 def get_week_start():
     year, week = datetime.date.today().isocalendar()[0:2]
     start = datetime.datetime.strptime('%04d-%02d-1' % (year, week), '%Y-%W-%w')
