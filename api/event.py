@@ -87,7 +87,7 @@ class EventChartAPI(webapp2.RequestHandler):
             return
 
         tags = tags.lower().split(',')
-        query = get_user_event_query(None, tags, start_millis, end_millis)
+        query = get_user_event_query(api.get_user(self.request), tags, start_millis, end_millis)
         results = {}
         events = []
         xdata = []

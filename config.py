@@ -23,3 +23,25 @@ GCM_URL = 'https://android.googleapis.com/gcm/send'
 GCM_API_KEY = 'AIzaSyBOrPebHVw-4vTWjcgXOVPQUjAOajCeXEw'
 
 CHART_COLORS = ['#EDB1C2', '#FDE6A7', '#EF9969', '#8FD2D7', '#A9D78F', '#D78FD2']
+
+EMAIL_RECOVERY_SUBJECT = 'Your Pregnansi Account Recovery Code'
+EMAIL_RECOVERY_BODY = """
+Hello there! 
+
+To complete account recovery process for your <user email> Pregnansi account, use this code:
+
+        %s
+
+This code expires soon, so don't procrastinate 😄 !
+
+If you've received this mail in error, it's likely that another user entered
+your email address by mistake while trying to recover their account. If you didn't initiate
+the request, you don't need to take any further action and can safely disregard this email.
+
+Sincerely,
+- The Pregnansi Support Team
+
+Note: This email address cannot accept replies. To fix an issue or get further support, 
+    email us at support@pregnansi.com. We'll do our best to get back to you right away.
+"""
+

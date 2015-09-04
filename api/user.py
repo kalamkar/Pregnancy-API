@@ -245,7 +245,8 @@ class UserRecoveryAPI(webapp2.RequestHandler):
             if not first_user.recovery:
                 first_user.recovery = Recovery()
             first_user.recovery.code = random.randint(1000, 9999)
-            api.email(email, 'Account recovery code is %s' % (first_user.recovery.code))
+            api.email(email, config.EMAIL_RECOVERY_SUBJECT,
+                      config.EMAIL_RECOVERY_BODY % (first_user.recovery.code))
             first_user.put()
             extra = {'users' : [get_user_json(first_user)]}
 

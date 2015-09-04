@@ -171,13 +171,13 @@ def gcm(tokens, data):
     except:
         logging.warn('Exception sending message to GCM Servers')
 
-def email(address, message):
+def email(address, subject, body):
     if not mail.is_email_valid(address):
         logging.info('Invalid email address %s' % (address))
         return
 
-    sender_address = "Pregnansi<support@dovetail-api1.appspotmail.com>"
-    mail.send_mail(sender_address, address, message, message)
+    sender_address = "Pregnansi Support<support@dovetail-api1.appspotmail.com>"
+    mail.send_mail(sender_address, address, subject, body)
 
 def update_gender(user):
     try:
