@@ -16,7 +16,7 @@
         <meta name="twitter:app:url:iphone" content=""/>
         <meta name="twitter:app:name:googleplay" content="Pregnansi App"/>
         <meta name="twitter:app:id:googleplay" content="care.dovetail"/>
-        <meta name = "viewport" content = "initial-scale = 1.0, user-scalable = no">
+        <meta name="viewport" content="initial-scale = 1.0, user-scalable = no">
         
         <title>Pregnansi</title>
         <style type="text/css">
@@ -24,7 +24,7 @@
                 font-family: sans-serif; margin:10px; padding:5px; color: #5C5C5C;
                 text-align: center;
             }
-            #logo { max-width: 98%;}
+            #logo { max-width: 98%; width: 300px;}
             #card { max-width: 98%; min-height: 300px; margin-top: 20px;
                     padding:20px;
                     display: inline-block;
@@ -54,6 +54,10 @@
             }
         </style>
         <script type="text/javascript">
+        var options = [{% for option in card.options %}
+                          "{{option|safe}}" {% if not loop.last %},{% endif %}
+                      {% endfor %}];
+        
         function submitOption(option) {
         	var xmlhttp = new XMLHttpRequest();
         	xmlhttp.onreadystatechange = function() {
@@ -76,7 +80,7 @@
                 <span class="text">{{card.text}}</span>
                 <div id="options">
                     {% for option in card.options %}
-                    <span class="option" onclick="submitOption('{{option}}');">{{option}}</span>
+                    <span class="option" onclick="submitOption(options[{{loop.index0}}]);">{{option}}</span>
                     {% endfor %}
                 </div>
             </div>
@@ -86,7 +90,7 @@
             <img class="chart" src="{{card.result_image}}"/>
         </div>
         <div id="footer">
-            &copy; dovetail.care
+            &copy; pregnansi.com
         </div>
     </body>
 </html>

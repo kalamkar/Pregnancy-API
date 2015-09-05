@@ -5,8 +5,10 @@ Created on Aug 31, 2015
 '''
 
 import jinja2
+import logging
 import os
 import re
+import sys
 import web
 import webapp2
 
@@ -29,12 +31,12 @@ class Poll(webapp2.RequestHandler):
             web.write_error(self.response, 404, 'Card not found')
             return
 
-        tokens = re.split('[?\.!]', card.text, maxsplit=1)
-        if tokens and len(tokens) == 2:
-            data['title'] = tokens[0]
-            data['text'] = tokens[1]
-        elif tokens and len(tokens) == 1:
-            data['title'] = tokens[0]
+        try:
+            data['title'] = re.search('([^?\.!]+[?\.!]+)', card.text).group(0)
+            data['text'] = card.text.replace(data['title'], '').strip()
+        except:
+            data['title'] = card.text
+            logging.warn('Error splitting the title %s' % (sys.exc_info()[0]))
 
         data['tags'] = 'vote,' + ','.join(card.tags)
         data['result_image'] = '/event/chart?tags=' + poll_id
