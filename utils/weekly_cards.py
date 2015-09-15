@@ -38,7 +38,7 @@ weekly = {
         }, 
         {
           "url": "http://www.parenting.com/gallery/early-signs-of-pregnancy?page=9", 
-          "text": "Hello, pineapple, I want to eat you! Never mind. Pineapple, you make me sick! Are you craving certain foods or feeling disgusted by foods you normally enjoy, then this could be an early sign of pregnancy.", 
+          "text": "Hello, pineapple. I want to eat you! Never mind. Pineapple, you make me sick! Are you craving certain foods or feeling disgusted by foods you normally enjoy, then this could be an early sign of pregnancy.", 
           "type": "Symptoms", 
           "options": [
             "Oh yes I am!", 
@@ -77,7 +77,7 @@ weekly = {
         }, 
         {
           "url": "http://www.thebump.com/a/best-pregnancy-tests", 
-          "text": "You have to wait how long to take a test?! It can be hard to wait for up to 10 days when you have that gut feeling! If you want to try to find out before you miss your period, be sure to purchase an early test and use your first pee of the day to take it.", 
+          "text": "You have to wait how long to take a test? It can be hard to wait for up to 10 days when you have that gut feeling! If you want to try to find out before you miss your period, be sure to purchase an early test and use your first pee of the day to take it.", 
           "image": "https://storage.googleapis.com/dovetail-images/ring-791296_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
@@ -164,6 +164,7 @@ weekly = {
         {
           "url": "http://www.babycenter.com/0_how-to-keep-sex-smokin-when-trying-to-conceive_10317251.bc", 
           "text": "Is sex stressful? It can be when you're trying to conceive! You both might feel more frisky once you get that positive pregnancy test.", 
+          "image": "https://storage.googleapis.com/dovetail-images/couple-915992_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -175,6 +176,7 @@ weekly = {
         {
           "url": "http://www.nhs.uk/conditions/pregnancy-and-baby/pages/dad-to-be-pregnant-partner.aspx#close", 
           "text": "You are in this together! Dad might feel lost on how to be supportive in the early weeks of pregnancy. Being a good listener will help your partner feel she is not in this alone.", 
+          "image": "https://storage.googleapis.com/dovetail-images/couple-845354_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -331,7 +333,7 @@ weekly = {
         }, 
         {
           "url": "http://www.marchofdimes.org/pregnancy/calculating-your-due-date.aspx", 
-          "text": "Due dates can be confusing! Find the first day of your last menstrual cycle. If you are pregnant now that day is the first day of your pregnancy, even though you weren’t yet pregnant! You’ll add 280 days to this date to determine your due date.", 
+          "text": "Due dates can be confusing! Find the first day of your last menstrual cycle. If you are pregnant now that day is the first day of your pregnancy, even though you hadn't yet concieved! You’ll add 280 days to this date to determine your due date.", 
           "image": "https://storage.googleapis.com/dovetail-images/day-planner-828611_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
@@ -434,6 +436,7 @@ weekly = {
         {
           "url": "http://www.webmd.com/baby/features/an-expectant-dads-guide-to-pregnancy?page=2", 
           "text": "Congratulations, Dad-to-be! Celebrate now and then make a plan to attend the first prenatal appointment.", 
+          "image": "https://storage.googleapis.com/dovetail-images/sparkler-839831_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -445,6 +448,7 @@ weekly = {
         {
           "url": "http://blog.almostadad.com/2009/06/10-things-that-help-pregnant-women-feel.html#.VbGHvvlViko", 
           "text": "Super Dad- able to change the cat litter box in a single scoop! Time to take over the duties mom should no longer do, like changing the cat litter or lifting heavy objects.", 
+          "image": "https://storage.googleapis.com/dovetail-images/cat-800760_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -614,7 +618,7 @@ weekly = {
         }, 
         {
           "url": "http://psychology.about.com/od/developmentalpsychology/a/prenataldevelop.htm", 
-          "text": "Awww, it's a sweet little embyo. The embryonic period of developmen lasts from conception to the 9th week of pregnancy. It is a critical time of development in which most birth defects occur.", 
+          "text": "Awww, it's a sweet little embyo. The embryonic period of developmen lasts from conception to the 9th week of pregnancy.", 
           "type": "Baby's  Milestone/Fact", 
           "tags": [
             "milestone", 
@@ -687,6 +691,7 @@ weekly = {
         {
           "url": "http://www.babycentre.co.uk/a262/sore-breasts-in-pregnancy", 
           "text": "Enjoy them from afar. Your partner's breasts may look great in early pregnancy, but they're becoming increasingly sore as they begin to prepare for breastfeeding the baby after birth.", 
+          "image": "https://storage.googleapis.com/dovetail-images/couple-915992_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -698,6 +703,7 @@ weekly = {
         {
           "url": "http://blog.almostadad.com/2009/06/10-things-that-help-pregnant-women-feel.html#.VbGHvvlViko", 
           "text": "Super Dad- able to change the cat litter box in a single scoop! Time to take over the duties mom should no longer do, like changing the cat litter or lifting heavy objects.", 
+          "image": "https://storage.googleapis.com/dovetail-images/Generic/cat-649164_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -709,6 +715,7 @@ weekly = {
         {
           "url": "http://www.livestrong.com/article/92353-good-husband-pregnant-wife/", 
           "text": "Channel your inner chef and be the hero of the day. Sometimes the sight or smell of food can induce nausea so it may be easier for your partner to eat when she doesn’t have to prepare the meal.", 
+          "image": "https://storage.googleapis.com/dovetail-images/kitchen-791181_640%20(1).jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -868,7 +875,7 @@ weekly = {
           ]
         }, 
         {
-          "text": "Baby is as sweet as a blueberry.", 
+          "text": "Baby is the size and sweetness of a blueberry.", 
           "type": "Baby's Size  Visualization", 
           "tags": [
             "size", 
@@ -959,7 +966,8 @@ weekly = {
         }, 
         {
           "url": "http://www.babycenter.com/0_the-10-best-foods-for-pregnancy_10320506.bc", 
-          "text": "Commit with your partner to eating well. Prep a variety of healthy foods, such as fruits and veggies, to make eating right easier on mom. If they are in the fridge ready to go you'll both be more liely to grab those. And if she is experiencing nausea, grab and go healthy snacks are the best remedy.", 
+          "text": "Commit with your partner to eating well. Prep a variety of healthy foods, such as fruits and veggies, to make eating right easier on mom. If they are in the fridge ready to go you'll both be more likely to grab those. And if she is experiencing nausea, grab and go healthy snacks are the best remedy.", 
+          "image": "https://storage.googleapis.com/dovetail-images/salad-264826_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -971,6 +979,7 @@ weekly = {
         {
           "url": "http://www.parents.com/parenting/dads/101/pregnancy-books-for-dads/", 
           "text": "Find your library card! Reading up on pregnancy can be a huge support to your partner. There are many great books and websites for expectant dads to help you understand the changes your partner is experiencing.", 
+          "image": "https://storage.googleapis.com/dovetail-images/books-691980_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -982,6 +991,7 @@ weekly = {
         {
           "url": "http://www.livestrong.com/article/92353-good-husband-pregnant-wife/", 
           "text": "Channel your inner chef and be the hero of the day. Sometimes the sight or smell of food can induce nausea so it may be easier for your partner to eat when she doesn’t have to prepare the meal. Try to keep stocked up on her current favorite snacks as well.", 
+          "image": "https://storage.googleapis.com/dovetail-images/kitchen-791181_640%20(1).jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -1245,6 +1255,7 @@ weekly = {
         {
           "url": "http://www.babycenter.com/0_pregnancy-weight-gain-what-to-expect_1466.bc", 
           "text": "Mom may be worried about weight gain. Encourage her to make healthy choices and remind her she is growing a baby! That's very important work!", 
+          "image": "https://storage.googleapis.com/dovetail-images/scale-403585_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -1256,6 +1267,7 @@ weekly = {
         {
           "url": "http://www.medic8.com/healthguide/pregnancy-birth/pregnancy/expectant-father.html", 
           "text": "Sync your calendar. Decide whether you will try to attend all of your partner's appointments. If that isn’t possible, prioritize the appointments. You’ll likely want to be there for her first ultrasound to see your baby together for the first time!", 
+          "image": "https://storage.googleapis.com/dovetail-images/imac-605421_1280.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -1288,7 +1300,7 @@ weekly = {
         }, 
         {
           "url": "http://www.webmd.com/children/understanding-down-syndrome-treatment", 
-          "text": "It is recommended that all pregnant women are offered Down syndrome screening. The information is most helpful when the test is conducted in the first trimester. Many families want to know if a baby has Down syndrome before birth so proper care can be planned for delivery.", 
+          "text": "Learn about Down syndrome screening. The information is most helpful when the test is conducted in the first trimester. Many families want to know if a baby has Down syndrome before birth so proper care can be planned for delivery.", 
           "type": "Expectations for Care", 
           "tags": [
             "care", 
@@ -1372,7 +1384,7 @@ weekly = {
         }, 
         {
           "url": "http://www.webmd.com/baby/features/vivid-dreams-of-pregnant-women", 
-          "text": "Good Morning, did you just got to work without your pants? Crazy pregnancy dreams can be either funny or unsettling, but they are completely normal.", 
+          "text": "Good Morning, did you just got to work without wearing your pants? Crazy pregnancy dreams can be either funny or unsettling, but they are completely normal.", 
           "type": "Symptoms", 
           "options": [
             "No strange dreams", 
@@ -1508,6 +1520,7 @@ weekly = {
         {
           "url": "http://www.babycentre.co.uk/c25004289/where-to-give-birth", 
           "text": "Between 9 and 12 weeks of pregnancy, you and your partner should be choosing what type of provider she prefers and where to give birth.", 
+          "image": "https://storage.googleapis.com/dovetail-images/doctor-563428_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -1519,6 +1532,7 @@ weekly = {
         {
           "url": "http://www.thebabycorner.com/page/310/", 
           "text": "Struggling with the change from Man to Dad? Share your concerns with your partner and talk to other dads who can answer your questions and remind you what's important.", 
+          "image": "https://storage.googleapis.com/dovetail-images/dad-909510_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -1540,7 +1554,7 @@ weekly = {
         }, 
         {
           "url": "http://www.babycenter.com/404_is-it-safe-to-get-a-flu-shot-when-im-pregnant_2488.bc", 
-          "text": "Ah-chooo! Your healthcare provider may recommend that you get a flu vaccine during your pregnancy. You can ask for a thimerosal-free flu shot if you are concerned about that preservative.", 
+          "text": "Decide if you need a flu shot. You can ask for a thimerosal-free flu shot if you are concerned about that preservative.", 
           "type": "Expectations for Care", 
           "tags": [
             "care", 
@@ -1551,7 +1565,7 @@ weekly = {
         }, 
         {
           "url": "http://www.webmd.com/children/understanding-down-syndrome-treatment", 
-          "text": "It is recommended that all pregnant women are offered Down syndrome screening. The information is most helpful when the test is conducted in the first trimester. Many families want to know if a baby has Down syndrome before birth so proper care can be planned for delivery.", 
+          "text": "Check if you will be offered Down syndrome screening. The information is most helpful when the test is conducted in the first trimester. Many families want to know if a baby has Down syndrome before birth so proper care can be planned for delivery.", 
           "type": "Expectations for Care", 
           "tags": [
             "care", 
@@ -1715,7 +1729,7 @@ weekly = {
         }, 
         {
           "url": "http://www.pregmed.org/pregnancy-week-by-week/10-weeks-pregnant", 
-          "text": "Well aren't those the cutest kidneys ever?! Your baby’s major organs are completely developed.", 
+          "text": "Well aren't those the cutest kidneys ever?! Your baby’s major organs are present, though not yet fully developed.", 
           "type": "Baby's  Milestone/Fact", 
           "tags": [
             "milestone", 
@@ -1771,6 +1785,7 @@ weekly = {
         {
           "url": "http://www.babycenter.com/0_paternity-leave-what-are-the-options-for-dads_8258.bc", 
           "text": "Research your company's family leave policy. More workplaces are beginning to recognize the importance of paternity leave. If your company offers paid leave, don't be afraid to plan on using it.", 
+          "image": "https://storage.googleapis.com/dovetail-images/write-593333_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -1782,6 +1797,7 @@ weekly = {
         {
           "url": "http://www.parents.com/pregnancy/my-body/is-it-safe/is-sex-during-pregnancy-safe/", 
           "text": "Does your partner's pregnancy glow get you hot and bothered? Her libido may increase, decrease or stay the same. She wants to know what you're thinking so share your thoughts and ask her how she is feeling about intimacy.", 
+          "image": "https://storage.googleapis.com/dovetail-images/couple-915992_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -1997,7 +2013,7 @@ weekly = {
             "Sibling", 
             "Best friend", 
             "Parent", 
-            "Co-worker\\"
+            "Co-worker"
           ], 
           "tags": [
             "poll", 
@@ -2024,6 +2040,7 @@ weekly = {
         {
           "url": "http://www.babycentre.co.uk/a549793/dads-how-to-share-in-your-partners-pregnancy", 
           "text": "There is a lot going on with mom right now and it may leave you feeling disconnected. Reading pregnancy books and attending prenatal appointments can help you feel involved.", 
+          "image": "https://storage.googleapis.com/dovetail-images/book-pages-657165_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -2035,6 +2052,7 @@ weekly = {
         {
           "url": "https://www.urmc.rochester.edu/Encyclopedia/content.aspx?ContentTypeID=134&ContentID=5", 
           "text": "Your partner is undergoing a lot of changes, and it can be difficult to experience. Find little ways to encourage her and remind her of the miracle taking place inside of her body! It will help give her the little push she needs to make it to the second trimester.", 
+          "image": "https://storage.googleapis.com/dovetail-images/bouquet-890337_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -2273,6 +2291,7 @@ weekly = {
         {
           "url": "http://americanpregnancy.org/pregnancy-health/prenatal-massage/", 
           "text": "Schedule a prenatal massage for your partner to celebrate getting through the rough first trimester.", 
+          "image": "https://storage.googleapis.com/dovetail-images/physiotherapy-567021_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -2284,6 +2303,7 @@ weekly = {
         {
           "url": "http://www.babycenter.com/404_when-can-i-hear-my-babys-heartbeat_10349811.bc", 
           "text": "You will soon be able to hear your baby’s heartbeat! Ask your partner if she wants you to record the sound so you can listen to it together at home.", 
+          "image": "https://storage.googleapis.com/dovetail-images/pregnancy-775041_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -2518,6 +2538,7 @@ weekly = {
         {
           "url": "http://www.fitpregnancy.com/exercise/prenatal-workouts/5-simple-pregnancy-exercises-every-trimester", 
           "text": "Hey, Coach Dad. Exercise is important for nearly all pregnant women, unless their healthcare provider has instructed them otherwise. Make time to help your pregnant partner stay active. Plan fun, appropriate activities to do together, like swimming, walking or playing golf. Both mom and baby will reap the benefits, and so will you!", 
+          "image": "https://storage.googleapis.com/dovetail-images/golf-881320_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -2620,7 +2641,8 @@ weekly = {
         }, 
         {
           "url": "http://www.babycenter.com/0_gas-and-bloating-during-pregnancy_247.bc", 
-          "text": "Did your baby bump just grow over the course of the day? It's likely just intestinal activity and bloating.", 
+          "text": "Did your baby bump just grow over the course of the day? Baby is getting larger in there, but sudden changes are often intestinal activity and bloating.", 
+          "image": "https://storage.googleapis.com/dovetail-images/pregnant-775028_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -2631,6 +2653,7 @@ weekly = {
         {
           "url": "http://www.marchofdimes.org/pregnancy/caffeine-in-pregnancy.aspx", 
           "text": "Can't skip your morning coffee? Caffeine is a stimulant drug that can have a negative impact on your baby’s respiratory system, so limit your caffeine intake if you can. Be sure to read your labels because caffeine is found in many foods, drinks and medicines.", 
+          "image": "https://storage.googleapis.com/dovetail-images/cappuccino-696578_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -2641,6 +2664,7 @@ weekly = {
         {
           "url": "http://www.drgreene.com/baby-youre-eating-birth/", 
           "text": "Did you know you can begin to prepare your children for a lifetime of healthy eating before they’re born? It’s true! Your baby will become familiar with the foods you eat through the flavors in the amniotic fluid. After repeat exposure, babies naturally form preferences for these foods.", 
+          "image": "https://storage.googleapis.com/dovetail-images/baby-84686_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -2650,7 +2674,8 @@ weekly = {
         }, 
         {
           "url": "http://americanpregnancy.org/while-pregnant/uterus-size-during-pregnancy/", 
-          "text": "Learn about how your provider measures your baby's growth in your uterus. Your care provider measures your uterus from the top of your pubic bone to the fundus. Your fundus is the top of your uterus.", 
+          "text": "What's a fundus, and why do we measure it? Your care provider measures your uterus from the top of your pubic bone to the fundus. Your fundus is the top of your uterus.", 
+          "image": "https://storage.googleapis.com/dovetail-images/measuring-tape-789899_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -2746,6 +2771,7 @@ weekly = {
         {
           "url": "http://pregnancy.about.com/od/prenatalcare/ss/listeningtobaby.htm", 
           "text": "Doctor Dad. Have you tried using a stethoscope at home? They can be difficult to use and you may get better results in the third trimester, but it's a fun bonding experience to try.", 
+          "image": "https://storage.googleapis.com/dovetail-images/stethoscope-448614_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -2834,6 +2860,7 @@ weekly = {
         {
           "url": "http://www.babycenter.com/0_hair-and-nail-changes-during-pregnancy_1456563.bc", 
           "text": "Pregnancy can cause some strange, annoying, or wonderful changes to your hair. You may need to make changes to your haircare routine to work with it.", 
+          "image": "https://storage.googleapis.com/dovetail-images/summerfield-336672_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -2844,6 +2871,7 @@ weekly = {
         {
           "url": "http://wellnessmama.com/2586/pregnancy-fitness-tips/", 
           "text": "Keep moving, mama! Staying active during pregnancy has many benefits for mom and baby. Always consult with your medical provider to discuss the best exercise options during your pregnancy. Swimming can be a great, low-impact option to achieve movement and muscle strengthening. The feeling of weightlessness in the water can also provide relief to an achy body.", 
+          "image": "https://storage.googleapis.com/dovetail-images/swimming-713534_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -2854,6 +2882,7 @@ weekly = {
         {
           "url": "http://www.todaysparent.com/pregnancy/dentist-while-pregnant/", 
           "text": "Visit your dentist and pamper your pearly whites! No one typically looks forward to sitting in the dental chair, but you should have at least one appointment while you are pregnant. Hormones and increased blood volume can lead to swollen gums and leave you more prone to infection.", 
+          "image": "https://storage.googleapis.com/dovetail-images/boy-676122_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -2864,6 +2893,7 @@ weekly = {
         {
           "url": "http://www.babycenter.com/0_stretch-marks_1352276.bc", 
           "text": "Worried stretch marks will give you zebra-belly? Stretch marks aren’t completely preventable, but you may be able to take some steps to try to minimize their appearance by gaining weight slowly and steadily. Be suspiscious of any lotion or cream that promises to prevent all stretch marks.", 
+          "image": "https://storage.googleapis.com/dovetail-images/pregnant-244662_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -2946,8 +2976,24 @@ weekly = {
           ]
         }, 
         {
+          "url": "http://www.babble.com/pregnancy/top-10-reasons-to-get-a-doula/", 
+          "text": "Curious about doulas? Learn more about these women's helpers and decide if hiring one is right for you.", 
+          "type": "Polls", 
+          "options": [
+            "I don't think I need one", 
+            "I want the extra support"
+          ], 
+          "tags": [
+            "poll", 
+            "week:15", 
+            "card:16", 
+            "qid:58c5468e923f48c2ef4a43b000f56496bbbd468c58dc20f450a8c4cc"
+          ]
+        }, 
+        {
           "url": "http://www.babycenter.com/404_is-it-safe-to-take-cold-medications-during-pregnancy_2299.bc", 
           "text": "If mom comes down with a cold or the flu she can't simply reach for any medicine on the shelf. Research ways to safely relieve symptoms.", 
+          "image": "https://storage.googleapis.com/dovetail-images/lozenge-462867_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -2958,7 +3004,8 @@ weekly = {
         }, 
         {
           "url": "http://www.welcomebabyhome.com/pregnancy/expectant_father_pregnancy.htm", 
-          "text": "It may be helpful to arrange a visitor for your partner if you have to work long days or travel out of town. Be sure to check in with your partner while you are away. She’ll likely appreciate a video chat and the chance to talk about your days.", 
+          "text": "It may be helpful to arrange for a friend to visit your partner if you have to work long days or travel out of town. A video chat before bed is also nice and will give you the chance to talk about your day.", 
+          "image": "https://storage.googleapis.com/dovetail-images/door-864735_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -2996,7 +3043,7 @@ weekly = {
       "cards": [
         {
           "url": "http://whole9life.com/2013/01/pregnancy-and-food-aversions/", 
-          "text": "Why do I hate my favorite food?! Foods you normally enjoy eating may not agree with you during pregnancy. Try replace the foods you can't tolerate with a new healthy favorite.", 
+          "text": "Why do I hate my favorite food? Foods you normally enjoy eating may not agree with you during pregnancy. Try replace the foods you can't tolerate with a new healthy favorite.", 
           "type": "Symptoms", 
           "options": [
             "No aversions", 
@@ -3046,7 +3093,8 @@ weekly = {
         }, 
         {
           "url": "http://www.babycenter.com/kegel-exercises", 
-          "text": "Doing kegels now can help you when you give birth - and keep you from peeing everytime you sneeze after baby is born.", 
+          "text": "You can do kegals anytime and no one will even know. Kegel exercises can help you when you give birth. Bonus- they will keep you from peeing everytime you sneeze after baby is born.", 
+          "image": "https://storage.googleapis.com/dovetail-images/cat-351926_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -3057,6 +3105,7 @@ weekly = {
         {
           "url": "http://www.babycenter.com/404_is-it-safe-to-sleep-on-my-back-during-pregnancy_1245287.bc", 
           "text": "If you are a back sleeper, it is time to adjust your sleeping position. In fact, don’t lie flat on your back any time of day because it can reduce the blood flow to your baby.", 
+          "image": "https://storage.googleapis.com/dovetail-images/baby-216180_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -3076,7 +3125,8 @@ weekly = {
         }, 
         {
           "url": "http://www.mayoclinic.org/healthy-lifestyle/pregnancy-week-by-week/in-depth/prenatal-care/art-20045660", 
-          "text": "It is crucial to continue to attend your scheduled prenatal visits. Your healthcare provider collects important information during your appointments. Early detection of issues is extremely important for your health and your baby’s.", 
+          "text": "It is crucial to continue to attend your scheduled prenatal visits. Your healthcare provider collects important information during your appointments. Early detection of any problem is extremely important for your health and your baby’s.", 
+          "image": "https://storage.googleapis.com/dovetail-images/Generic/pregnancy-806989_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -3162,6 +3212,7 @@ weekly = {
         {
           "url": "http://www.babycenter.com/0_fetal-movement-feeling-your-baby-kick_2872.bc", 
           "text": "As mom begins to feel baby move you're may be anxious to feel the movements as well. Though it will be a while longer before you get to feel them, keep trying. All of the time you spend interacting with mom and baby is building the parental bond even before baby is born!", 
+          "image": "https://storage.googleapis.com/dovetail-images/pregnancy-792742_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -3173,6 +3224,7 @@ weekly = {
         {
           "url": "http://www.thebabycorner.com/page/2528/", 
           "text": "This is a good time to begin to discuss your partner’s birth expectations, if you haven’t already. Talk about how you would like to participate during labor and ask her how she wants to be supported so you are on the same page.", 
+          "image": "https://storage.googleapis.com/dovetail-images/hands-437968_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -3276,23 +3328,20 @@ weekly = {
           ]
         }, 
         {
-          "url": "http://www.thebump.com/a/planning-my-maternity-leave", 
-          "text": "It may seem kind of early, but now is a good time to plan your maternity leave and consider what work will look like after baby is born.", 
+          "url": "http://www.parents.com/pregnancy/my-life/maternity-paternity-leave/", 
+          "text": "Be sure you to familiarize yourself with your company’s maternity leave policies and benefits. Check with your healthcare provider if you are concerned that any aspect of your job may not be safe for you or your baby.", 
+          "image": "https://storage.googleapis.com/dovetail-images/waterfall-741049_640.jpg", 
           "type": "Tip/Factoid", 
-          "options": [
-            "It's not on my radar", 
-            "I've already made my plan"
-          ], 
           "tags": [
             "tip", 
             "week:17", 
-            "card:6", 
-            "qid:496d52b27a6f561b1827494af8167e68d43f415c119e646e069a5e86"
+            "card:6"
           ]
         }, 
         {
           "url": "http://www.pregnancy.org/article/six-tips-for-buying-maternity-clothes", 
           "text": "Moo-moos and maternity belts? No frump for this mama! There are many cute, stylish and comfortable maternity clothes available these days, so have fun dressing your new bump.", 
+          "image": "https://storage.googleapis.com/dovetail-images/pregnancy-917758_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -3301,33 +3350,14 @@ weekly = {
           ]
         }, 
         {
-          "url": "http://www.babble.com/pregnancy/top-10-reasons-to-get-a-doula/", 
-          "text": "Curious about doulas? Learn more about these women's helpers and decide if hiring one is right for you.", 
-          "type": "Tip/Factoid", 
-          "options": [
-            "I don't think I need one", 
-            "I want the extra support"
-          ], 
-          "tags": [
-            "tip", 
-            "week:17", 
-            "card:8", 
-            "qid:c89f6b46b6ca262daa3987f2386c95b34546f13105f6ed82b55768de"
-          ]
-        }, 
-        {
           "url": "http://www.fitpregnancy.com/nutrition/prenatal-nutrition/vegetarian-pregnancy", 
           "text": "Vegetarian moms need extra protein, too! Aim to eat 60 grams of plant-based protein daily. You are growing a whole other human after all!", 
+          "image": "https://storage.googleapis.com/dovetail-images/leek-791815_640.jpg", 
           "type": "Tip/Factoid", 
-          "options": [
-            "I'm hitting the target", 
-            "I need to do better"
-          ], 
           "tags": [
             "tip", 
             "week:17", 
-            "card:9", 
-            "qid:c7ed69a81790501551309090908fb33e90fce79a4028830307ad5f13"
+            "card:8"
           ]
         }, 
         {
@@ -3410,6 +3440,7 @@ weekly = {
         {
           "url": "http://www.babycentre.co.uk/a1048463/using-a-birthing-ball", 
           "text": "Having a ball with Dad! If you don't have one yet, pick up a birth ball (or yoga ball) for mom. It's useful for the duration of pregnancy, not just birth. It assures proper posture when sitting which can relieve aches and help with baby's position.", 
+          "image": "https://storage.googleapis.com/dovetail-images/exercise-ball-374948_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -3421,6 +3452,7 @@ weekly = {
         {
           "url": "http://www.babble.com/pregnancy/pregnancy-massage-couples-guide/", 
           "text": "Dad with the magic hands. You may be surprised how much a massage can relax and help calm your partner. Learning now how to give a great massage will be a benefit during labor. You may also feel more relaxed. Everybody wins!", 
+          "image": "https://storage.googleapis.com/dovetail-images/physiotherapy-567021_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -3543,7 +3575,8 @@ weekly = {
         }, 
         {
           "url": "http://pregnancy.about.com/cs/laborbasics/ht/ricesock.htm", 
-          "text": "A homemade rice sock can be heated up to soothe sore muscles and joints.", 
+          "text": "You may want to splurge on a massage. If you can't fit it in your schedule, a homemade rice sock can be heated up to soothe sore muscles and joints.", 
+          "image": "https://storage.googleapis.com/dovetail-images/sleep-835468_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -3552,8 +3585,9 @@ weekly = {
           ]
         }, 
         {
-          "url": "http://americanpregnancy.org/pregnancy-complications/pregnancy-induced-hypertension/", 
-          "text": "Learn the signs of pregnancy induced hypertension (high blood pressure) and contact your provider immediately with any related concerns.", 
+          "url": "http://www.whattoexpect.com/pregnancy/symptoms-and-solutions/appetite.aspx", 
+          "text": "Eat all the things! Your appetite may be increasing at this stage of pregnancy because your baby is quickly growing. It helps to eat smaller, more frequent meals. You may find it helpful to keep junk food out of your house to avoid temptation.", 
+          "image": "https://storage.googleapis.com/dovetail-images/eat-421388_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -3564,21 +3598,12 @@ weekly = {
         {
           "url": "http://www.fitpregnancy.com/pregnancy/sex-relationships/baby-bump-etiquette-check", 
           "text": "How rude! Many people give pregnant women unsolicited advice. Practice the smile-and-nod method to politely remove yourself if you are uncomfortable and try not to let anyone’s scary story freak you out.", 
+          "image": "https://storage.googleapis.com/dovetail-images/gesture-772977_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
             "week:18", 
             "card:8"
-          ]
-        }, 
-        {
-          "url": "http://www.whattoexpect.com/pregnancy/symptoms-and-solutions/appetite.aspx", 
-          "text": "Eat all the things! Your appetite may be increasing at this stage of pregnancy because your baby is quickly growing. It helps to eat smaller, more frequent meals. Choose nutrient-packed snacks and meals and try to avoid empty calories. You may find it helpful to keep junk food out of your house.", 
-          "type": "Tip/Factoid", 
-          "tags": [
-            "tip", 
-            "week:18", 
-            "card:9"
           ]
         }, 
         {
@@ -3650,6 +3675,7 @@ weekly = {
         {
           "url": "http://www.marchofdimes.org/pregnancy/helping-out-during-pregnancy.aspx", 
           "text": "Time for a nutritional check up! Think about your family meals over the last few days and see where any gaps may be. Your encouragement at meal times can help Mom have a healthier pregnancy.", 
+          "image": "https://storage.googleapis.com/dovetail-images/eating-601581_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -3661,6 +3687,7 @@ weekly = {
         {
           "url": "http://www.fitpregnancy.com/nutrition/prenatal-nutrition/10-surprising-prenatal-power-foods", 
           "text": "Does your partner have a case of the munchies? Bring her a high protein, power-food snack.", 
+          "image": "https://storage.googleapis.com/dovetail-images/yogurt-924880_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -3682,13 +3709,24 @@ weekly = {
         }, 
         {
           "url": "http://www.fitpregnancy.com/pregnancy/labor-delivery/do-you-need-doula", 
-          "text": "What does a doula do? Doulas are not used in place of a doctor, midwife or nurse and they don’t deliver babies. The role of a doula is to provide comfort and support for the duration of labor and delivery.", 
+          "text": "Learn what a doula does. Doulas are not used in place of a doctor, midwife or nurse and they don’t deliver babies. The role of a doula is to provide comfort and support for the duration of labor and delivery.", 
           "type": "Expectations for Care", 
           "tags": [
             "care", 
             "action:to_do", 
             "week:18", 
             "card:22"
+          ]
+        }, 
+        {
+          "url": "http://americanpregnancy.org/pregnancy-complications/pregnancy-induced-hypertension/", 
+          "text": "Learn the signs of pregnancy induced hypertension (high blood pressure) and contact your provider immediately with any related concerns.", 
+          "type": "Expectations for Care", 
+          "tags": [
+            "care", 
+            "action:to_do", 
+            "week:18", 
+            "card:23"
           ]
         }
       ], 
@@ -3767,6 +3805,7 @@ weekly = {
         {
           "url": "http://americanpregnancy.org/pregnancy-health/dental-work-and-pregnancy/", 
           "text": "Pregnancy has you grinning from ear to ear. Better schedule a dental visit to keep your teeth and gums healthy.", 
+          "image": "https://storage.googleapis.com/dovetail-images/smile-885243_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -3777,6 +3816,7 @@ weekly = {
         {
           "url": "http://www.babycentre.co.uk/a1049630/10-ways-to-bond-with-your-baby--bump", 
           "text": "Sing a song and read to your baby. Baby is starting to hear sounds as your voice vibrations travel to your baby’s inner ear. Your baby will recall familiar voices and words and even recognize them after birth.", 
+          "image": "https://storage.googleapis.com/dovetail-images/baby-921808_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -3786,23 +3826,19 @@ weekly = {
         }, 
         {
           "url": "http://www.webmd.com/parenting/baby/what-about-circumcision", 
-          "text": "The choice to circumcise or not is a big one so start researching now. Explore risks, benefits, procedures, recommendations, and care. It can be hard to find neutral information so ask your provider for help and take some time to decide. Have you begun to talk about it yet?", 
+          "text": "The choice to circumcise or not is a big one so start researching now. Explore risks, benefits, procedures, recommendations, and care. It can be hard to find neutral information so ask your provider for help and take some time to decide.", 
+          "image": "https://storage.googleapis.com/dovetail-images/couple-336655_640.jpg", 
           "type": "Tip/Factoid", 
-          "options": [
-            "Not yet", 
-            "A little bit", 
-            "We've made a decision"
-          ], 
           "tags": [
             "tip", 
             "week:19", 
-            "card:8", 
-            "qid:ae9211290ee9e27ab6d3790159caa6133b61d5465699029ba5d158b3"
+            "card:8"
           ]
         }, 
         {
           "url": "http://www.whattoexpect.com/pregnancy/symptoms-and-solutions/appetite.aspx", 
-          "text": "Eat all the things! Your appetite may be increasing at this stage of pregnancy because your baby is quickly growing. It helps to eat smaller, more frequent meals. Choose nutrient-packed snacks and meals and try to avoid empty calories. You may find it helpful to keep junk food out of your house.", 
+          "text": "Eat all the things! Your appetite may be increasing at this stage of pregnancy because your baby is quickly growing. It helps to eat smaller, more frequent meals. You may find it helpful to keep junk food out of your house to avoid temptation.", 
+          "image": "https://storage.googleapis.com/dovetail-images/eat-421388_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -3889,6 +3925,7 @@ weekly = {
         {
           "url": "http://becomingdad.com.au/", 
           "text": "Need a dad's night out? Having a group of Dad Friends can help you feel more prepared for the challenges to come. If you don't know any dads in real life don't be afraid to look for a cyber-community.", 
+          "image": "https://storage.googleapis.com/dovetail-images/bar-413709_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -3899,19 +3936,14 @@ weekly = {
         }, 
         {
           "url": "http://www.cnpp.usda.gov/tools/CRC_Calculator/", 
-          "text": "How much does it cost to raise a child? There are helpful resources online to help you plan for the upcoming expenses of the next 18 years. How prepared do you feel?", 
+          "text": "How much does it cost to raise a child? There are helpful resources online to help you plan for the upcoming expenses of the next 18 years.", 
+          "image": "https://storage.googleapis.com/dovetail-images/piggy-bank-621068_640.jpg", 
           "type": "Tips for Dad", 
-          "options": [
-            "How can you ever feel prepared?", 
-            "It will probably be alright", 
-            "We've already begun saving!"
-          ], 
           "tags": [
             "tip", 
             "gender:male", 
             "week:19", 
-            "card:19", 
-            "qid:2855890a71aeeb6dd893052ec1765d5aa0686851ae2728201524e933"
+            "card:19"
           ]
         }, 
         {
@@ -4153,7 +4185,7 @@ weekly = {
         }, 
         {
           "url": "http://www.todaysparent.com/pregnancy/the-debate-should-parents-find-out-their-babys-sex/", 
-          "text": "What if you and your partner don't agree? It can be tricky when one parent wants to find out the sex of your baby and the other doesn’t. Discuss the pros and cons to compromise on a decision that makes you both feel comfortable. This likely won't be the last time you disagree so it's great practice for coming to a peaceful consensus.", 
+          "text": "What if you and your partner don't agree? It can be tricky when one parent wants to find out the sex of your baby and the other doesn’t. Discuss the pros and cons to find a compromise. This won't be the last time you disagree so practice coming to a peaceful consensus.", 
           "image": "https://storage.googleapis.com/dovetail-images/pregnant-711747_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
@@ -4266,6 +4298,7 @@ weekly = {
         {
           "url": "http://www.regardingbaby.org/2012/09/11/choosing-childcare-for-infants-and-toddlers-essential-considerations/", 
           "text": "It may seem far off, but it’s a good time to discuss child care with your partner. Will one of you stay home to care for your baby, or will you both work outside of the home? Experts recommend looking for child-care at six months beforehand. Ask around for recommendations and schedule appointments to meet with potential childcare providers.", 
+          "image": "https://storage.googleapis.com/dovetail-images/baby-539969_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -4373,7 +4406,7 @@ weekly = {
         }, 
         {
           "url": "http://www.webmd.com/baby/features/predicting-baby-gender?page=3", 
-          "text": "Was your mommy’s intuition correct about the sex of your baby?", 
+          "text": "Was your intuition correct about the sex of your baby?", 
           "type": "Polls", 
           "options": [
             "I was totally right!", 
@@ -4416,6 +4449,7 @@ weekly = {
         {
           "url": "http://www.fitpregnancy.com/nutrition/prenatal-nutrition/sweet-salty-recipes-satisfy-your-pregnancy-craving", 
           "text": "Is your partner experiencing food cravings? If she craves a nutritious food, it is no problem to enjoy. If she craves unhealthy food, she’ll have to be mindful of her choices. Help by helping her find the healthiest ways to satiate her cravings, and sticking to healthy choices yourself. Knowing you are in it together will make it much easier for your both.", 
+          "image": "https://storage.googleapis.com/dovetail-images/cupcakes-690040_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -4523,6 +4557,7 @@ weekly = {
         {
           "url": "http://www.parents.com/pregnancy/signs/breaking-the-news/handling-unwanted-pregnancy-comments/", 
           "text": "Your baby bump might bring out the nosy and the rude in random people. You may be creating a list snarky replies but simply smiling and nodding is often the best solution.", 
+          "image": "https://storage.googleapis.com/dovetail-images/girl-690614_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -4533,6 +4568,7 @@ weekly = {
         {
           "url": "http://thecarseatlady.com/pregnant/", 
           "text": "Think of your seat belt as your baby’s first car seat. Wear your seat belt every time you are in a car! Some expectant moms are concerned the restraint could harm their baby, but the opposite is actually true. Safety belts can protect you and your baby in the event of a crash. You can use a maternity seat belt to extend the length.", 
+          "image": "https://storage.googleapis.com/dovetail-images/baby-617411_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -4543,6 +4579,7 @@ weekly = {
         {
           "url": "http://www.todaysparent.com/family/family-health/how-much-water/", 
           "text": "I'll have water, neat, with a slice of lemon. Drinking plenty of water can help relieve pregnancy woes. Recommended guidelines state women should have around 101 ounces of fluid intake per day, so try filling a large glass bottle with water first thing in the morning and keep sipping all day.", 
+          "image": "https://storage.googleapis.com/dovetail-images/water-791235_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -4553,6 +4590,7 @@ weekly = {
         {
           "url": "http://www.thebump.com/a/fever-during-pregnancy", 
           "text": "Call your provider if you experience a temperature above 100 degrees. It is not necessarily cause for alarm, but it is best to be on the safe side. A fever above 102 degrees can be a sign of infection.", 
+          "image": "https://storage.googleapis.com/dovetail-images/thermometer-869392_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -4610,6 +4648,7 @@ weekly = {
         {
           "url": "http://www.dona.org/mothers/dads_and_doulas.php", 
           "text": "A doula can help you know how best to support mom during pregnancy and birth and even give you a rest during a long labor.", 
+          "image": "https://storage.googleapis.com/dovetail-images/baby-feet-847821_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -4621,6 +4660,7 @@ weekly = {
         {
           "url": "http://www.thebump.com/t/all-about-baby-names", 
           "text": "Sometimes partners immediately find names they agree on, and other times it can be more of a challenge. You can both make a list and compare notes to narrow down your options and get on the same page. Some people find the name game to be fun, while others stress over finding the perfect name for their child.", 
+          "image": "https://storage.googleapis.com/dovetail-images/notes-514998_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -4632,6 +4672,7 @@ weekly = {
         {
           "url": "http://www.parenting.com/article/ask-dr-sears-the-circumcision-decision", 
           "text": "Like father like son? There's much more to making a choice about circumcision than if you have been or not. Take time to research and discuss it with mom to be certain you're on the same page.", 
+          "image": "https://storage.googleapis.com/dovetail-images/baby-22194_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -4710,6 +4751,7 @@ weekly = {
         {
           "url": "http://pregnancy.familyeducation.com/pregnancy-day-by-day/first-trimester/50747.html", 
           "text": "Take a little time to rest with your feet up every day.", 
+          "image": "https://storage.googleapis.com/dovetail-images/feet-684683_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -4719,7 +4761,8 @@ weekly = {
         }, 
         {
           "url": "http://www.livestrong.com/article/493914-how-much-sodium-is-too-much-for-pregnant-women/", 
-          "text": "Skip the chips at snack time. It’s a good idea to pay attention to your daily sodium intake to achieve a healthy balance. It is recommended to get 1 ½ to 2 grams per day to help prevent fluid retention. Potassium, found in foods like bananas and raisins, helps with the elimination of sodium. Read food labels to avoid items with too much sodium.", 
+          "text": "Skip the chips at snack time and have some raisins instead. It’s a good idea to pay attention to your daily sodium intake to achieve a healthy balance and aim for 1 ½ to 2 grams per day to help prevent fluid retention. Potassium, found in foods like bananas and raisins, helps with the elimination of sodium.", 
+          "image": "https://storage.googleapis.com/dovetail-images/health-712980_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -4729,7 +4772,8 @@ weekly = {
         }, 
         {
           "url": "http://pregnancy.lovetoknow.com/labor-childbirth/how-tell-if-your-water-is-leaking", 
-          "text": "No one wants to talk about it, but you may leak a little when you sneeze. It’s common to experience urine leaks during pregnancy because your growing uterus puts pressure on your bladder. It can be hard to distinguish pee from amniotic fluid. When your water breaks, it can be a gush of fluid, like in the movies, but it can always be a slow drip. If you are unsure, always contact your healthcare provider!", 
+          "text": "No one wants to talk about it, but you may leak a little when you sneeze. It’s common to experience urine leaks during pregnancy because your growing uterus puts pressure on your bladder. It can be hard to distinguish pee from amniotic fluid. When your water breaks, it can be a gush of fluid like in the movies, but it can also be a slow drip. If you are unsure, always contact your healthcare provider!", 
+          "image": "https://storage.googleapis.com/dovetail-images/girls-914823_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -4804,6 +4848,7 @@ weekly = {
         {
           "url": "http://www.todaysparent.com/blogs/pregnant-pause/how-ive-chosen-to-document-my-pregnancy/", 
           "text": "Help mom take pictures of her changing body to document this special time.", 
+          "image": "https://storage.googleapis.com/dovetail-images/child-920128_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -4815,6 +4860,7 @@ weekly = {
         {
           "url": "http://www.babycenter.com/0_strange-but-true-couvade-syndrome-sympathetic-pregnancy_10364940.bc", 
           "text": "Hey Dad, are you experiencing pregnancy symptoms? You’re not going crazy! The term for this is couvade syndrome or sympathetic pregnancy. Believe it or not, it is estimated that around 50 of expectant fathers experience nausea, weight gain and food cravings.", 
+          "image": "https://storage.googleapis.com/dovetail-images/pregnancy-391992_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -4922,6 +4968,7 @@ weekly = {
         {
           "url": "http://www.thebump.com/a/talking-to-baby-in-utero", 
           "text": "Your baby can hear your voice so go ahead and chat away with her. If you're not sure what to say, read a children's book.", 
+          "image": "https://storage.googleapis.com/dovetail-images/woman-reading-887274_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -4932,6 +4979,7 @@ weekly = {
         {
           "url": "http://www.whattoexpect.com/pregnancy/ask-heidi/hot-tubs-and-saunas-during-pregnancy.aspx", 
           "text": "Warm bath, yes. Hot tub, no. It is recommended to avoid saunas, hot tubs and spas during pregnancy because high temperatures can be detrimental to your baby. Your core body temperature should stay below 102 degrees to ensure your baby’s safety. Though it may sound like a great way to relax, it’s best to not take the risk.", 
+          "image": "https://storage.googleapis.com/dovetail-images/bathtub-902362_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -4942,6 +4990,7 @@ weekly = {
         {
           "url": "http://www.fitpregnancy.com/nutrition/prenatal-nutrition/5-ways-reduce-heartburn-during-pregnancy", 
           "text": "Heartburn making it tough to sleep? Nighttime snacking and overeating are two of the main causes of heartburn. Try to eat five or six smaller healthy meals during the day and skip your bedtime snack to find relief.", 
+          "image": "https://storage.googleapis.com/dovetail-images/raspberries-423194_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -4952,6 +5001,7 @@ weekly = {
         {
           "url": "http://www.whattoexpect.com/pregnancy/eating-well/week-17/eating-out.aspx", 
           "text": "Try to keep up your healthy eating habits, even when you are dining out. It will help to choose restaurants with healthy, nutritious menu options. It can be difficult to avoid foods high in sodium and calories, so ask questions and choose wisely.", 
+          "image": "https://storage.googleapis.com/dovetail-images/blackboard-677578_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -5035,6 +5085,7 @@ weekly = {
         {
           "url": "http://blog.almostadad.com/2007/07/how-to-pregnancy-foot-massage.html#.VbggB_lViko", 
           "text": "Mom will appreciate a foot rub at the end of the day. Her feet are changing share and carrying the weight of her changing body.", 
+          "image": "https://storage.googleapis.com/dovetail-images/feet-684683_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -5057,6 +5108,7 @@ weekly = {
         {
           "url": "http://pregnancy.about.com/od/prenatalcare/ss/listeningtobaby.htm", 
           "text": "Doctor Dad. Have you tried using a stethoscope at home? They can be difficult to use and you may get better results in the third trimester, but it's a fun bonding experience to try.", 
+          "image": "https://storage.googleapis.com/dovetail-images/stethoscope-448614_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -5152,6 +5204,7 @@ weekly = {
         {
           "url": "http://www.thebump.com/a/talking-to-baby-in-utero", 
           "text": "Your baby can hear your voice so go ahead and chat away with her. If you're not sure what to say, read a children's book.", 
+          "image": "https://storage.googleapis.com/dovetail-images/woman-reading-887274_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -5161,7 +5214,8 @@ weekly = {
         }, 
         {
           "url": "http://www.whattoexpect.com/pregnancy/photo-gallery/8-ways-to-pamper-yourself-during-pregnancy.aspx#01", 
-          "text": "Don’t forget to pamper yourself! Pregnancy can be a busy time for expectant moms. Find activities that are calm and relaxing for you. Plan a trip to the spa, the movies or lunch with friends. Have a relaxing evening at home with your partner. Read a fun book or listen to your favorite music to unwind.", 
+          "text": "Don’t forget to pamper yourself! Pregnancy can be a busy time for expectant moms, so plan a trip to the spa, the movies or lunch with friends. Have a relaxing evening at home with your partner, or read a fun book to unwind.", 
+          "image": "https://storage.googleapis.com/dovetail-images/pool-690034_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -5171,7 +5225,8 @@ weekly = {
         }, 
         {
           "url": "http://www.fda.gov/Food/ResourcesForYou/HealthEducators/ucm083327.htm", 
-          "text": "Food poisoning is bad, but it's dangerous when you're pregnant. It’s important to avoid bacteria found in undercooked food. Use a food thermometer when cooking or reheating food. Make sure food always reaches at least 165F to ensure any potential bacteria have been killed to avoid toxoplasmosis.", 
+          "text": "Food poisoning is bad, but it's dangerous when you're pregnant. It’s important to avoid bacteria found in undercooked food. Use a food thermometer when cooking or reheating food to avoid toxoplasmosis.", 
+          "image": "https://storage.googleapis.com/dovetail-images/cold-cuts-520728_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -5182,6 +5237,7 @@ weekly = {
         {
           "url": "http://www.thebump.com/a/fever-during-pregnancy", 
           "text": "Call your provider if you experience a temperature above 100 degrees. It is not necessarily cause for alarm, but it is best to be on the safe side. A fever above 102 degrees can be a sign of infection.", 
+          "image": "https://storage.googleapis.com/dovetail-images/thermometer-869392_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -5284,6 +5340,7 @@ weekly = {
         {
           "url": "http://www.babble.com/pregnancy/what-to-say-to-your-pregnant-wife/#you-look-great", 
           "text": "Mom's changing shape can sometimes make her feel less than attractive. Be sure to tell her how beautiful she is and how much it means for you to be on this journey with her.", 
+          "image": "https://storage.googleapis.com/dovetail-images/couple-336655_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -5295,6 +5352,7 @@ weekly = {
         {
           "url": "http://www.todaysparent.com/pregnancy/the-debate-should-parents-find-out-their-babys-sex/", 
           "text": "What if you and your partner don't agree? It can be tricky when discussing issues like names, finding out the gender, or breastfeeding if you are on different pages. Discuss the pros and cons and work to find a decision that makes you both feel comfortable. This likely won't be the last time you disagree so it's great practice for coming to a peaceful consensus.", 
+          "image": "https://storage.googleapis.com/dovetail-images/couple-845354_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -5402,6 +5460,7 @@ weekly = {
         {
           "url": "http://www.babycenter.com/0_health-insurance-coverage-during-pregnancy-and-for-your-new_1454651.bc", 
           "text": "Review your insurance policy for newborn care and coverage. You want to be sure that your chosen birth location is covered before you get much farther along and it is harder to change your delivery plans.", 
+          "image": "https://storage.googleapis.com/dovetail-images/baby-84626_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -5412,6 +5471,7 @@ weekly = {
         {
           "url": "http://www.marchofdimes.org/pregnancy/omega-3-fatty-acids.aspx", 
           "text": "MMMMmmmmmm, Omega-3 fatty acids. They are beneficial for you and your baby and taste yummy, too. But, it is recommended to eat no more than 12 ounces total of fish per week.", 
+          "image": "https://storage.googleapis.com/dovetail-images/salmon-518032_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -5421,7 +5481,8 @@ weekly = {
         }, 
         {
           "url": "http://www.thebump.com/a/dark-urine-during-pregnancy", 
-          "text": "Is your pee darker than normal? The color of your pee is a clue to your hydration level. If your urine is light, it indicates you are properly hydrated. If your urine is dark, it is a clear sign to drink more water. Paying attention to the color of your pee can help remind you to drink the necessary amount of fluids!", 
+          "text": "Is your pee darker than normal? The color of your pee is a clue to your hydration level. If your urine is light, it indicates you are properly hydrated. If your urine is dark, it is a clear sign to drink more water. Paying attention to urine color can help remind you to drink the necessary amount of fluids!", 
+          "image": "https://storage.googleapis.com/dovetail-images/orange-165040_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -5432,6 +5493,7 @@ weekly = {
         {
           "url": "http://www.babble.com/pregnancy/second-trimester-routine-visits/", 
           "text": "They don't call them \"routine check-ups\" for nothing. As long as you remain low risk, your appointments remain similar for the next month or so. Your healthcare provider will check your weight, blood pressure, urine, size of uterus and baby’s heartbeat.", 
+          "image": "https://storage.googleapis.com/dovetail-images/doctor-563428_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -5518,6 +5580,7 @@ weekly = {
         {
           "url": "http://www.babycenter.com/101_cozy-pregnancy-pillows_10369713.bc", 
           "text": "Though it may seem an unnecessary cost, a body pillow can go a long way in helping mom get a good night's sleep.", 
+          "image": "https://storage.googleapis.com/dovetail-images/pillows-820149_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -5529,6 +5592,7 @@ weekly = {
         {
           "url": "http://www.whattoexpect.com/pregnancy/symptoms-and-solutions/forgetfulness.aspx", 
           "text": "Wondering why your partner can’t seem to remember anything? Forgetfulness is a pregnancy symptom and is referred to as pregnancy brain. Do her a solid and leave her post-it notes or lists when she needs to remember important dates or details.", 
+          "image": "https://storage.googleapis.com/dovetail-images/cards-686721_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -5647,6 +5711,7 @@ weekly = {
         {
           "url": "http://www.fitpregnancy.com/exercise/prenatal-workouts/home-stretch", 
           "text": "Keeping active and eating well can reduce aches, pains, cramps, and heartburn.", 
+          "image": "https://storage.googleapis.com/dovetail-images/woman-892309_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -5656,7 +5721,8 @@ weekly = {
         }, 
         {
           "url": "http://www.parents.com/pregnancy/my-body/pampering/pamper-your-pregnant-body/", 
-          "text": "Be kind to yourself and your growing body! Make time to treat yourself to some fun and relaxation. Unplug and read a book, or treat yourself to a massage. Buy yourself a comfy maternity outfit that makes you feel pretty.", 
+          "text": "Be kind to yourself and your growing body! Make time to treat yourself to some fun and relaxation. Unplug, have some tea and read a book. Or perhaps, buy yourself a comfy maternity outfit that makes you feel pretty.", 
+          "image": "https://storage.googleapis.com/dovetail-images/sugar-791798_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -5677,6 +5743,7 @@ weekly = {
         {
           "url": "http://pregnancy.about.com/cs/laborbasics/a/aagethospital.htm", 
           "text": "Imagine being in labor and you are stuck in rush hour traffic. Include your travel time to the hospital or birth center, as well as traffic conflicts into your plans. How will you reach your partner if they are not home? Who would drive you if your partner couldn’t get home in time?", 
+          "image": "https://storage.googleapis.com/dovetail-images/taxi-cab-381233_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -5764,6 +5831,7 @@ weekly = {
         {
           "url": "http://www.babycenter.com/0_sleep-problem-insomnia-during-pregnancy_7521.bc", 
           "text": "Help mom talk out her worries and fears and offer a nightly massage to combat insomnia.", 
+          "image": "https://storage.googleapis.com/dovetail-images/woman-376754_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -5775,23 +5843,13 @@ weekly = {
         {
           "url": "http://www.parents.com/pregnancy/my-body/changing/pregnancy-beauty-body-changes/", 
           "text": "You can help your partner by being sensitive to her feelings about her changing body. She will likely appreciate some extra love and attention. Assure her that you still find her attractive and beautiful.", 
+          "image": "https://storage.googleapis.com/dovetail-images/pregnancy-775041_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
             "gender:male", 
             "week:27", 
             "card:19"
-          ]
-        }, 
-        {
-          "url": "http://www.parents.com/pregnancy/week-by-week/7/healthy-weight-gain/", 
-          "text": "Step on the scale. Keeping track of your weight gain often can help motivate you to make wise food and exercise choices.", 
-          "type": "Tips for Dad", 
-          "tags": [
-            "tip", 
-            "gender:male", 
-            "week:27", 
-            "card:20"
           ]
         }, 
         {
@@ -5876,6 +5934,7 @@ weekly = {
         {
           "url": "http://www.thebump.com/a/how-to-get-people-to-stop-touching-my-belly", 
           "text": "Do you wish you could put a privacy fence around your belly? Some expectant moms can’t stomach when people touch their tummies. Your bump is not public property, so if it really offends you practice kindly asking people to respect your space.", 
+          "image": "https://storage.googleapis.com/dovetail-images/person-915604_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -5885,7 +5944,8 @@ weekly = {
         }, 
         {
           "url": "http://www.webmd.com/baby/guide/third-trimester-tests", 
-          "text": "Your healthcare provider may order various third trimester tests around this point in your pregnancy including: GBS infection test, ultrasound, nonstress test, contraction-stress test, Bishop score, home uterine monitoring, kick count, biophysical profile, gestational diabetes test. If you don't understand them don't be afraid to ask for more information or look them up on your own to prepare.", 
+          "text": "Your healthcare provider may order various third trimester tests around this point in your pregnancy. If you don't understand them don't be afraid to ask for more information or look them up on your own to prepare.", 
+          "image": "https://storage.googleapis.com/dovetail-images/doctor-563428_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -5896,6 +5956,7 @@ weekly = {
         {
           "url": "http://www.whattoexpect.com/pregnancy/ask-heidi/rhogam-and-rh-negative.aspx", 
           "text": "If you test Rh-negative, you will need a RhoGAM injection around this time in your pregnancy. The shot is needed to prevent you from becoming senstized to your baby if they are Rh-positive.", 
+          "image": "https://storage.googleapis.com/dovetail-images/feet-619534_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -5906,6 +5967,7 @@ weekly = {
         {
           "url": "http://www.babycenter.com/third-trimester-prenatal-visits", 
           "text": "From this point on your provider will want to see you every two weeks until the last month.", 
+          "image": "https://storage.googleapis.com/dovetail-images/day-planner-828611_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -5990,6 +6052,7 @@ weekly = {
         {
           "url": "http://www.parents.com/pregnancy/how-to-choose-a-doula/", 
           "text": "If you're hiring a doula it's important that you click with her as well. A doula will offer support for you, too, so work with mom to make the best choice for you both.", 
+          "image": "https://storage.googleapis.com/dovetail-images/sleep-835468_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -6001,6 +6064,7 @@ weekly = {
         {
           "url": "http://www.fitpregnancy.com/pregnancy/sex-relationships/destination-babymoon-our-top-10-pregnancy-escapes", 
           "text": "Have you heard of the term babymoon? Some couples choose to go away for one final, relaxing vacation before their baby arrives. Her travel options will be limited near the end of her pregnancy, but it might be worth it to get away if you can.", 
+          "image": "https://storage.googleapis.com/dovetail-images/wing-221526_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -6091,6 +6155,7 @@ weekly = {
         {
           "url": "http://www.parents.com/toddlers-preschoolers/development/sibling-issues/preparing-older-child-for-new-sibling/#page=2", 
           "text": "Even older children have a role when the new baby comes. Have your big kids attend a sibling class at your birth facility to learn what to expect.", 
+          "image": "https://storage.googleapis.com/dovetail-images/Generic/brothers-457234_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -6101,6 +6166,7 @@ weekly = {
         {
           "url": "http://www.whattoexpect.com/pregnancy/calories-diet/", 
           "text": "You may be eating for two, but this does not mean that you are doubling your calorie intake. Choose healthy, whole foods as much as you can and aim for only 500 more calories per day in the third trimester.", 
+          "image": "https://storage.googleapis.com/dovetail-images/health-712980_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -6111,6 +6177,7 @@ weekly = {
         {
           "url": "https://hbr.org/2014/07/how-to-prepare-for-maternity-leave", 
           "text": "Mommy will be out of the office. If you work outside the home, you’ll want to start making plans for your maternity leave. Be sure to have a good understanding of your company’s policy so you can make informed choices. Don't forget to allow time to train your replacement before your leave begins.", 
+          "image": "https://storage.googleapis.com/dovetail-images/desk-918425_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -6121,6 +6188,7 @@ weekly = {
         {
           "url": "http://www.healthline.com/health/pregnancy/preterm-labor-biochemical-markers", 
           "text": "Your healthcare provider may perform a SalEst test to predict if you might go into early labor. It is a saliva test that measures levels of estriol. If the test is positive, you are 7 times more likely to deliver your baby before 37 weeks!", 
+          "image": "https://storage.googleapis.com/dovetail-images/doctor-563428_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -6205,6 +6273,7 @@ weekly = {
         {
           "url": "http://www.thebump.com/a/registry-101", 
           "text": "Work with mom to create a baby registry of items you both find useful.", 
+          "image": "https://us.fotolia.com/id/83939815", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -6216,6 +6285,7 @@ weekly = {
         {
           "url": "http://www.webmd.com/baby/guide/what-about-circumcision", 
           "text": "It might be difficult to discuss, but if you are expecting a boy or don’t yet know the sex of your baby, you should discuss circumcision with your partner before the birth. Be aware that there are some commonly held myths about circumcision, so be sure to do your own research before making your decision.", 
+          "image": "https://storage.googleapis.com/dovetail-images/baby-696981_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -6233,6 +6303,17 @@ weekly = {
             "action:to_do", 
             "week:29", 
             "card:21"
+          ]
+        }, 
+        {
+          "url": "http://www.parents.com/pregnancy/week-by-week/7/healthy-weight-gain/", 
+          "text": "Step on the scale. Keeping track of your weight gain often can help motivate you to make wise food and exercise choices.", 
+          "type": "Expectations for Care", 
+          "tags": [
+            "care", 
+            "action:to_do", 
+            "week:29", 
+            "card:22"
           ]
         }
       ], 
@@ -6277,6 +6358,7 @@ weekly = {
         {
           "url": "http://www.babycenter.com/0_how-to-buy-a-breast-pump_429.bc", 
           "text": "The type of breast pump you should purchase will depend on your pumping needs. There are many different styles from minimalist hand pumps to hospital grade double electric pumps.", 
+          "image": "https://storage.googleapis.com/dovetail-images/baby-105063_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -6287,6 +6369,7 @@ weekly = {
         {
           "url": "http://www.askdrsears.com/topics/pregnancy-childbirth/pregnancy-concerns/pregnancy-posture\\", 
           "text": "Shoulders back, chin up! Good posture can do wonders for an achy back. Standing and sitting up straight can relieve stress on your lower back and reduce or eliminate pain. It takes some extra thought and effort, but it will be worth it if it can put your back at ease.", 
+          "image": "https://storage.googleapis.com/dovetail-images/pregnant-690735_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -6297,6 +6380,7 @@ weekly = {
         {
           "url": "http://www.newkidscenter.com/Pelvic-Pressure-During-Pregnancy.html", 
           "text": "Learn to recognize the difference between pelvic pressure and cramping. Feeling pelvic pressure is typical due to the weight of the uterus and baby but discuss any concerns you have with your provider.", 
+          "image": "https://storage.googleapis.com/dovetail-images/pregnant-244662_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -6306,7 +6390,8 @@ weekly = {
         }, 
         {
           "url": "http://www.momjunction.com/articles/how-to-deal-with-increased-saliva-during-pregnancy_0088396/", 
-          "text": "No one wants to talk about this, but are you drooling? Increased estrogen levels can increase your production of saliva. If you are feeling nauseous, you may naturally swallow less. Drinking plenty of fluids or sucking on hard candy can help you to swallow more often and can help reduce the spit in your mouth.", 
+          "text": "Enjoy a mint or a lollipop. Increased estrogen levels can increase your production of saliva causing you to drool. Drinking plenty of fluids or sucking on hard candy makes you to swallow more often and can help reduce the spit in your mouth.", 
+          "image": "https://storage.googleapis.com/dovetail-images/candy-645443_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -6316,7 +6401,7 @@ weekly = {
         }, 
         {
           "url": "http://www.babycenter.com/6_your-pregnancy-30-weeks_1119.bc", 
-          "text": "It's hard to believer Baby is the size of a large cabbage!", 
+          "text": "It's hard to believe Baby is the size of a large cabbage!", 
           "type": "Baby's Size  Visualization", 
           "tags": [
             "size", 
@@ -6392,6 +6477,7 @@ weekly = {
         {
           "url": "http://www.whattoexpect.com/pregnancy/photo-gallery/10-things-dads-to-be-need-to-know-about-sex-during-pregnancy.aspx#01", 
           "text": "Sex in the third trimester is a whole new ballgame. Body image and discomfort are two big issues for moms. If you are sensitive and supportive you may find that you both continue to enjoy sex all the way up until the last days of pregnancy.", 
+          "image": "https://storage.googleapis.com/dovetail-images/hands-437968_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -6403,6 +6489,7 @@ weekly = {
         {
           "url": "http://www.dadsadventure.com/finances-and-other-basics/arranging-time-off-work/#sthash.PTccy5IG.dpbs", 
           "text": "Check your calendar, Dad. You may need to adjust your work schedule as your partner’s due date approaches and arrange for time off after the birth. Plan ahead and check for any regular travel which may interfere so you can be sure you will be present for the birth of your child!", 
+          "image": "https://storage.googleapis.com/dovetail-images/day-planner-828611_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -6492,6 +6579,7 @@ weekly = {
         {
           "url": "http://www.thebump.com/a/ibs-during-pregnancy", 
           "text": "No one wants to talk about it, but sometimes it's hard to poop. If you were previously diagnosed with Irritable Bowel Syndrome (IBS), then your symptoms may worsen during pregnancy, particularly in your third trimester. There is no cure for the ailment, but treatment options are available, so talk to your healthcare provider about your symptoms.", 
+          "image": "https://storage.googleapis.com/dovetail-images/girls-914823_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -6502,6 +6590,7 @@ weekly = {
         {
           "url": "http://kidshealth.org/parent/pregnancy_center/childbirth/newborn_variations.html#", 
           "text": "Put some baby nail clippers into the your packed hospital bag. You may be surprised how long baby's nails are.", 
+          "image": "https://storage.googleapis.com/dovetail-images/nail-clippers-106382_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -6512,6 +6601,7 @@ weekly = {
         {
           "url": "http://www.todaysparent.com/checklists/newborn-checklist/", 
           "text": "How could a tiny baby need so much stuff?! It can be fun but overwhelming trying to decide what purchases are essential. Pick other parents’ brains to find out what products they found useful and what they could’ve done without. Any money you don't spend on stuff you can save for college or a family vacation!", 
+          "image": "https://storage.googleapis.com/dovetail-images/toys-603046_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -6588,6 +6678,7 @@ weekly = {
         {
           "url": "http://www.thebump.com/a/what-happens-breastfeeding-class", 
           "text": "It's important that you attend breastfeeding class with mom so you know how to help and support her.", 
+          "image": "https://storage.googleapis.com/dovetail-images/pregnancy-792742_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -6599,6 +6690,7 @@ weekly = {
         {
           "url": "http://www.webmd.com/baby/guide/what-to-buy-pregnancy", 
           "text": "You may be surprised by how many items a tiny baby seems to need! Ask other parents for advice about what they consider to be the basic, must-have products.", 
+          "image": "https://storage.googleapis.com/dovetail-images/baby-84552_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -6688,6 +6780,7 @@ weekly = {
         {
           "url": "http://www.fitpregnancy.com/nutrition/prenatal-nutrition/super-salads", 
           "text": "Hungry on the go? When you need a quick and healthy meal, try a prepackaged salad from the grocery store. Look for ones with the dressing and toppings included in the package. Be sure to give it a good once over and check the expiration date.", 
+          "image": "https://storage.googleapis.com/dovetail-images/salad-264826_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -6698,6 +6791,7 @@ weekly = {
         {
           "url": "http://www.babycenter.com/0_how-to-pick-a-name-for-your-baby_1505.bc", 
           "text": "It might be time to finalize your baby's name - or at least narrow the list to a couple of favorites.", 
+          "image": "https://storage.googleapis.com/dovetail-images/brothers-457237_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -6708,6 +6802,7 @@ weekly = {
         {
           "url": "http://www.parents.com/baby/gear/registries-buying-guides/buying-baby-gear-used/", 
           "text": "Nothing beats the deal on secondhand baby gear! If you plan to use any secondhand baby items be sure to check if they have been recalled for safety purposes. Do your research so you know what you're buying so you can save serious bucks on gently used baby items.", 
+          "image": "https://storage.googleapis.com/dovetail-images/baby-666355_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -6718,6 +6813,7 @@ weekly = {
         {
           "url": "http://www.babble.com/pregnancy/vision-changes-pregnancy/", 
           "text": "Are you contacts driving you crazy? You may experience eye irritation or discomfort during pregnancy. Hormones can dry out your eyes and may also change your vision. This can make it hard to wear contacts, so it may be best to stick with your glasses for now.", 
+          "image": "https://storage.googleapis.com/dovetail-images/glasses-789836_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -6804,6 +6900,7 @@ weekly = {
         {
           "url": "http://www.wikihow.com/Prepare-a-Baby-Nursery-for-a-Newborn-Baby's-Arrival", 
           "text": "Be sure you've decided where baby will sleep when she is born and finish getting the space ready.", 
+          "image": "https://storage.googleapis.com/dovetail-images/room-669427_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -6815,6 +6912,7 @@ weekly = {
         {
           "url": "http://www.whattoexpect.com/pregnancy/for-dad/pregnancy-pointers-for-soon-to-be-dads.aspx", 
           "text": "Who are you gonna call? Create a list of important phone numbers to keep in your wallet in case your phone dies. Include work numbers, healthcare provider, your local hospital/birth center and close family members. Make a copy for your partner to keep in her purse.", 
+          "image": "https://storage.googleapis.com/dovetail-images/phone-2127_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -6915,6 +7013,7 @@ weekly = {
         {
           "url": "http://www.parenting.com/article/your-pregnancy-week-32", 
           "text": "No one likes to talk about it. But hemorrhoids are a common ailment in the third trimester of pregnancy. Talk to your healthcare provider if this is an issue for you. Helpful home remedies include using a cold compress or applying witch hazel with a cotton ball.", 
+          "image": "https://storage.googleapis.com/dovetail-images/kitten-245362_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -6925,6 +7024,7 @@ weekly = {
         {
           "url": "http://www.parents.com/pregnancy/week-by-week/31/practicing-for-labor/", 
           "text": "Practice relaxation techniques that can help you during labor. You might feel silly practicing now, but if you spend time relaxing every day you will have much more success when your big day finally comes!", 
+          "image": "https://storage.googleapis.com/dovetail-images/pregnant-775028_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -6934,7 +7034,8 @@ weekly = {
         }, 
         {
           "url": "http://www.thehealthsite.com/pregnancy/4-breathing-exercises-every-pregnant-woman-should-do/", 
-          "text": "Take a deep breath! Breath training can be helpful to prepare for labor and delivery. Breathing exercises work your diaphragm and train the muscles you will use. They are also beneficial to your growing baby to ensure the correct amount of oxygen is obtained.", 
+          "text": "Take a deep breath! Breath training can be helpful to prepare for labor and delivery. Breathing exercises work your diaphragm and train the muscles you will use for relaxation breathing.", 
+          "image": "https://storage.googleapis.com/dovetail-images/meditation-609235_1280.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -6945,6 +7046,7 @@ weekly = {
         {
           "url": "http://www.fitpregnancy.com/baby/baby-feeding/baby-spice-how-make-homemade-baby-food", 
           "text": "How many servings of veggies did you eat today? If you are looking to increase your vegetable intake, you can puree veggies and add them to a variety of dishes. Plus, it’ll give you some practice if you decide to make your own baby food.", 
+          "image": "https://storage.googleapis.com/dovetail-images/vegetables-790022_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -7028,6 +7130,7 @@ weekly = {
         {
           "url": "http://www.thebump.com/a/top-10-new-dad-fears", 
           "text": "Mom may not be the only one dealing with worries. Spend time talking through your fears, even if it feels uncomfortable.", 
+          "image": "https://storage.googleapis.com/dovetail-images/african-american-883376_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -7039,6 +7142,7 @@ weekly = {
         {
           "url": "http://www.webmd.com/baby/dads-to-do-list-getting-ready-for-baby", 
           "text": "Are you looking at your home with a fresh set of eyes? It’s a good time to think about how you’ll baby proof your home.  Though you won’t need some safety items like baby gates in place for several months, it’s good to have them ready before you need them.", 
+          "image": "https://storage.googleapis.com/dovetail-images/luggage-930800_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -7122,6 +7226,7 @@ weekly = {
         {
           "url": "http://pregnancy.about.com/od/laborbasics/ss/waterbroken.htm", 
           "text": "Premature rupture of membranes occurs when your water breaks before 37 weeks of pregnancy. It is essential to see your healthcare provider within 24 hours if you think your water may have broken. Serious infection and complications can occur. Your healthcare provider can test to determine if your membranes have ruptured.", 
+          "image": "https://storage.googleapis.com/dovetail-images/pregnancy-792742_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -7132,6 +7237,7 @@ weekly = {
         {
           "url": "http://www.whattoexpect.com/pregnancy/symptoms-and-solutions/abdominal-itchiness.aspx", 
           "text": "Keeping your growing belly moisturized can put a stop to the itchiness.", 
+          "image": "https://storage.googleapis.com/dovetail-images/pregnant-193850_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -7142,6 +7248,7 @@ weekly = {
         {
           "url": "http://evidencebasedbirth.com/what-is-the-evidence-for-using-an-external-cephalic-version-to-turn-a-breech-baby/", 
           "text": "What if baby stays heads up? While it does increase your risk of needing a C-section, your healthcare provider may try an intervention called the External Cephalic Version to try to adjust your baby’s position.", 
+          "image": "https://storage.googleapis.com/dovetail-images/baby-696981_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -7152,6 +7259,7 @@ weekly = {
         {
           "url": "http://www.parents.com/baby/gear/car-seats/tips-for-buying-a-car-seat/", 
           "text": "Your baby’s car seat is one of the most important products you will need to purchase. It is worth your time to do some research to find the safest choice within your budget. For the safest choice, buy a new car seat. You can visit your local fire station to get help installing it correctly.", 
+          "image": "https://storage.googleapis.com/dovetail-images/baby-617411_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -7248,6 +7356,7 @@ weekly = {
         {
           "url": "http://pregnancy.about.com/od/relaxationforlabor/a/musicinlabor.htm", 
           "text": "Help mom choose music for labor but remember it needs to be what will help her most at the time, not YOUR favorite bands.", 
+          "image": "https://storage.googleapis.com/dovetail-images/headphones-458251_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -7259,6 +7368,7 @@ weekly = {
         {
           "url": "http://www.whattoexpect.com/pregnancy/labor-and-delivery/preparing/hospital-or-birthing-center.aspx", 
           "text": "Who likes filling out paperwork when their partner is the throws of labor? No one does. It may be possible to pre-register at the hospital or birthing center. It will save you time if you arrive to the facility when your partner is in active labor.", 
+          "image": "https://storage.googleapis.com/dovetail-images/Generic/baby-84627_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -7348,6 +7458,7 @@ weekly = {
         {
           "url": "http://www.babycenter.com/0_great-pregnancy-exercise-swimming_7822.bc", 
           "text": "It's worth putting on a swimsuit and making a trip to the pool to get relief from the weight and aches and pains.", 
+          "image": "https://storage.googleapis.com/dovetail-images/maldives-666118_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -7357,7 +7468,8 @@ weekly = {
         }, 
         {
           "url": "http://www.babycenter.com/0_mothers-groups-how-to-find-one-that-suits-you_11800.bc", 
-          "text": "It takes a village... Consider joining a new mothers' club or a breastfeeding group for support and community.", 
+          "text": "Find strength in numbers. Consider joining a new mothers' club or a breastfeeding group for support and community.", 
+          "image": "https://us.fotolia.com/id/8329213", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -7368,6 +7480,7 @@ weekly = {
         {
           "url": "http://www.babycenter.com/404_what-do-lactation-consultants-do-and-how-do-i-find-one_8876.bc", 
           "text": "You may want to talk with a lactation consultant before the birth of your baby if you plan to breastfeed. Many lactation consultants operate independant practices, and she can help prepare you for what to expect. After your baby’s birth, she will consult with you if you have any questions or breastfeeding challenges.", 
+          "image": "https://storage.googleapis.com/dovetail-images/person-801829_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -7378,6 +7491,7 @@ weekly = {
         {
           "url": "http://www.parents.com/pregnancy/giving-birth/preparing-for-labor/hospital-packing-list/", 
           "text": "Time to get packing! If you are planning to deliver your baby at a hospital or birthing center, it’s wise to have a bag packed for the hospital with all the essentials a few weeks before your due date. As sad as it sounds, you will probably want to leave your pre-pregnancy jeans at home for now. Plan to wear maternity clothes home from the hospital.", 
+          "image": "https://storage.googleapis.com/dovetail-images/girl-584388_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -7474,6 +7588,7 @@ weekly = {
         {
           "url": "http://www.babycenter.com/preparing-pets-for-babies", 
           "text": "Help your pets get ready for the new arrival. Bringing home a new baby is a big deal to your little fur-babies!", 
+          "image": "https://storage.googleapis.com/dovetail-images/kitten-245362_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -7485,6 +7600,7 @@ weekly = {
         {
           "url": "http://www.todaysparent.com/pregnancy/delivery-room/", 
           "text": "Are you ready to be Super Dad? Talk to your doula and your partner’s healthcare provider about your role in the delivery room. Discussing expectations ahead of time may make the process go more smoothly. You can talk about whether you would like to cut the cord and how you plan to assist your partner during labor.", 
+          "image": "https://storage.googleapis.com/dovetail-images/pregnancy-775041_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -7585,6 +7701,7 @@ weekly = {
         {
           "url": "http://www.babycenter.com/0_maternity-and-nursing-bras-101_10347729.bc", 
           "text": "If you are feeling uncomfortable at night, there are maternity bras made specifically for sleeping. If you plan to breastfeed your baby, you can extend the use of your maternity bras by getting ones that are also intended for nursing.", 
+          "image": "https://storage.googleapis.com/dovetail-images/pregnancy-644071_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -7595,6 +7712,7 @@ weekly = {
         {
           "url": "http://pregnancy.about.com/od/relaxationforlabor/a/Increase-Your-Relaxation-Practice-Time.htm", 
           "text": "Practice various positions, breathing, and focus techniques to prepare for birth. Make it a part of your bedtime routine from now until baby's big day. It may help with sleep, and it will give you practice for relaxation during labor.", 
+          "image": "https://storage.googleapis.com/dovetail-images/sleep-835468_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -7605,6 +7723,7 @@ weekly = {
         {
           "url": "http://www.lalecheleague.org/faq/pump.html/", 
           "text": "In your excitement to learn all things new about parenting, you may want to try out your breast-pump to learn how it works. Go ahead and set it  up and read the manual, but don't use it on yourself yet. Using a breast-pump can cause contractions, and Baby needs a little more time in the oven.", 
+          "image": "https://storage.googleapis.com/dovetail-images/book-841171_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -7615,6 +7734,7 @@ weekly = {
         {
           "url": "http://www.askdrsears.com/topics/parenting/child-rearing-and-development/choosing-pediatrician", 
           "text": "How do you find a pediatrician you can trust? Ask local friends for recommendations and find doctors who accept your insurance. Schedule appointments before you deliver to meet prospective providers, and bring your partner with you so you can make an informed choice together.", 
+          "image": "https://storage.googleapis.com/dovetail-images/doctor-563428_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -7699,6 +7819,7 @@ weekly = {
         {
           "url": "http://pregnancy.about.com/od/relaxationforlabor/a/Increase-Your-Relaxation-Practice-Time.htm", 
           "text": "Help mom work on relaxation and breathing for labor. It allows you to practice helping her for when the day arrives, too.", 
+          "image": "https://storage.googleapis.com/dovetail-images/pregnant-775028_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -7710,6 +7831,7 @@ weekly = {
         {
           "url": "http://fatherhood.about.com/od/pregnancyandfathers/a/Dads-Hospital-Bag.htm", 
           "text": "Don't forget to pack your own bag, Dad! Think about what you may need in the hospital and pack it separately. You never know how long labor may last so it’s best to be prepared with a change of clothes, camera, and wall chargers. Don't forget snacks, cash, and a pillow. Consider bringing a sweet surprise in your suitcase for your partner.", 
+          "image": "https://storage.googleapis.com/dovetail-images/headphones-405880_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -7811,6 +7933,7 @@ weekly = {
         {
           "url": "http://www.parentingweekly.com/pregnancy/delivery-options/enema.htm", 
           "text": "Oh great, we're talking about poop again. Some women fret over the possibility of pooping on the delivery bed. Your provider has seen it all. Rest assured that if Number Two happens to you, you most likely won’t end up giving a crap.", 
+          "image": "https://storage.googleapis.com/dovetail-images/girl-850117_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -7821,6 +7944,7 @@ weekly = {
         {
           "url": "http://www.whattoexpect.com/pregnancy/labor-and-delivery/childbirth-stages/three-phases-of-labor.aspx", 
           "text": "Nervous about labor? Though it may make you anxious, it’s best to inform yourself on what to expect. Prepare yourself for the reality of what is to come and research the three phases of labor. There’s no way to know for sure what is coming, but knowledge of the process will help you understand what is happening!", 
+          "image": "https://storage.googleapis.com/dovetail-images/pregnant-775028_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -7831,6 +7955,7 @@ weekly = {
         {
           "url": "http://hubpages.com/hub/birth-music", 
           "text": "Hey Baby, they're playing our song. You may want to make a playlist for labor. Women who listen to instrumental music during the early hours of labor have less pain and anxiety. It is believed that slow, soothing music helps to calm and distract from the pain of contractions.", 
+          "image": "https://storage.googleapis.com/dovetail-images/headphones-458251_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -7841,6 +7966,7 @@ weekly = {
         {
           "url": "http://www.whattoexpect.com/pregnancy/labor-signs", 
           "text": "Start paying attention for the signs of labor. Some early signs, like an upset stomach, may surprise you.", 
+          "image": "https://storage.googleapis.com/dovetail-images/pregnant-women-395151_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -7938,6 +8064,7 @@ weekly = {
         {
           "url": "http://www.whattoexpect.com/pregnancy/emergency-labor", 
           "text": "Hey Dad, make sure your phone ringer is on. Your partner may be fearful of going into labor when she is alone. She may be experiencing anxiety about not being able to reach you if you are not with her. Promise to keep your phone nearby with the ringer turned up, at all times to help ease her mind.", 
+          "image": "https://storage.googleapis.com/dovetail-images/business-690675_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -8027,6 +8154,7 @@ weekly = {
         {
           "url": "http://familydoctor.org/familydoctor/en/pregnancy-newborns/labor-childbirth/breech-babies-what-can-i-do-if-my-baby-is-breech.html", 
           "text": "What if Baby is breech? If your healthcare provider suspects your baby is in a breech position, an ultrasound may be conducted to determine baby’s exact position. Breech is considered an abnormal presentation and occurs when baby is head up instead of head down.", 
+          "image": "https://storage.googleapis.com/dovetail-images/baby-696978_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -8037,6 +8165,7 @@ weekly = {
         {
           "url": "http://www.childbirthconnection.org/pdfs/PMPS.pdf", 
           "text": "Think about various methods of pain relief for labor and how you want to proceed. Be sure your support people know your feelings so they can advocate for you.", 
+          "image": "https://storage.googleapis.com/dovetail-images/waterfall-741049_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -8047,6 +8176,7 @@ weekly = {
         {
           "url": "http://pregnancy.about.com/od/laborbasics/a/shavingbirth.htm", 
           "text": "Worried about the hair down there? Many women wonder whether or not they should shave their pubic hair before delivery. Some women choose to remove their hair and others remain natural. It's really a matter of preference.", 
+          "image": "https://storage.googleapis.com/dovetail-images/Generic/summerfield-336672_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -8057,6 +8187,7 @@ weekly = {
         {
           "url": "http://www.whattoexpect.com/pregnancy/eating-well/week-30/smart-snacking.aspx", 
           "text": "Lost your appetite? You may not have strong feelings of hunger at this point in your pregnancy, but it’s still important to eat healthy food. Eat little nutritious snacks to keep up your energy. Try dried fruit, string cheese, tomatoes with olive oil and basil, vegetables and guacamole, homemade trail mix or smoothies.", 
+          "image": "https://storage.googleapis.com/dovetail-images/tomato-316307_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -8141,6 +8272,7 @@ weekly = {
         {
           "url": "http://www.dadsadventure.com/ramping-up-to-birth/hospital-practice-runs/#sthash.1N0C53tj.dpbs", 
           "text": "Make a few practice runs to drive by the birth facility at different times of the day. You don't want to be surprised by an unnoticed school zone on the route when mom is 8 centimeters.", 
+          "image": "https://storage.googleapis.com/dovetail-images/taxi-cab-381233_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -8152,6 +8284,7 @@ weekly = {
         {
           "url": "http://www.parents.com/baby/care/newborn/managing-baby-visitors/", 
           "text": "You may need to take on the role of gate keeper after your baby is born. Discuss your partner’s expectations and wishes regarding visitors. While you’ll appreciate your loved ones' excitement, you’ll also want some privacy and time alone to bond. Consider your partner’s feelings and condition when inviting people for their first visit.", 
+          "image": "https://storage.googleapis.com/dovetail-images/family-457235_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -8163,6 +8296,7 @@ weekly = {
         {
           "url": "http://www.babycenter.com/0_arriving-at-the-hospital_180.bc", 
           "text": "If you think your partner is in labor and you go to the hospital, the staff will do a labor check. They’ll take your vital signs, often do a pelvic exam and place you on a monitor for 30 to 60 minutes. If you are not in labor, they will give you instructions and have you go home to wait.", 
+          "image": "https://storage.googleapis.com/dovetail-images/doctor-563428_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -8239,6 +8373,7 @@ weekly = {
         {
           "url": "http://www.inhabitots.com/7-tips-on-preparing-for-postpartum-life-with-a-newborn/saladpostpart/?extend=1", 
           "text": "Do some postpartum prep - freeze meals, stiock supplies, purchase last minute items you may need in the first few weeks.", 
+          "image": "https://storage.googleapis.com/dovetail-images/kitchen-791181_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -8249,6 +8384,7 @@ weekly = {
         {
           "url": "http://www.whattoexpect.com/pregnancy/labor-signs", 
           "text": "It might seem counter intuative, but if you suspect you are going into labor, try to ignore it for a while. If you are up and walking, take a rest. If you're resting, get up and walk. Slow to start labor may stop if you change activity, but the real deal will keep getting stronger no matter what you do!", 
+          "image": "https://storage.googleapis.com/dovetail-images/woman-376754_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -8259,6 +8395,7 @@ weekly = {
         {
           "url": "http://www.babycenter.com/0_diet-for-a-healthy-breastfeeding-mom_3565.bc", 
           "text": "You are still eating for two! If you are planning to breastfeed, you’ll need to consider your nutrition needs as a nursing mom. Ask your healthcare provider about taking vitamins for breastfeeding. Keep up your healthy eating habits and calcium intake.", 
+          "image": "https://storage.googleapis.com/dovetail-images/vitamins-521358_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -8269,6 +8406,7 @@ weekly = {
         {
           "url": "http://www.parents.com/pregnancy/giving-birth/labor-and-delivery/the-truth-about-due-dates/", 
           "text": "Try to remember that only 5 of women deliver on their due date and 75 of babies are born after the day they were due. It can be hard to wait any longer, but your baby is still getting some lovin’ in the oven.", 
+          "image": "https://storage.googleapis.com/dovetail-images/pregnancy-792742_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -8338,6 +8476,7 @@ weekly = {
         {
           "url": "http://www.parents.com/pregnancy/my-life/preparing-for-baby/birth-labor-checklist/", 
           "text": "You may be making many trips to the store to grab last minute items. It's better to do it now than after baby arrives!", 
+          "image": "https://storage.googleapis.com/dovetail-images/purse-503958_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -8349,6 +8488,7 @@ weekly = {
         {
           "url": "http://www.babble.com/pregnancy/delivery-room-etiquette/", 
           "text": "Have you and your partner discussed who you want present at the delivery? Some couples choose to invite closed loved ones and others prefer to be alone. If you are delivering at a facility, ask about their rules about how many people can be in the room.", 
+          "image": "https://us.fotolia.com/id/80482775", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -8360,6 +8500,7 @@ weekly = {
         {
           "url": "http://www.bellybelly.com.au/birth/early-labour-tips-suggestions/", 
           "text": "Set up your labor space at home. Even if you plan to transfer to the hospital, you’ll likely spend most of your labor at home. It can help to move around in the house or use a birthing ball instead of lying on your back for hours in a hospital bed.", 
+          "image": "https://storage.googleapis.com/dovetail-images/sofa-365534_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -8436,6 +8577,7 @@ weekly = {
         {
           "url": "http://4mamas.blogspot.com/2013/04/10-ways-to-treat-yourself-when-pregnant.html", 
           "text": "When was the last time you saw your toes? Get a pedicure to treat yourself and your tired feet.", 
+          "image": "https://storage.googleapis.com/dovetail-images/feet-799034_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -8445,7 +8587,8 @@ weekly = {
         }, 
         {
           "url": "http://www.thebump.com/a/breathing-techniques-for-labor", 
-          "text": "Don't to breathe. There are tactics you can try to try to alleviate the pain of contractions while you labor at home. Take a deep breath at the beginning of each contraction and exhale slowly, and take another deep breath at the end of the contraction. You may find it beneficial to get up and move around.", 
+          "text": "Don't forget to breathe. There are tactics you can try to try to alleviate the pain of contractions while you labor at home. Take a deep breath at the beginning of each contraction and exhale slowly, and take another deep breath at the end of the contraction. You may find it beneficial to get up and move around.", 
+          "image": "https://storage.googleapis.com/dovetail-images/pregnant-women-395151_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -8456,6 +8599,7 @@ weekly = {
         {
           "url": "http://www.baby2see.com/development/week40.html", 
           "text": "Your full-term baby doesn’t have much wiggle room anymore! Fetal movements may slow down because your baby is taking up most of the available space. If you have any questions or concerns about your baby’s level of movement, contact your healthcare provider.", 
+          "image": "https://storage.googleapis.com/dovetail-images/pregnant-193850_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -8466,6 +8610,7 @@ weekly = {
         {
           "url": "http://www.whattoexpect.com/pregnancy/back-labor/", 
           "text": "Oh, your aching back! Women can experience back labor when baby is faced straight up coming down the birth canal. It usually causes lower-back pain. Your doula may know some tricks, It may be possible for a chiropractor or your healthcare provider to rotate your baby to make the dissent easier for you and baby.", 
+          "image": "https://storage.googleapis.com/dovetail-images/ring-791296_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -8529,6 +8674,7 @@ weekly = {
         {
           "url": "http://dailymom.com/expect/countdown-to-baby-things-to-do-the-month-before-baby-arrives/", 
           "text": "Plan a date night for before baby arrives.  It doesn't need to be big or fancy, just time to connect.", 
+          "image": "https://storage.googleapis.com/dovetail-images/couple-336655_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -8540,6 +8686,7 @@ weekly = {
         {
           "url": "http://www.parents.com/pregnancy/my-baby/cord-blood-banking/banking-baby-cord-blood/", 
           "text": "Should you bank your baby’s cord blood? It’s a personal choice for you and your partner to decide. Discuss your questions and get advice from your healthcare provider to make the best decision for your family.", 
+          "image": "https://storage.googleapis.com/dovetail-images/baby-feet-847821_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -8551,6 +8698,7 @@ weekly = {
         {
           "url": "http://www.mayoclinic.org/healthy-lifestyle/labor-and-delivery/in-depth/stages-of-labor/art-20046545", 
           "text": "Is your partner xperiencing signs of labor? Your healthcare provider can help you decide when to head for the hospital or birthing center. Labor typically lasts between 12 and 14 hours for a first delivery, so the odds of having your baby on your way to the facility are quite small.", 
+          "image": "https://storage.googleapis.com/dovetail-images/clock-650753_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -8561,7 +8709,7 @@ weekly = {
         }, 
         {
           "url": "http://www.babycenter.com/packing-for-the-hospital-or-birth-center", 
-          "text": "Pack your bag with everything you plan to use while in labor. If you haven't done so, now is the time to get your gear ready for the big day.", 
+          "text": "Pack your bag with everything you plan to use while in labor. Now is the time to get your gear ready for the big day. Don't forget what you need for the ride home.", 
           "type": "Expectations for Care", 
           "tags": [
             "care", 
@@ -8639,6 +8787,7 @@ weekly = {
         {
           "url": "http://www.babycentre.co.uk/a545991/50-reasons-to-be-glad-youre-pregnant", 
           "text": "You might feel impatient for labor and birth, but don't be afraid to allow yourself to enjoy this last bit of time with baby moving inside you.", 
+          "image": "https://storage.googleapis.com/dovetail-images/pregnant-711747_640%20(1).jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -8649,6 +8798,7 @@ weekly = {
         {
           "url": "http://www.babycenter.com/6_your-pregnancy-41-weeks_5904.bc", 
           "text": "Is it time to serve an eviction notice? Your healthcare provider will likely discuss induction strategies with you, if you haven't made a plan already.", 
+          "image": "https://storage.googleapis.com/dovetail-images/clock-650753_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -8659,6 +8809,7 @@ weekly = {
         {
           "url": "http://americanpregnancy.org/labor-and-birth/cutting-umbilical-cord/", 
           "text": "You may want to wait 3 or 4 minutes before cutting the cord after baby is delivered. The extra blood from the placenta has been shown to increase babies’ iron levels for six months. Discuss the pros and cons of delayed cutting with your healthcare provider, and make sure your preference is included in your birth plan.", 
+          "image": "https://storage.googleapis.com/dovetail-images/time-731110_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -8669,6 +8820,7 @@ weekly = {
         {
           "url": "http://www.fitpregnancy.com/pregnancy/labor-delivery/pros-cons-home-induction-methods", 
           "text": "You’ve probably heard all kinds of advice about how to jumpstart your labor. Some common tips include: walking, having sex, stimulating your nipples, spicy foods and eating pineapple.", 
+          "image": "https://storage.googleapis.com/dovetail-images/pineapple-867245_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -8742,6 +8894,7 @@ weekly = {
         {
           "url": "http://www.whattoexpect.com/pregnancy/ask-heidi/week-42/overdue-questions.aspx", 
           "text": "Field the majority of \"no baby yet\" queries for your partner to reduce her pressure and stress. You might even want to encourage her to screen her calls and avoid answering when people jsut want to check on her labor status.", 
+          "image": "https://storage.googleapis.com/dovetail-images/mobile-722946_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -8753,6 +8906,7 @@ weekly = {
         {
           "url": "http://www.babycenter.com/advice-for-new-dads", 
           "text": "You and your partner are likely anxious for your baby to arrive! Do what you can to help your partner relax. It’s a good idea for you to rest, too. You are going to be very busy taking care of your partner and new baby!", 
+          "image": "https://storage.googleapis.com/dovetail-images/couple-845354_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -8831,6 +8985,7 @@ weekly = {
         {
           "url": "http://www.mothermag.com/how-to-help-a-new-mom/", 
           "text": "Arrange for friends and family to help after birth. Prepare a list for when people ask what they can do.", 
+          "image": "https://storage.googleapis.com/dovetail-images/clothespins-619845_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -8851,6 +9006,7 @@ weekly = {
         {
           "url": "http://www.fitpregnancy.com/pregnancy/labor-delivery/truth-about-induction", 
           "text": "Time for a chat with your care provider. If your healthcare provider decides to induce labor, keep in mind it does not guarantee you will be able to deliver naturally. Induction carries risk including the chances of needing an emergency Cesarean delivery. Discuss the benefits and risks of induction with your healthcare provider.", 
+          "image": "https://storage.googleapis.com/dovetail-images/clock-650753_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -8861,6 +9017,7 @@ weekly = {
         {
           "url": "http://www.whattoexpect.com/pregnancy/week-by-week/week-42.aspx", 
           "text": "You're likely exhausted and emotional at the fact that you're still pregnant. Don't worry, 98 of babies are born by the end of this week.", 
+          "image": "https://storage.googleapis.com/dovetail-images/baby-feet-847821_640.jpg", 
           "type": "Tip/Factoid", 
           "tags": [
             "tip", 
@@ -8930,6 +9087,7 @@ weekly = {
         {
           "url": "http://www.babycenter.com/stages-of-labor", 
           "text": "Learn the stages of labor and what they are like.", 
+          "image": "https://storage.googleapis.com/dovetail-images/pregnancy-792742_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
@@ -8941,6 +9099,7 @@ weekly = {
         {
           "url": "http://www.everydayfamily.com/what-if-your-birth-plan-cant-be-followed/", 
           "text": "Be prepared for unexpected changes to your partner’s birth plan. Labor and delivery are unpredictable and fast decisions sometimes need to be made. Do your best to support your partner and make informed decisions together.", 
+          "image": "https://storage.googleapis.com/dovetail-images/hands-437968_640.jpg", 
           "type": "Tips for Dad", 
           "tags": [
             "tip", 
